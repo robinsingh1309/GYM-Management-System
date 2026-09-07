@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -30,11 +31,13 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 
 import com.example.fitmanager.exception.ErrorResponse;
 import com.example.fitmanager.security.AppUserDetailsService;
+import com.example.fitmanager.security.RoleUtil;
 
 import jakarta.servlet.http.HttpServletResponse;
 import tools.jackson.databind.ObjectMapper;
 
 
+@EnableMethodSecurity
 @Configuration
 public class SecurityConfig {
 
@@ -88,7 +91,10 @@ public class SecurityConfig {
                                 "/api/v1/auth/login", //
                                 "/api/v1/health" //
                         ).permitAll() //
-                                .requestMatchers(HttpMethod.POST, "/api/v1/users").hasRole("ADMIN") //
+                                .requestMatchers(HttpMethod.POST, "/api/v1/users").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.POST, "/api/v1/membership-pricing").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/activate").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/deactivate").hasRole(RoleUtil.ADMIN) //
                                 .anyRequest().authenticated() //
                 ) //
                 .exceptionHandling( //

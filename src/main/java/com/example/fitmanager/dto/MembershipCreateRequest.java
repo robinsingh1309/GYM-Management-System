@@ -5,7 +5,6 @@ import java.time.LocalDate;
 
 import com.example.fitmanager.entity.MembershipType;
 
-import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 
 
@@ -22,8 +21,6 @@ public class MembershipCreateRequest {
     @NotNull(message = "Start date is required")
     private LocalDate startDate;
 
-    @NotNull(message = "Amount is required")
-    @DecimalMin(value = "0.01", message = "Amount must be greater than zero")
     private BigDecimal amount;
 
 

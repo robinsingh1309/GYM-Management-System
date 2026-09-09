@@ -92,6 +92,8 @@ public class SecurityConfig {
                                 "/api/v1/health" //
                         ).permitAll() //
                                 .requestMatchers(HttpMethod.POST, "/api/v1/users").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/members/*/activate").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/members/*/deactivate").hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.POST, "/api/v1/membership-pricing").hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/activate").hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/deactivate").hasRole(RoleUtil.ADMIN) //

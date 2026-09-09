@@ -20,4 +20,12 @@ public interface MembershipRepository extends JpaRepository<Membership, Long> {
     Optional<Membership> //
             findFirstByMemberIdAndActiveTrueAndEndDateGreaterThanEqualOrderByEndDateDesc( //
                     Long memberId, LocalDate currentDate);
+
+    boolean //
+            existsByMemberIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual( //
+                    Long memberId, LocalDate endDate, LocalDate startDate);
+
+    Optional<Membership> findFirstByMemberIdOrderByEndDateDesc(Long memberId);
+
+    boolean existsByMemberIdAndStartDateAfter(Long memberId, LocalDate date);
 }

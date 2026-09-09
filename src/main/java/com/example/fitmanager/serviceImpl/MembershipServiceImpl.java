@@ -60,27 +60,37 @@ public class MembershipServiceImpl implements MembershipService {
     @Override
     public MembershipResponse createMembership(final MembershipCreateRequest request) {
 
+        final LocalDate membershipStartDate = request.getStartDate();
+        final Long memberId = request.getMemberId();
+
         final LocalDate today = LocalDate.now();
-        if (request.getStartDate().isBefore(today)) {
+        if (membershipStartDate.isBefore(today)) {
             throw new BadRequestException("Start date cannot be in the past");
         }
 
         final LocalDate maximumStartDate = today.plusDays(30);
-        if (request.getStartDate().isAfter(maximumStartDate)) {
+        if (membershipStartDate.isAfter(maximumStartDate)) {
             throw new BadRequestException("Membership start date cannot be more than 30 days in advance");
         }
 
-        final Member member = memberRepository.findById(request.getMemberId()) //
-                .orElseThrow(() -> new ResourceNotFoundException( //
-                        "Member not found with id: " + request.getMemberId()) //
+        final Member member = memberRepository.findById(memberId) //
+                .orElseThrow( //
+                        () -> new ResourceNotFoundException("Member not found with id: " + memberId) //
                 );
 
         if (!Boolean.TRUE.equals(member.getActive())) {
             throw new BadRequestException("Cannot create membership for inactive Member");
         }
 
-        if (request.getStartDate().isBefore(member.getJoiningDate())) {
+        if (membershipStartDate.isBefore(member.getJoiningDate())) {
             throw new BadRequestException("Membership start date cannot be before member joining date");
+        }
+
+        final boolean upcomingMembershipExists = membershipRepository //
+                .existsByMemberIdAndStartDateAfter(memberId, today);
+
+        if (upcomingMembershipExists) {
+            throw new BadRequestException("Member already has an upcoming membership");
         }
 
         final MembershipType membershipType = request.getMembershipType();
@@ -88,28 +98,50 @@ public class MembershipServiceImpl implements MembershipService {
         final LocalDate endDate;
         switch (membershipType) {
             case MONTHLY:
-                endDate = request.getStartDate().plusMonths(1).minusDays(1);
+                endDate = membershipStartDate.plusMonths(1).minusDays(1);
                 break;
 
             case QUARTERLY:
-                endDate = request.getStartDate().plusMonths(3).minusDays(1);
+                endDate = membershipStartDate.plusMonths(3).minusDays(1);
                 break;
 
             case HALF_YEARLY:
-                endDate = request.getStartDate().plusMonths(6).minusDays(1);
+                endDate = membershipStartDate.plusMonths(6).minusDays(1);
                 break;
 
             case YEARLY:
-                endDate = request.getStartDate().plusYears(1).minusDays(1);
+                endDate = membershipStartDate.plusYears(1).minusDays(1);
                 break;
 
             default:
                 throw new BadRequestException("Invalid membership type");
         }
 
+        final boolean membershipOverlap = //
+                membershipRepository.existsByMemberIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual( //
+                        memberId, endDate, membershipStartDate //
+                );
+
+        if (membershipOverlap) {
+            throw new BadRequestException("Membership dates overlap with an existing membership");
+        }
+
         final BigDecimal membershipAmount = this.determineMembershipAmount(request);
+
+        final Membership latestMembership = membershipRepository //
+                .findFirstByMemberIdOrderByEndDateDesc(memberId) //
+                .orElse(null);
+
+        if (latestMembership != null //
+                && !membershipStartDate.isAfter(latestMembership.getEndDate()) //
+        ) {
+
+            throw new BadRequestException( //
+                    "Membership start date must be after the latest existing membership end date");
+        }
+
         final Membership membership = new Membership(member, membershipType, //
-                request.getStartDate(), endDate, membershipAmount);
+                membershipStartDate, endDate, membershipAmount);
 
         final Membership savedMembership = membershipRepository.save(membership);
         return toDTO(savedMembership);

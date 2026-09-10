@@ -9,19 +9,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.fitmanager.dto.MembershipCreateRequest;
 import com.example.fitmanager.dto.MembershipResponse;
+import com.example.fitmanager.dto.MembershipWithPaymentCreateRequest;
+import com.example.fitmanager.dto.PaymentCreateRequest;
 import com.example.fitmanager.entity.Member;
 import com.example.fitmanager.entity.Membership;
 import com.example.fitmanager.entity.MembershipPricing;
 import com.example.fitmanager.entity.MembershipStatus;
 import com.example.fitmanager.entity.MembershipType;
+import com.example.fitmanager.entity.Payment;
 import com.example.fitmanager.exception.BadRequestException;
 import com.example.fitmanager.exception.ResourceNotFoundException;
 import com.example.fitmanager.repository.MemberRepository;
 import com.example.fitmanager.repository.MembershipPricingRepository;
 import com.example.fitmanager.repository.MembershipRepository;
+import com.example.fitmanager.repository.PaymentRepository;
 import com.example.fitmanager.service.MembershipService;
 
 
@@ -37,6 +42,8 @@ public class MembershipServiceImpl implements MembershipService {
     private final MembershipRepository membershipRepository;
     private final MembershipPricingRepository membershipPricingRepository;
 
+    private final PaymentRepository paymentRepository;
+
 
     // Constructors
     // ----------------------------------------------------------
@@ -45,12 +52,15 @@ public class MembershipServiceImpl implements MembershipService {
     public MembershipServiceImpl( //
             final MemberRepository memberRepository, //
             final MembershipRepository membershipRepository, //
-            final MembershipPricingRepository membershipPricingRepository) {
+            final MembershipPricingRepository membershipPricingRepository, //
+            final PaymentRepository paymentRepository) {
 
         this.memberRepository = memberRepository;
 
         this.membershipRepository = membershipRepository;
         this.membershipPricingRepository = membershipPricingRepository;
+
+        this.paymentRepository = paymentRepository;
     }
 
 
@@ -58,10 +68,12 @@ public class MembershipServiceImpl implements MembershipService {
     // ----------------------------------------------------------
 
     @Override
-    public MembershipResponse createMembership(final MembershipCreateRequest request) {
+    @Transactional
+    public MembershipResponse createMembership(final MembershipWithPaymentCreateRequest request) {
 
-        final LocalDate membershipStartDate = request.getStartDate();
-        final Long memberId = request.getMemberId();
+        final MembershipCreateRequest membershipRequest = request.getMembership();
+        final LocalDate membershipStartDate = membershipRequest.getStartDate();
+        final Long memberId = membershipRequest.getMemberId();
 
         final LocalDate today = LocalDate.now();
         if (membershipStartDate.isBefore(today)) {
@@ -86,6 +98,25 @@ public class MembershipServiceImpl implements MembershipService {
             throw new BadRequestException("Membership start date cannot be before member joining date");
         }
 
+        final List<Membership> existingMemberships = membershipRepository.findByMemberId(memberId);
+
+        for (final Membership existingMembership : existingMemberships) {
+
+            final Long existingMembershipId = existingMembership.getId();
+
+            final BigDecimal totalPaid = //
+                    paymentRepository.sumAmountByMembershipId(existingMembershipId);
+
+            final BigDecimal outstandingAmount = //
+                    existingMembership.getAmount() //
+                            .subtract(totalPaid);
+
+            if (outstandingAmount.compareTo(BigDecimal.ZERO) > 0) {
+                throw new BadRequestException( //
+                        "Cannot create membership while an outstanding balance exists on an existing membership");
+            }
+        }
+
         final boolean upcomingMembershipExists = membershipRepository //
                 .existsByMemberIdAndStartDateAfter(memberId, today);
 
@@ -93,7 +124,7 @@ public class MembershipServiceImpl implements MembershipService {
             throw new BadRequestException("Member already has an upcoming membership");
         }
 
-        final MembershipType membershipType = request.getMembershipType();
+        final MembershipType membershipType = membershipRequest.getMembershipType();
 
         final LocalDate endDate;
         switch (membershipType) {
@@ -126,7 +157,10 @@ public class MembershipServiceImpl implements MembershipService {
             throw new BadRequestException("Membership dates overlap with an existing membership");
         }
 
-        final BigDecimal membershipAmount = this.determineMembershipAmount(request);
+        final BigDecimal membershipAmount = this.determineMembershipAmount(membershipRequest);
+
+        final PaymentCreateRequest paymentRequest = request.getPayment();
+        this.validateFirstPayment(paymentRequest, memberId, membershipAmount);
 
         final Membership latestMembership = membershipRepository //
                 .findFirstByMemberIdOrderByEndDateDesc(memberId) //
@@ -142,8 +176,18 @@ public class MembershipServiceImpl implements MembershipService {
 
         final Membership membership = new Membership(member, membershipType, //
                 membershipStartDate, endDate, membershipAmount);
-
         final Membership savedMembership = membershipRepository.save(membership);
+
+        // Get the first Payment
+        final Payment firstMembershipPayment = new Payment();
+        firstMembershipPayment.setMember(member);
+        firstMembershipPayment.setMembership(savedMembership);
+        firstMembershipPayment.setAmount(paymentRequest.getAmount());
+        firstMembershipPayment.setPaymentDate(paymentRequest.getPaymentDate());
+        firstMembershipPayment.setPaymentMode(paymentRequest.getPaymentMode());
+
+        paymentRepository.save(firstMembershipPayment);
+
         return toDTO(savedMembership);
     }
 
@@ -289,6 +333,29 @@ public class MembershipServiceImpl implements MembershipService {
         }
 
         return requestedAmount;
+    }
+
+    private void validateFirstPayment(final PaymentCreateRequest paymentRequest, //
+            final Long membershipMemberId, final BigDecimal membershipAmount) {
+
+        final BigDecimal minimumPayment = new BigDecimal(MINIMUM_MEMBERSHIP_AMOUNT);
+        final BigDecimal firstPaymentAmount = paymentRequest.getAmount();
+
+        if (firstPaymentAmount.compareTo(minimumPayment) < 0) {
+            throw new BadRequestException("First payment must be at least 500");
+        }
+
+        if (firstPaymentAmount.compareTo(membershipAmount) > 0) {
+            throw new BadRequestException("First payment cannot exceed membership amount");
+        }
+
+        if (paymentRequest.getPaymentDate().isAfter(LocalDate.now())) {
+            throw new BadRequestException("Payment date cannot be in the future");
+        }
+
+        if (!membershipMemberId.equals(paymentRequest.getMemberId())) {
+            throw new BadRequestException("Payment member does not match membership member");
+        }
     }
 
 }

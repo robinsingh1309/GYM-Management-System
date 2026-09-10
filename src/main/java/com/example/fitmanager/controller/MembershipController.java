@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.fitmanager.dto.MembershipCreateRequest;
 import com.example.fitmanager.dto.MembershipResponse;
+import com.example.fitmanager.dto.MembershipWithPaymentCreateRequest;
 import com.example.fitmanager.service.MembershipService;
 
 import jakarta.validation.Valid;
@@ -45,7 +45,7 @@ public class MembershipController {
 
     @PostMapping
     public ResponseEntity<MembershipResponse> createMembership( //
-            @Valid @RequestBody final MembershipCreateRequest request) {
+            @Valid @RequestBody final MembershipWithPaymentCreateRequest request) {
 
         final MembershipResponse response = membershipService.createMembership(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);

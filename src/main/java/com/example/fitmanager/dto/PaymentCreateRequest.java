@@ -16,7 +16,6 @@ public class PaymentCreateRequest {
     @NotNull(message = "Member id is required")
     private Long memberId;
 
-    @NotNull(message = "Membership id is required")
     private Long membershipId;
 
     @NotNull(message = "Amount is required")

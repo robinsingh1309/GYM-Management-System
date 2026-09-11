@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 import com.example.fitmanager.entity.MembershipStatus;
 import com.example.fitmanager.entity.MembershipType;
+import com.example.fitmanager.entity.PaymentStatus;
 
 
 public class MembershipResponse {
@@ -27,6 +28,10 @@ public class MembershipResponse {
 
     private Boolean active;
 
+    private BigDecimal totalPaid;
+    private BigDecimal outstandingAmount;
+    private PaymentStatus paymentStatus;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -39,7 +44,9 @@ public class MembershipResponse {
     public MembershipResponse(final Long id, final Long memberId, //
             final MembershipType membershipType, final LocalDate startDate, //
             final LocalDate endDate, final BigDecimal amount, final MembershipStatus status, //
-            final Boolean active, final LocalDateTime createdAt, final LocalDateTime updatedAt) {
+            final Boolean active, final BigDecimal totalPaid, final BigDecimal outstandingAmount, //
+            final PaymentStatus paymentStatus, //
+            final LocalDateTime createdAt, final LocalDateTime updatedAt) {
 
         this.id = id;
 
@@ -55,6 +62,10 @@ public class MembershipResponse {
         this.status = status;
 
         this.active = active;
+
+        this.totalPaid = totalPaid;
+        this.outstandingAmount = outstandingAmount;
+        this.paymentStatus = paymentStatus;
 
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -87,9 +98,21 @@ public class MembershipResponse {
     public BigDecimal getAmount() {
         return amount;
     }
-    
+
     public MembershipStatus getStatus() {
         return status;
+    }
+
+    public BigDecimal getTotalPaid() {
+        return totalPaid;
+    }
+
+    public BigDecimal getOutstandingAmount() {
+        return outstandingAmount;
+    }
+
+    public PaymentStatus getPaymentStatus() {
+        return paymentStatus;
     }
 
     public Boolean getActive() {

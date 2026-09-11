@@ -21,6 +21,7 @@ import com.example.fitmanager.entity.MembershipPricing;
 import com.example.fitmanager.entity.MembershipStatus;
 import com.example.fitmanager.entity.MembershipType;
 import com.example.fitmanager.entity.Payment;
+import com.example.fitmanager.entity.PaymentStatus;
 import com.example.fitmanager.exception.BadRequestException;
 import com.example.fitmanager.exception.ResourceNotFoundException;
 import com.example.fitmanager.repository.MemberRepository;
@@ -272,11 +273,25 @@ public class MembershipServiceImpl implements MembershipService {
             status = MembershipStatus.ACTIVE;
         }
 
+        final BigDecimal membershipAmount = membership.getAmount();
+
+        final BigDecimal totalPaid = //
+                paymentRepository.sumAmountByMembershipId(membership.getId());
+
+        final BigDecimal outstandingAmount = //
+                membershipAmount.subtract(totalPaid);
+
+        final PaymentStatus paymentStatus = //
+                totalPaid.compareTo(membershipAmount) >= 0 //
+                        ? PaymentStatus.PAID //
+                        : PaymentStatus.PARTIALLY_PAID;
+
         return new MembershipResponse( //
                 membership.getId(), membership.getMember().getId(), //
                 membership.getMembershipType(), membership.getStartDate(), //
                 membership.getEndDate(), membership.getAmount(), status, //
-                membership.getActive(), membership.getCreatedAt(), //
+                membership.getActive(), totalPaid, outstandingAmount, paymentStatus, //
+                membership.getCreatedAt(), //
                 membership.getUpdatedAt() //
         );
     }

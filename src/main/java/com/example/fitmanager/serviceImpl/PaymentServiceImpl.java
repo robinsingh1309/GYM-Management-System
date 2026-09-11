@@ -54,6 +54,10 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public PaymentResponse createPayment(final PaymentCreateRequest request) {
 
+        final BigDecimal paymentAmount = request.getAmount();
+        final LocalDate paymentDate = request.getPaymentDate();
+        final PaymentMode paymentMode = request.getPaymentMode();
+
         final Long memberId = request.getMemberId();
         final Member member = memberRepository.findById(memberId) //
                 .orElseThrow( //
@@ -70,14 +74,37 @@ public class PaymentServiceImpl implements PaymentService {
             throw new BadRequestException("Membership does not belong to the specified member");
         }
 
-        final BigDecimal paymentAmount = request.getAmount();
-        final LocalDate paymentDate = request.getPaymentDate();
-        final PaymentMode paymentMode = request.getPaymentMode();
+        final BigDecimal totalPaid = //
+                paymentRepository.sumAmountByMembershipId(memberMembershipID);
+
+        final BigDecimal outstandingAmount = //
+                membership.getAmount() //
+                        .subtract(totalPaid);
+
+        final LocalDate today = LocalDate.now();
+        if (paymentDate.isAfter(today)) {
+            throw new BadRequestException("Payment date cannot be in the future");
+        }
+
+        final LocalDate membershipEndDate = membership.getEndDate();
+        if (membershipEndDate.isBefore(today) && //
+                paymentAmount.compareTo(outstandingAmount) != 0) {
+            throw new BadRequestException( //
+                    "For an expired membership, payment must equal the full outstanding balance");
+        }
+
+        if (outstandingAmount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new BadRequestException("Membership is already fully PAID");
+        }
+
+        if (paymentAmount.compareTo(outstandingAmount) > 0) {
+            throw new BadRequestException("Payment amount cannot exceed outstanding balance");
+        }
 
         final Payment payment = new Payment(member, membership, paymentAmount, paymentDate, paymentMode);
         final Payment savedPayment = paymentRepository.save(payment);
 
-        return toDTO(savedPayment);
+        return this.toDTO(savedPayment);
     }
 
     @Override

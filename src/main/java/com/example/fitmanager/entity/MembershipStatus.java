@@ -4,6 +4,6 @@ public enum MembershipStatus {
 
     ACTIVE, //
     EXPIRED, //
-    INACTIVE
-
+    INACTIVE, //
+    UPCOMING
 }

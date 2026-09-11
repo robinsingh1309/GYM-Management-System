@@ -263,12 +263,15 @@ public class MembershipServiceImpl implements MembershipService {
 
     private MembershipResponse toDTO(final Membership membership) {
 
+        final LocalDate todayDate = LocalDate.now();
         final MembershipStatus status;
 
         if (!Boolean.TRUE.equals(membership.getActive())) {
             status = MembershipStatus.INACTIVE;
-        } else if (membership.getEndDate().isBefore(LocalDate.now())) {
+        } else if (membership.getEndDate().isBefore(todayDate)) {
             status = MembershipStatus.EXPIRED;
+        } else if (membership.getStartDate().isAfter(todayDate)) {
+            status = MembershipStatus.UPCOMING;
         } else {
             status = MembershipStatus.ACTIVE;
         }

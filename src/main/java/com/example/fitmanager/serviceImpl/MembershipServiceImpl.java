@@ -227,7 +227,7 @@ public class MembershipServiceImpl implements MembershipService {
 
         final LocalDate currentDate = LocalDate.now();
         final Membership membership = membershipRepository //
-                .findFirstByMemberIdAndActiveTrueAndEndDateGreaterThanEqualOrderByEndDateDesc(memberId, currentDate) //
+                .findFirstByMemberIdAndActiveTrueAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByEndDateDesc(memberId, currentDate, currentDate) //
                 .orElseThrow(
                         () -> new ResourceNotFoundException("No active membership found for member id: " + memberId) //
                 );

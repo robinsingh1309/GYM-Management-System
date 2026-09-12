@@ -18,8 +18,8 @@ public interface MembershipRepository extends JpaRepository<Membership, Long> {
     List<Membership> findByActive(Boolean active);
 
     Optional<Membership> //
-            findFirstByMemberIdAndActiveTrueAndEndDateGreaterThanEqualOrderByEndDateDesc( //
-                    Long memberId, LocalDate currentDate);
+            findFirstByMemberIdAndActiveTrueAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByEndDateDesc( //
+                    Long memberId, LocalDate currentDate, LocalDate currentDate1);
 
     boolean //
             existsByMemberIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual( //

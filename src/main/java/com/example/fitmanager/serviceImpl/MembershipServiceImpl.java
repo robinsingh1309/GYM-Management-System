@@ -236,16 +236,36 @@ public class MembershipServiceImpl implements MembershipService {
     }
 
     @Override
+    @Transactional
     public void activateMembership(final Long id) {
 
-        final Membership membership = membershipRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Membership not found with id: " + id));
+        final Membership membership = membershipRepository.findById(id) //
+                .orElseThrow( //
+                        () -> new ResourceNotFoundException("Membership not found with id: " + id) //
+                );
 
+        final LocalDate today = LocalDate.now();
+
+        // EXPIRED always takes precedence
+        if (membership.getEndDate().isBefore(today)) {
+            throw new BadRequestException("Expired membership cannot be activated");
+        }
+
+        // ACTIVE or UPCOMING membership already has active = true
+        if (Boolean.TRUE.equals(membership.getActive())) {
+            throw new BadRequestException("Membership is already active");
+        }
+
+        // INACTIVE + activate is allowed.
+        // If start date is in the future, it becomes UPCOMING.
+        // Otherwise, it becomes ACTIVE.
         membership.setActive(true);
+
         membershipRepository.save(membership);
     }
 
     @Override
+    @Transactional
     public void deactivateMembership(final Long id) {
 
         final Membership membership = membershipRepository.findById(id) //
@@ -253,8 +273,27 @@ public class MembershipServiceImpl implements MembershipService {
                         () -> new ResourceNotFoundException("Membership not found with id: " + id) //
                 );
 
-        membership.setActive(false);
-        membershipRepository.save(membership);
+        final LocalDate today = LocalDate.now();
+
+        // EXPIRED always takes precedence
+        if (membership.getEndDate().isBefore(today)) {
+            throw new BadRequestException("Expired membership cannot be deactivated");
+        }
+
+        // Already inactive
+        if (!Boolean.TRUE.equals(membership.getActive())) {
+            throw new BadRequestException("Membership is already inactive");
+        }
+
+        // UPCOMING + deactivate is allowed.
+        if (membership.getStartDate().isAfter(today)) {
+            membership.setActive(false);
+            membershipRepository.save(membership);
+            return;
+        }
+
+        // ACTIVE + deactivate is not allowed.
+        throw new BadRequestException("Active membership cannot be deactivated");
     }
 
 
@@ -266,10 +305,10 @@ public class MembershipServiceImpl implements MembershipService {
         final LocalDate todayDate = LocalDate.now();
         final MembershipStatus status;
 
-        if (!Boolean.TRUE.equals(membership.getActive())) {
-            status = MembershipStatus.INACTIVE;
-        } else if (membership.getEndDate().isBefore(todayDate)) {
+        if (membership.getEndDate().isBefore(todayDate)) {
             status = MembershipStatus.EXPIRED;
+        } else if (!Boolean.TRUE.equals(membership.getActive())) {
+            status = MembershipStatus.INACTIVE;
         } else if (membership.getStartDate().isAfter(todayDate)) {
             status = MembershipStatus.UPCOMING;
         } else {

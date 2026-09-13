@@ -2,6 +2,7 @@ package com.example.fitmanager.config;
 
 import java.time.LocalDateTime;
 import java.util.Base64;
+import java.util.List;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -28,6 +29,9 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.example.fitmanager.exception.ErrorResponse;
 import com.example.fitmanager.security.AppUserDetailsService;
@@ -40,6 +44,29 @@ import tools.jackson.databind.ObjectMapper;
 @EnableMethodSecurity
 @Configuration
 public class SecurityConfig {
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+
+        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
+        configuration.setAllowedMethods( //
+                List.of( //
+                        "GET", //
+                        "POST", //
+                        "PUT", //
+                        "DELETE", //
+                        "OPTIONS" //
+                ) //
+        );
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+
+        return source;
+    }
 
     @Bean
     public AccessDeniedHandler accessDeniedHandler() {
@@ -84,6 +111,8 @@ public class SecurityConfig {
             final AccessDeniedHandler accessDeniedHandler) {
 
         httpSecurity.csrf(csrf -> csrf.disable()) //
+                .cors(cors -> {
+                }) //
                 .authenticationProvider(provider) //
                 .authorizeHttpRequests( //
                         auth -> auth.requestMatchers( //
@@ -93,12 +122,17 @@ public class SecurityConfig {
                         ).permitAll() //
                                 .requestMatchers(HttpMethod.POST, "/api/v1/users").hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.PATCH, "/api/v1/members/*/activate").hasRole(RoleUtil.ADMIN) //
-                                .requestMatchers(HttpMethod.PATCH, "/api/v1/members/*/deactivate").hasRole(RoleUtil.ADMIN) //
-                                .requestMatchers(HttpMethod.PATCH, "/api/v1/memberships/*/activate").hasRole(RoleUtil.ADMIN) //
-                                .requestMatchers(HttpMethod.PATCH, "/api/v1/memberships/*/deactivate").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/members/*/deactivate")
+                                .hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/memberships/*/activate")
+                                .hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/memberships/*/deactivate")
+                                .hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.POST, "/api/v1/membership-pricing").hasRole(RoleUtil.ADMIN) //
-                                .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/activate").hasRole(RoleUtil.ADMIN) //
-                                .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/deactivate").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/activate")
+                                .hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/deactivate")
+                                .hasRole(RoleUtil.ADMIN) //
                                 .anyRequest().authenticated() //
                 ) //
                 .exceptionHandling( //

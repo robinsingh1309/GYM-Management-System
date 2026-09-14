@@ -1,11 +1,12 @@
-import { Alert, Breadcrumb, Button, Card, Descriptions, Col, Empty, Row, Spin, Table, Tag } from 'antd';
-
+import { Alert, Breadcrumb, Button, Card, Descriptions, Col, Empty, Row, Space, Spin, Table, Tag } from 'antd';
+import { CheckCircleOutlined, ClockCircleOutlined, ExclamationCircleOutlined, DollarOutlined, TeamOutlined, } from '@ant-design/icons';
 
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { getMemberById } from '../api/memberApi';
 import { getMembershipsByMemberId } from '../api/membershipApi';
+import { getMembershipById } from '../api/membershipApi';
 import { formatPaymentStatus, formatMembershipStatus, formatMembershipType, calculateMembershipSummary } from '../utils/membershipUtils';
 import { formatCurrency } from '../utils/currencyUtils';
 import { formatDate } from '../utils/dateUtils';
@@ -44,12 +45,28 @@ function MemberDetailsPage() {
       });
   }, [id]);
 
+  if (loading) {
+    return <Spin size="large" />;
+  }
+
+  if (error) {
+    return <Alert type="error" title={error} />;
+  }
+
+  if (!memberships) {
+    return <Alert type="warning" title="Membership not found." />;
+  }
+
   const membershipColumns = [
     {
-      title: 'Membership',
+      title: 'Membership Type',
       dataIndex: 'membershipType',
       key: 'membershipType',
-      render: (type) => formatMembershipType(type),
+      render: (value, record) => (
+        <Button type="link" style={{ padding: 0 }} onClick={() => navigate(`/memberships/${record.id}`)}>
+          {formatMembershipType(value)}
+        </Button>
+      ),
     },
     {
       title: 'Start Date',
@@ -174,41 +191,86 @@ function MemberDetailsPage() {
       )}
 
       <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
-      <Col xs={24} sm={12} md={8} lg={4}>
-        <Card>
-          <div>Total Memberships</div>
-          <h2>{membershipSummary.total}</h2>
-        </Card>
-      </Col>
+        <Col xs={24} sm={12} md={8} lg={4}>
+          <Card>
+            <Space align="start">
+              <TeamOutlined style={{ fontSize: 24 }} />
+              <div>
+                <div>Total Memberships</div>
+                <h2 style={{ margin: '4px 0 0' }}>
+                  {membershipSummary.total}
+                </h2>
+              </div>
+            </Space>
+          </Card>
+        </Col>
 
-      <Col xs={24} sm={12} md={8} lg={4}>
-        <Card>
-          <div>Active Memberships</div>
-          <h2>{membershipSummary.active}</h2>
-        </Card>
-      </Col>
+        <Col xs={24} sm={12} md={8} lg={4}>
+          <Card>
+            <Space align="start">
+              <CheckCircleOutlined
+                style={{ fontSize: 24, color: '#52c41a' }}
+              />
+              <div>
+                <div>Active Memberships</div>
+                <h2 style={{ margin: '4px 0 0' }}>
+                  {membershipSummary.active}
+                </h2>
+              </div>
+            </Space>
+          </Card>
+        </Col>
 
-      <Col xs={24} sm={12} md={8} lg={4}>
-        <Card>
-          <div>Upcoming Memberships</div>
-          <h2>{membershipSummary.upcoming}</h2>
-        </Card>
-      </Col>
+        <Col xs={24} sm={12} md={8} lg={4}>
+          <Card>
+            <Space align="start">
+              <ClockCircleOutlined
+                style={{ fontSize: 24, color: '#1677ff' }}
+              />
+              <div>
+                <div>Upcoming Memberships</div>
+                <h2 style={{ margin: '4px 0 0' }}>
+                  {membershipSummary.upcoming}
+                </h2>
+              </div>
+            </Space>
+          </Card>
+        </Col>
 
-      <Col xs={24} sm={12} md={8} lg={4}>
-        <Card>
-          <div>Expired Memberships</div>
-          <h2>{membershipSummary.expired}</h2>
-        </Card>
-      </Col>
+        <Col xs={24} sm={12} md={8} lg={4}>
+          <Card>
+            <Space align="start">
+              <ExclamationCircleOutlined
+                style={{ fontSize: 24, color: '#ff4d4f' }}
+              />
+              <div>
+                <div>Expired Memberships</div>
+                <h2 style={{ margin: '4px 0 0' }}>
+                  {membershipSummary.expired}
+                </h2>
+              </div>
+            </Space>
+          </Card>
+        </Col>
 
-      <Col xs={24} sm={12} md={8} lg={8}>
-        <Card>
-          <div>Outstanding Amount</div>
-          <h2>{formatCurrency(membershipSummary.outstandingAmount)}</h2>
-        </Card>
-      </Col>
-    </Row>
+        <Col xs={24} sm={12} md={8} lg={8}>
+          <Card>
+            <Space align="start">
+              <DollarOutlined
+                style={{ fontSize: 24, color: '#faad14' }}
+              />
+              <div>
+                <div>Outstanding Amount</div>
+                <h2 style={{ margin: '4px 0 0' }}>
+                  {formatCurrency(
+                    membershipSummary.outstandingAmount
+                  )}
+                </h2>
+              </div>
+            </Space>
+          </Card>
+        </Col>
+      </Row>
 
       <Card title="Membership History" style={{ marginTop: 24 }}>
         {memberships.length > 0 ? (

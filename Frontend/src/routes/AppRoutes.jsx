@@ -7,6 +7,7 @@ import MembershipsPage from '../pages/MembershipsPage';
 import PaymentsPage from '../pages/PaymentsPage';
 import MembershipPricingPage from '../pages/MembershipPricingPage';
 import MemberDetailsPage from '../pages/MemberDetailsPage';
+import MembershipDetailsPage from '../pages/MembershipDetailsPage';
 
 import AppLayout from '../layouts/AppLayout';
 import ProtectedRoute from '../components/auth/ProtectedRoute';
@@ -40,6 +41,11 @@ function AppRoutes() {
             <Route
               path="/memberships"
               element={<MembershipsPage />}
+            />
+
+            <Route
+              path="/memberships/:id"
+              element={<MembershipDetailsPage />}
             />
 
             <Route

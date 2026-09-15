@@ -7,3 +7,7 @@ export const getPaymentsByMemberId = (memberId) => {
 export const getPaymentById = (id) => {
   return axiosClient.get(`/api/v1/payments/${id}`);
 };
+
+export const getPaymentsByMembershipId = (membershipId) => {
+  return axiosClient.get(`/api/v1/payments/membership/${membershipId}`);
+};

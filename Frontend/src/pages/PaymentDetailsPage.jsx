@@ -55,13 +55,20 @@ function PaymentDetailsPage() {
     <div>
       <Breadcrumb
         items={[
-          { title: 'Home' },
+          {
+            title: 'Home',
+            onClick: () => navigate('/dashboard'),
+          },
           {
             title: 'Members',
             onClick: () => navigate('/members'),
           },
           {
-            title: 'Payment Details',
+            title: `Member #${payment.memberId}`,
+            onClick: () => navigate(`/members/${payment.memberId}`),
+          },
+          {
+            title: `Payment #${payment.id}`,
           },
         ]}
       />
@@ -81,7 +88,13 @@ function PaymentDetailsPage() {
           </h2>
 
           <div style={{ marginTop: 4 }}>
-            Member #{payment.memberId}
+            <Button type="link" style={{ padding: 0 }}
+              onClick={() =>
+                navigate(`/members/${payment.memberId}`)
+              }
+            >
+              Member #{payment.memberId}
+            </Button>
           </div>
         </div>
 
@@ -101,7 +114,15 @@ function PaymentDetailsPage() {
           </Descriptions.Item>
 
           <Descriptions.Item label="Membership ID">
-            {payment.membershipId}
+            <Button type="link" style={{ padding: 0 }}
+              onClick={() =>
+                navigate(
+                  `/memberships/${payment.membershipId}`
+                )
+              }
+            >
+              Membership #{payment.membershipId}
+            </Button>
           </Descriptions.Item>
 
           <Descriptions.Item label="Amount">

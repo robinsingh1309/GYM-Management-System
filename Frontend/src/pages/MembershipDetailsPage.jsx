@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { Alert, Breadcrumb, Button, Card, Descriptions, Spin, Tag, } from 'antd';
+import { Alert, Breadcrumb, Button, Card, Descriptions, Empty, Spin, Table, Tag, } from 'antd';
 
 import { getMembershipById } from '../api/membershipApi';
-import { formatMembershipType, formatMembershipStatus, formatPaymentStatus,} from '../utils/membershipUtils';
+import { getPaymentsByMembershipId } from '../api/paymentApi';
+
+import {
+  formatMembershipType,
+  formatMembershipStatus,
+  formatPaymentStatus,
+} from '../utils/membershipUtils';
+
 import { formatCurrency } from '../utils/currencyUtils';
 import { formatDate } from '../utils/dateUtils';
 
@@ -15,22 +22,31 @@ function MembershipDetailsPage() {
 
     const [membership, setMembership] = useState(null);
 
+    const [payments, setPayments] = useState([]);
+    const [paymentsLoading, setPaymentsLoading] = useState(true);
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-    setLoading(true);
-    setError(null);
+      setLoading(true);
+      setError(null);
+      setPaymentsLoading(true);
 
-    getMembershipById(id)
+      getMembershipById(id)
         .then((response) => {
-            setMembership(response.data);
+          setMembership(response.data);
+          return getPaymentsByMembershipId(response.data.id);
+        })
+        .then((response) => {
+          setPayments(response.data);
         })
         .catch((error) => {
-            setError('Failed to load membership details.');
+          setError('Failed to load membership details.');
         })
         .finally(() => {
-            setLoading(false);
+          setLoading(false);
+          setPaymentsLoading(false);
         });
     }, [id]);
 
@@ -73,6 +89,34 @@ function MembershipDetailsPage() {
                 return 'default';
         }
     };
+    const paymentColumns = [
+    {
+      title: 'Payment Date',
+      dataIndex: 'paymentDate',
+      key: 'paymentDate',
+      render: (value) => formatDate(value),
+    },
+    {
+      title: 'Amount',
+      dataIndex: 'amount',
+      key: 'amount',
+      render: (value, record) => (
+        <Button type="link" style={{ padding: 0 }}
+          onClick={() =>
+            navigate(`/payments/${record.id}`)
+          }
+        >
+          {formatCurrency(value)}
+        </Button>
+      ),
+    },
+    {
+      title: 'Payment Mode',
+      dataIndex: 'paymentMode',
+      key: 'paymentMode',
+      render: (value) => value || '-',
+    },
+  ];
 
   return (
     <div>
@@ -140,6 +184,20 @@ function MembershipDetailsPage() {
             {membership.active ? 'Yes' : 'No'}
           </Descriptions.Item>
         </Descriptions>
+      </Card>
+      <Card title="Payment History" style={{ marginTop: 24 }}>
+        {paymentsLoading ? (
+          <Spin />
+        ) : payments.length > 0 ? (
+          <Table
+            columns={paymentColumns}
+            dataSource={payments}
+            rowKey="id"
+            pagination={false}
+          />
+        ) : (
+          <Empty description="No payments found" />
+        )}
       </Card>
     </div>
   );

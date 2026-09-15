@@ -83,12 +83,12 @@ function MembershipDetailsPage() {
           <h2 style={{ margin: 0 }}>
             Membership #{membership.id}
           </h2>
-
           <div style={{ marginTop: 4 }}>
-            Member #{membership.memberId}
+            <Button type="link" style={{ padding: 0 }} onClick={() => navigate(`/members/${membership.memberId}`)}>
+              Member #{membership.memberId}
+            </Button>
           </div>
         </div>
-
         <Button onClick={() => navigate(-1)}>
           Back
         </Button>

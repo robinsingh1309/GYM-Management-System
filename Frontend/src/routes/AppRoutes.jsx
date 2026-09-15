@@ -8,6 +8,7 @@ import PaymentsPage from '../pages/PaymentsPage';
 import MembershipPricingPage from '../pages/MembershipPricingPage';
 import MemberDetailsPage from '../pages/MemberDetailsPage';
 import MembershipDetailsPage from '../pages/MembershipDetailsPage';
+import PaymentDetailsPage from '../pages/PaymentDetailsPage';
 
 import AppLayout from '../layouts/AppLayout';
 import ProtectedRoute from '../components/auth/ProtectedRoute';
@@ -51,6 +52,11 @@ function AppRoutes() {
             <Route
               path="/payments"
               element={<PaymentsPage />}
+            />
+
+            <Route
+              path="/payments/:id"
+              element={<PaymentDetailsPage />}
             />
 
             <Route

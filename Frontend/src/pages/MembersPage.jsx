@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Alert, Button, Empty, Input, Select, Spin, Table, Tag } from 'antd';
+import { Alert, Button, Divider, Empty, Input, Select, Space, Spin, Table, Tag } from 'antd';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 
 import { getMembers } from '../api/memberApi';
@@ -39,7 +39,7 @@ function MembersPage() {
     loadMembers();
   }, []);
 
-  const filteredMembers = members.filter((member) => {
+  const filteredMembers = useMemo(() => members.filter((member) => {
     const searchValue = searchText.toLowerCase();
 
     const matchesSearch =
@@ -53,9 +53,9 @@ function MembersPage() {
       (statusFilter === 'INACTIVE' && member.active === false);
 
     return matchesSearch && matchesStatus;
-  });
+  }), [members, searchText, statusFilter]);
 
-  const columns = [
+  const columns = useMemo(() => [
     {
       title: 'ID',
       dataIndex: 'id',
@@ -110,46 +110,70 @@ function MembersPage() {
         </Button>
       ),
     },
-  ];
+  ], [navigate]);
 
   if (loading) {
     return <Spin size="large" />;
   }
 
   if (error) {
-    return <Alert type="error" title={error} />;
+    return <Alert type="error" message={error} />;
   }
 
   return (
     <div>
       <div
-        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16, padding: '0 0 16px', marginBottom: 16, borderBottom: '1px solid #f0f0f0', }}>
+        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16, padding: '0 0 16px', borderBottom: '1px solid #f0f0f0', }}>
         <div>
           <h2 style={{ margin: 0, fontSize: 20, fontWeight: 600 }}>Members</h2>
           <div style={{ marginTop: 2, fontSize: 13, color: '#8c8c8c' }}>
             Manage all gym members
           </div>
+          <div style={{ marginTop: 4, fontSize: 13, color: '#8c8c8c' }}>
+            <strong>
+              {filteredMembers.length}{' '}
+              {filteredMembers.length === 1 ? 'Member' : 'Members'}
+              {(searchText || statusFilter !== 'ALL') &&
+                ` of ${members.length}`}
+            </strong>
+          </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap', marginBottom: 16 }}>
+          <span style={{ fontWeight: 500 }}>Filters:</span>
+
           <Input
             placeholder="Search by name, email or phone"
+              prefix={<SearchOutlined />}
             value={searchText}
-            onChange={(event) => setSearchText(event.target.value)}
-            prefix={<SearchOutlined style={{ color: '#bfbfbf' }} />}
+            onChange={(e) => setSearchText(e.target.value)}
             allowClear
-            style={{ width: 260 }}
+            style={{ width: 320 }}
           />
-          <Select value={statusFilter} onChange={setStatusFilter} style={{ width: 130 }}
+
+          <Select value={statusFilter} onChange={setStatusFilter} style={{ width: 140 }}
             options={[
-              { value: 'ALL', label: 'All status' },
+              { value: 'ALL', label: 'All Status' },
               { value: 'ACTIVE', label: 'Active' },
               { value: 'INACTIVE', label: 'Inactive' },
             ]}
           />
-          <div style={{ width: 1, height: 20, background: '#f0f0f0', margin: '0 4px' }} />
-          <Button icon={<ReloadOutlined />} onClick={loadMembers}>
+
+          <Button
+            disabled={searchText === '' && statusFilter === 'ALL'}
+            onClick={() => {
+              setSearchText('');
+              setStatusFilter('ALL');
+            }}
+          >
+            Clear Filters
+          </Button>
+          <Divider orientation="vertical" />
+          <Button icon={<ReloadOutlined />} onClick={loadMembers} loading={loading}>
             Refresh
+          </Button>
+          <Button type="primary" onClick={() => navigate('/members/create')}>
+              Add Member
           </Button>
         </div>
       </div>

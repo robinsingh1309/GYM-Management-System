@@ -120,18 +120,18 @@ function MembershipDetailsPage() {
 
   return (
     <div>
-      <Breadcrumb items={[{ title: 'Home' }, { title: 'Members', onClick: () => navigate('/members'),}, {title: 'Membership Details',},]}/>
+      <Breadcrumb items={[
+          { title: 'Home', onClick: () => navigate('/dashboard') },
+          { title: `Members #${membership.memberId}`, onClick: () => navigate(`/members/${membership.memberId}`),},
+          { title: `Membership Details #${membership.id}`,},
+        ]}
+      />
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 16, marginBottom: 24, }}>
         <div>
           <h2 style={{ margin: 0 }}>
             Membership #{membership.id}
           </h2>
-          <div style={{ marginTop: 4 }}>
-            <Button type="link" style={{ padding: 0 }} onClick={() => navigate(`/members/${membership.memberId}`)}>
-              Member #{membership.memberId}
-            </Button>
-          </div>
         </div>
         <Button onClick={() => navigate(-1)}>
           Back

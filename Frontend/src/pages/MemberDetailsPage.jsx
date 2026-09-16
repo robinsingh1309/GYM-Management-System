@@ -171,10 +171,17 @@ function MemberDetailsPage() {
 
   return (
     <div>
-      <Breadcrumb items={[{title: 'Home',},{title: 'Members',},{title: 'Member Details',},]}/>
-      <Button onClick={() => navigate('/members')}>
-        ← Back to Members
-      </Button>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Breadcrumb items={[
+            {title: 'Home',onClick: () => navigate('/dashboard'), },
+            {title: 'Members', onClick: () => navigate('/members'), },
+            {title: `Member Details #${member ? member.id : ''}`,},
+          ]}
+        />
+        <Button onClick={() => navigate('/members')}>
+          ← Back to Members
+        </Button>
+      </div>
       <div style={{ marginTop: 16 }}>
         <h1 style={{ marginBottom: 4 }}>
           {member ? member.name : 'Member Details'}

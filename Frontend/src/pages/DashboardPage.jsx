@@ -197,7 +197,7 @@ function DashboardPage() {
 
           <Card title="Quick Actions" style={{ marginTop: 24 }}>
             <Space wrap>
-              <Button type="primary" icon={<UserAddOutlined />} onClick={() => navigate('/members')}>
+              <Button type="primary" icon={<UserAddOutlined />} onClick={() => navigate('/members/create')}>
                 Add Member
               </Button>
 

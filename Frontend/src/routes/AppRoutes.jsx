@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import DashboardPage from '../pages/DashboardPage';
 import MembersPage from '../pages/MembersPage';
+import CreateMemberPage from '../pages/CreateMemberPage';
+import MemberDetailsPage from '../pages/MemberDetailsPage';
 import MembershipsPage from '../pages/MembershipsPage';
 import PaymentsPage from '../pages/PaymentsPage';
 import MembershipPricingPage from '../pages/MembershipPricingPage';
-import MemberDetailsPage from '../pages/MemberDetailsPage';
 import MembershipDetailsPage from '../pages/MembershipDetailsPage';
 import PaymentDetailsPage from '../pages/PaymentDetailsPage';
 
@@ -32,6 +33,11 @@ function AppRoutes() {
             <Route
               path="/members"
               element={<MembersPage />}
+            />
+
+            <Route
+              path="/members/create"
+              element={<CreateMemberPage />}
             />
 
             <Route

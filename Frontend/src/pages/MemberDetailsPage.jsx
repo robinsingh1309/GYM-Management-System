@@ -211,19 +211,19 @@ function MemberDetailsPage() {
               </Descriptions.Item>
 
               <Descriptions.Item label="Date of Birth">
-                {member.dateOfBirth}
+                {member.dateOfBirth ? formatDate(member.dateOfBirth) : '-'}
               </Descriptions.Item>
 
               <Descriptions.Item label="Gender">
-                {member.gender}
+                {member.gender || '-'}
               </Descriptions.Item>
 
               <Descriptions.Item label="Joining Date">
-                {member.joiningDate}
+                {member.joiningDate ? formatDate(member.joiningDate) : '-'}
               </Descriptions.Item>
 
               <Descriptions.Item label="Address">
-                {member.address}
+                {member.address || '-'}
               </Descriptions.Item>
 
               <Descriptions.Item label="Status">

@@ -5,6 +5,7 @@ import DashboardPage from '../pages/DashboardPage';
 import MembersPage from '../pages/MembersPage';
 import CreateMemberPage from '../pages/CreateMemberPage';
 import MemberDetailsPage from '../pages/MemberDetailsPage';
+import CreateMembershipPage from '../pages/CreateMembershipPage';
 import MembershipsPage from '../pages/MembershipsPage';
 import PaymentsPage from '../pages/PaymentsPage';
 import MembershipPricingPage from '../pages/MembershipPricingPage';
@@ -48,6 +49,11 @@ function AppRoutes() {
             <Route
               path="/memberships"
               element={<MembershipsPage />}
+            />
+
+            <Route
+              path="/memberships/create"
+              element={<CreateMembershipPage />}
             />
 
             <Route

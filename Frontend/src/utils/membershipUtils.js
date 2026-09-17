@@ -1,13 +1,16 @@
-export const formatMembershipType = (membershipType) => {
-  const labels = {
-    MONTHLY: 'Monthly',
-    QUARTERLY: 'Quarterly',
-    HALF_YEARLY: 'Half Yearly',
-    YEARLY: 'Yearly',
-  };
+export const MEMBERSHIP_TYPE_OPTIONS = [
+  { value: 'MONTHLY', label: 'Monthly' },
+  { value: 'QUARTERLY', label: 'Quarterly' },
+  { value: 'HALF_YEARLY', label: 'Half Yearly' },
+  { value: 'YEARLY', label: 'Yearly' },
+];
 
-  return labels[membershipType] || membershipType;
-};
+const MEMBERSHIP_TYPE_LABELS = Object.fromEntries(
+  MEMBERSHIP_TYPE_OPTIONS.map(({ value, label }) => [value, label])
+);
+
+export const formatMembershipType = (membershipType) =>
+  MEMBERSHIP_TYPE_LABELS[membershipType] || membershipType;
 
 export const formatMembershipStatus = (status) => {
   const labels = {

@@ -1,20 +1,27 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Alert, Button, Divider, Empty, Input, Select, Space, Spin, Table, Tag } from 'antd';
+import { Alert, Button, Divider, Empty, Input, Modal, message, Select, Space, Spin, Table, Tag } from 'antd';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 
-import { getMembers } from '../api/memberApi';
+import { getMembers, activateMember, deactivateMember } from '../api/memberApi';
+import { useAuth } from '../context/AuthContext';
 
 import { formatDate } from '../utils/dateUtils';
 
 function MembersPage() {
   const navigate = useNavigate();
+  const { role } = useAuth();
 
   const [members, setMembers] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [actionLoading, setActionLoading] = useState(false);
+
+  const [statusConfirmOpen, setStatusConfirmOpen] = useState(false);
+  const [selectedMember, setSelectedMember] = useState(null);
 
   const [searchText, setSearchText] = useState('');
   const [statusFilter, setStatusFilter] = useState('ALL');
@@ -39,6 +46,45 @@ function MembersPage() {
     loadMembers();
   }, []);
 
+  const handleMemberStatusChange = async () => {
+    if (!selectedMember || actionLoading) {
+      return;
+    }
+
+    setActionLoading(true);
+
+    try {
+      if (selectedMember.active) {
+        await deactivateMember(selectedMember.id);
+        message.success('Member deactivated successfully');
+      } else {
+        await activateMember(selectedMember.id);
+        message.success('Member activated successfully');
+      }
+
+      setStatusConfirmOpen(false);
+      setSelectedMember(null);
+
+      await loadMembers();
+    } catch (error) {
+      message.error(
+        error.response?.data?.message ||
+          'Failed to update member status'
+      );
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleStatusActionClick = (member) => {
+    if (!member || actionLoading) {
+      return;
+    }
+
+    setSelectedMember(member);
+    setStatusConfirmOpen(true);
+  };
+
   const filteredMembers = useMemo(() => members.filter((member) => {
     const searchValue = searchText.toLowerCase();
 
@@ -55,62 +101,70 @@ function MembersPage() {
     return matchesSearch && matchesStatus;
   }), [members, searchText, statusFilter]);
 
-  const columns = useMemo(() => [
-    {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
-    },
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: (name, record) => (
-        <Button type="link" style={{ padding: 0 }}
-          onClick={() => navigate(`/members/${record.id}`)}
-        >
-          {name}
-        </Button>
-      ),
-    },
-    {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
-    },
-    {
-      title: 'Phone',
-      dataIndex: 'phoneNumber',
-      key: 'phoneNumber',
-    },
-    {
-      title: 'Joining Date',
-      dataIndex: 'joiningDate',
-      key: 'joiningDate',
-      render: (value) => formatDate(value),
-    },
-    {
-      title: 'Status',
-      dataIndex: 'active',
-      key: 'active',
-      render: (active) => (
-        <Tag color={active ? 'green' : 'red'}>
-          {active ? 'Active' : 'Inactive'}
-        </Tag>
-      ),
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      render: (_, record) => (
-        <Button type="link"
-          onClick={() => navigate(`/members/${record.id}`)}
-        >
-          View
-        </Button>
-      ),
-    },
-  ], [navigate]);
+  const columns = useMemo(() => {
+    const baseColumns = [
+      {
+        title: 'ID',
+        dataIndex: 'id',
+        key: 'id',
+      },
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+        render: (name, record) => (
+          <Button type="link" style={{ padding: 0 }}
+            onClick={() => navigate(`/members/${record.id}`)}
+          >
+            {name}
+          </Button>
+        ),
+      },
+      {
+        title: 'Email',
+        dataIndex: 'email',
+        key: 'email',
+      },
+      {
+        title: 'Phone',
+        dataIndex: 'phoneNumber',
+        key: 'phoneNumber',
+      },
+      {
+        title: 'Joining Date',
+        dataIndex: 'joiningDate',
+        key: 'joiningDate',
+        render: (value) => formatDate(value),
+      },
+      {
+        title: 'Status',
+        dataIndex: 'active',
+        key: 'active',
+        render: (active) => (
+          <Tag color={active ? 'green' : 'red'}>
+            {active ? 'Active' : 'Inactive'}
+          </Tag>
+        ),
+      },
+    ];
+
+    if (role === 'ADMIN') {
+      baseColumns.push({
+        title: 'Action',
+        key: 'action',
+        render: (_, member) => (
+          <Button danger={member.active}
+            loading={actionLoading}
+            onClick={() => handleStatusActionClick(member)}
+          >
+            {member.active ? 'Deactivate' : 'Activate'}
+          </Button>
+        ),
+      });
+    }
+
+    return baseColumns;
+  }, [navigate, role, actionLoading]);
 
   if (loading) {
     return <Spin size="large" />;
@@ -201,6 +255,39 @@ function MembersPage() {
             }
           />
       )}
+      <Modal
+        title={selectedMember?.active ? 'Deactivate Member' : 'Activate Member'}
+        open={statusConfirmOpen}
+        onCancel={() => {
+          if (actionLoading) {
+            return;
+          }
+
+          setStatusConfirmOpen(false);
+          setSelectedMember(null);
+        }}
+        onOk={handleMemberStatusChange}
+        okText={selectedMember?.active ? 'Deactivate' : 'Activate'}
+        cancelText="Cancel"
+        confirmLoading={actionLoading}
+        okButtonProps={{
+          danger: selectedMember?.active,
+        }}
+      >
+        <p>
+          Are you sure you want to{' '}
+          {selectedMember?.active ? 'deactivate' : 'activate'}{' '}
+          <strong>
+            {selectedMember?.name}
+          </strong>?
+        </p>
+
+        <p>
+          {selectedMember?.active
+            ? 'The member will be marked as inactive.'
+            : 'The member will be marked as active.'}
+        </p>
+      </Modal>
     </div>
   );
 }

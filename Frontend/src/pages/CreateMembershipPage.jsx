@@ -9,7 +9,6 @@ import { createMembership } from '../api/membershipApi';
 import { getMembers } from '../api/memberApi';
 import { getMembershipPricings } from '../api/membershipPricingApi';
 import { MEMBERSHIP_TYPE_OPTIONS } from '../utils/membershipUtils';
-import { PAYMENT_MODE_OPTIONS } from '../utils/paymentUtils';
 import { useAuth } from '../context/AuthContext';
 
 const MIN_MEMBERSHIP_AMOUNT = 500;
@@ -120,10 +119,29 @@ function CreateMembershipPage() {
     }
   };
 
+  const handleMembershipTypeChange = () => {
+    setAmountTouched(false);
+
+    form.setFieldsValue({
+      membershipAmount: undefined,
+      paymentAmount: undefined,
+    });
+  };
   // Prefill amount fields from active pricing when the membership type changes,
   // but only if the admin hasn't manually overridden the amount already.
   useEffect(() => {
+    if (!selectedMembershipType) {
+      return;
+    }
+
     if (activePriceForSelectedType === undefined) {
+      if (!amountTouched) {
+        form.setFieldsValue({
+          membershipAmount: undefined,
+          paymentAmount: undefined,
+        });
+      }
+
       return;
     }
 
@@ -135,10 +153,17 @@ function CreateMembershipPage() {
         });
       }
     } else {
-      form.setFieldsValue({ paymentAmount: activePriceForSelectedType });
+      form.setFieldsValue({
+        paymentAmount: activePriceForSelectedType,
+      });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activePriceForSelectedType, isAdmin]);
+  }, [
+    selectedMembershipType,
+    activePriceForSelectedType,
+    isAdmin,
+    amountTouched,
+    form,
+  ]);
 
   const handleMembershipAmountChange = (value) => {
     setAmountTouched(true);
@@ -273,7 +298,7 @@ function CreateMembershipPage() {
       )}
 
       <Spin spinning={submitting} tip="Creating membership...">
-        <Form form={form} layout="vertical" onFinish={handleSubmit} onValuesChange={() => setFormTouched(true)}>
+        <Form form={form} layout="vertical" initialValues={{paymentMode: 'CASH',}} onFinish={handleSubmit} onValuesChange={() => setFormTouched(true)}>
           <Card title="Membership Information" size="small" style={{ marginBottom: 16 }}>
             <Form.Item
               label="Member"
@@ -295,14 +320,37 @@ function CreateMembershipPage() {
             </Form.Item>
 
             <Form.Item
-              label="Membership Type"
-              name="membershipType"
-              rules={[{ required: true, message: 'Membership type is required' }]}
-            >
+                label="Membership Type"
+                name="membershipType"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Membership type is required',
+                  },
+                  {
+                    validator: (_, value) => {
+                      if (!value || isAdmin) {
+                        return Promise.resolve();
+                      }
+
+                      const activePrice = activePricingByType[value];
+
+                      if (activePrice === undefined) {
+                        return Promise.reject(
+                          new Error('No active pricing is available for this membership type')
+                        );
+                      }
+
+                      return Promise.resolve();
+                    },
+                  },
+                ]}
+              >
               <Select
                 placeholder="Select membership type"
                 options={MEMBERSHIP_TYPE_OPTIONS}
                 loading={pricingsLoading}
+                onChange={handleMembershipTypeChange}
               />
             </Form.Item>
 
@@ -330,13 +378,28 @@ function CreateMembershipPage() {
                 name="membershipAmount"
                 tooltip={`Prefilled from the active price for ${selectedMembershipType} membership type — override if needed.`}
                 rules={[
-                  {
-                    validator: (_, value) =>
-                      value === undefined || value === null || value >= MIN_MEMBERSHIP_AMOUNT
-                        ? Promise.resolve()
-                        : Promise.reject(new Error(`Membership amount must be at least ${MIN_MEMBERSHIP_AMOUNT}`)),
+                {
+                  required: true,
+                  message: 'Membership amount is required',
+                },
+                {
+                  validator: (_, value) => {
+                    if (value === undefined || value === null) {
+                      return Promise.resolve();
+                    }
+
+                    if (value < MIN_MEMBERSHIP_AMOUNT) {
+                      return Promise.reject(
+                        new Error(
+                          `Membership amount must be at least ${MIN_MEMBERSHIP_AMOUNT}`
+                        )
+                      );
+                    }
+
+                    return Promise.resolve();
                   },
-                ]}
+                },
+              ]}
               >
                 <InputNumber
                   style={{ width: '100%' }}
@@ -411,7 +474,14 @@ function CreateMembershipPage() {
               name="paymentMode"
               rules={[{ required: true, message: 'Payment mode is required' }]}
             >
-              <Select options={PAYMENT_MODE_OPTIONS} placeholder="Select Payment Mode" />
+              <Select options={[
+                  {
+                    value: 'CASH',
+                    label: 'Cash',
+                  },
+                ]}
+                disabled
+              />
             </Form.Item>
           </Card>
 
@@ -469,8 +539,7 @@ function CreateMembershipPage() {
               {pendingValues.paymentDate?.format('YYYY-MM-DD')}
             </p>
             <p>
-              <strong>Payment Mode:</strong>{' '}
-              {PAYMENT_MODE_OPTIONS.find((option) => option.value === pendingValues.paymentMode)?.label}
+              <strong>Payment Mode:</strong> Cash
             </p>
           </div>
         )}

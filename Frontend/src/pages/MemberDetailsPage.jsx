@@ -46,7 +46,14 @@ function MemberDetailsPage() {
         setPayments(paymentResponse.data);
       })
       .catch((error) => {
-        setError('Failed to load member details.');
+        setMember(null);
+        setMemberships([]);
+        setPayments([]);
+        if (error.response?.status === 404) {
+          setError(null);
+        } else {
+          setError('Failed to load member details.');
+        }
       })
       .finally(() => {
         setLoading(false);
@@ -58,11 +65,23 @@ function MemberDetailsPage() {
   }
 
   if (error) {
-    return <Alert type="error" title={error} />;
+    return <Alert type="error" message={error} showIcon/>;
+  }
+
+  if (!member) {
+    return (
+      <div>
+        <Alert type="warning" message="Member not found." showIcon style={{ marginBottom: 16 }}/>
+
+        <Button onClick={() => navigate('/members')}>
+          Back to Members
+        </Button>
+      </div>
+    );
   }
 
   if (!memberships) {
-    return <Alert type="warning" title="Membership not found." />;
+    return <Alert type="warning" message="Membership not found." showIcon/>;
   }
 
   const membershipColumns = [

@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Alert, Button, Divider, Empty, Input, Modal, message, Select, Space, Spin, Table, Tag } from 'antd';
+import { Alert, Button, Divider, Empty, Input, Modal, message, Select, Spin, Table, Tag } from 'antd';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 
 import { getMembers, activateMember, deactivateMember } from '../api/memberApi';
@@ -35,7 +35,13 @@ function MembersPage() {
         setMembers(response.data);
       })
       .catch((error) => {
-        setError('Failed to load members.');
+        setMembers(null);
+
+        if (error.response?.status === 404) {
+          setError(null);
+        } else {
+          setError('Failed to load members details.');
+        }
       })
       .finally(() => {
         setLoading(false);
@@ -171,7 +177,7 @@ function MembersPage() {
   }
 
   if (error) {
-    return <Alert type="error" message={error} />;
+    return <Alert type="error" message={error} showIcon/>;
   }
 
   return (

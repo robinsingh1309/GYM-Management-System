@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import LoginPage from '../pages/LoginPage';
+import CreateMembershipTypePage from '../pages/CreateMembershipTypePage';
 import DashboardPage from '../pages/DashboardPage';
 import MembersPage from '../pages/MembersPage';
 import CreateMemberPage from '../pages/CreateMemberPage';
@@ -8,9 +9,10 @@ import MemberDetailsPage from '../pages/MemberDetailsPage';
 import CreateMembershipPage from '../pages/CreateMembershipPage';
 import MembershipsPage from '../pages/MembershipsPage';
 import PaymentsPage from '../pages/PaymentsPage';
-import MembershipPricingPage from '../pages/MembershipPricingPage';
+import MembershipsTypePage from '../pages/MembershipsTypePage';
 import MembershipDetailsPage from '../pages/MembershipDetailsPage';
 import PaymentDetailsPage from '../pages/PaymentDetailsPage';
+import CreatePaymentPage from '../pages/CreatePaymentPage';
 
 import AppLayout from '../layouts/AppLayout';
 import ProtectedRoute from '../components/auth/ProtectedRoute';
@@ -67,13 +69,22 @@ function AppRoutes() {
             />
 
             <Route
+              path="/payments/create"
+              element={<CreatePaymentPage />}
+            />
+
+            <Route
               path="/payments/:id"
               element={<PaymentDetailsPage />}
             />
 
             <Route
-              path="/pricing"
-              element={<MembershipPricingPage />}
+              path="/memberships-type"
+              element={<MembershipsTypePage />}
+            />
+            <Route
+              path="/membership-types/create"
+              element={<CreateMembershipTypePage />}
             />
 
           </Route>

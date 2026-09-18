@@ -148,7 +148,7 @@ function CreateMemberPage() {
             name="phoneNumber"
             rules={[
               { required: true, message: 'Phone number is required' },
-              { pattern: /^[0-9]{10}$/, message: 'Phone number cannot exceed 10 digits' },
+              { pattern: /^[6-9]\d{9}$/, message: 'Phone number must be a valid 10 digit Indian phone number' },
             ]}
           >
             <Input
@@ -162,7 +162,36 @@ function CreateMemberPage() {
             />
           </Form.Item>
 
-          <Form.Item label="Date of Birth" name="dateOfBirth">
+          <Form.Item
+            label="Date of Birth"
+            name="dateOfBirth"
+            dependencies={['joiningDate']}
+            rules={[
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value) {
+                    return Promise.resolve();
+                  }
+
+                  if (value.isAfter(dayjs(), 'day')) {
+                    return Promise.reject(new Error('Date of birth cannot be in the future'));
+                  }
+
+                  const joiningDate = getFieldValue('joiningDate');
+
+                  if (joiningDate && value.isAfter(joiningDate, 'day')) {
+                    return Promise.reject(new Error('Date of birth cannot be after joining date'));
+                  }
+
+                  if (joiningDate && joiningDate.diff(value, 'year') < 6) {
+                    return Promise.reject(new Error('Member must be at least 6 years old on joining date'));
+                  }
+
+                  return Promise.resolve();
+                },
+              }),
+            ]}
+          >
             <DatePicker
               style={{ width: '100%' }}
               disabledDate={(current) => current && current.isAfter(dayjs(), 'day')}
@@ -196,7 +225,29 @@ function CreateMemberPage() {
           <Form.Item
             label="Joining Date"
             name="joiningDate"
-            rules={[{ required: true, message: 'Joining date is required' }]}
+            dependencies={['dateOfBirth']}
+            rules={[
+              { required: true, message: 'Joining date is required' },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  const dateOfBirth = getFieldValue('dateOfBirth');
+
+                  if (!value || !dateOfBirth) {
+                    return Promise.resolve();
+                  }
+
+                  if (dateOfBirth.isAfter(value, 'day')) {
+                    return Promise.reject(new Error('Joining date cannot be before date of birth'));
+                  }
+
+                  if (value.diff(dateOfBirth, 'year') < 6) {
+                    return Promise.reject(new Error('Member must be at least 6 years old on joining date'));
+                  }
+
+                  return Promise.resolve();
+                },
+              }),
+            ]}
           >
             <DatePicker
               style={{ width: '100%' }}

@@ -53,12 +53,8 @@ function MembershipsPage() {
       return { type: 'activate', label: 'Activate' };
     }
 
-    if (membership.status === 'UPCOMING') {
+    if (membership.status === 'UPCOMING' || membership.status === 'ACTIVE') {
       return { type: 'deactivate', label: 'Deactivate' };
-    }
-
-    if (membership.status === 'ACTIVE') {
-      return { type: null, reason: `This membership is Active and will expire automatically on ${formatDate(membership.endDate)}.` };
     }
 
     return { type: null, reason: 'Expired memberships cannot be activated or deactivated.' };

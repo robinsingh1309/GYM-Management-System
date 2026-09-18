@@ -10,7 +10,7 @@ function Sidebar() {
         <Link to="/members">Members</Link>
         <Link to="/memberships">Memberships</Link>
         <Link to="/payments">Payments</Link>
-        <Link to="/pricing">Pricing</Link>
+        <Link to="/memberships-type">Membership Type</Link>
       </nav>
     </aside>
   );

@@ -201,11 +201,11 @@ function DashboardPage() {
                 Add Member
               </Button>
 
-              <Button icon={<IdcardOutlined />} onClick={() => navigate('/memberships')}>
+              <Button icon={<IdcardOutlined />} onClick={() => navigate('/memberships/create')}>
                 Create Membership
               </Button>
 
-              <Button icon={<DollarOutlined />}onClick={() => navigate('/payments')}>
+              <Button icon={<DollarOutlined />}onClick={() => navigate('/payments/create')}>
                 Record Payment
               </Button>
             </Space>

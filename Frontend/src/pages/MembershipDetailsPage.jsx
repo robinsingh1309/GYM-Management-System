@@ -25,41 +25,69 @@ function MembershipDetailsPage() {
     const [payments, setPayments] = useState([]);
     const [paymentsLoading, setPaymentsLoading] = useState(true);
 
+    const [paymentsError, setPaymentsError] = useState(null);
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-      setLoading(true);
-      setError(null);
-      setPaymentsLoading(true);
+      const loadMembershipDetails = async () => {
+        setLoading(true);
+        setError(null);
 
-      getMembershipById(id)
-        .then((response) => {
+        try {
+          const response = await getMembershipById(id);
           setMembership(response.data);
-          return getPaymentsByMembershipId(response.data.id);
-        })
-        .then((response) => {
-          setPayments(response.data);
-        })
-        .catch((error) => {
-          setError('Failed to load membership details.');
-        })
-        .finally(() => {
+        } catch (error) {
+          setMembership(null);
+
+          if (error.response?.status === 404) {
+            setError(null);
+          } else {
+            setError('Failed to load memberships details.');
+          }
+        } finally {
           setLoading(false);
+        }
+      };
+
+      const loadPayments = async () => {
+        setPaymentsLoading(true);
+        setPaymentsError(null);
+
+        try {
+          const response = await getPaymentsByMembershipId(id);
+          setPayments(response.data);
+        } catch (error) {
+          setPayments([]);
+          setPaymentsError('Failed to load payment history.');
+        } finally {
           setPaymentsLoading(false);
-        });
+        }
+      };
+
+      loadMembershipDetails();
+      loadPayments();
     }, [id]);
 
     if (loading) { 
-        return <Spin size="large" />; 
+      return <Spin size="large" />; 
     }
 
     if (error) {
-        return <Alert type="error" title={error} />; 
+      return <Alert type="error" message={error} showIcon />; 
     }
 
-    if (!membership) { 
-        return <Alert type="warning" title="Membership not found." />;
+    if (!membership) {
+      return (
+        <div>
+          <Alert type="warning" message="Membership not found." showIcon style={{ marginBottom: 16 }}/>
+
+          <Button onClick={() => navigate('/memberships')}>
+            Back to Memberships
+          </Button>
+        </div>
+      );
     }
 
     const getMembershipStatusColor = (status) => {
@@ -188,6 +216,12 @@ function MembershipDetailsPage() {
       <Card title="Payment History" style={{ marginTop: 24 }}>
         {paymentsLoading ? (
           <Spin />
+        ) : paymentsError ? (
+          <Alert
+            type="error"
+            message={paymentsError}
+            showIcon
+          />
         ) : payments.length > 0 ? (
           <Table
             columns={paymentColumns}

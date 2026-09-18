@@ -127,7 +127,7 @@ function MembershipsPage() {
   const columns = useMemo(() => {
     const baseColumns = [
       {
-        title: 'ID',
+        title: 'Membership ID',
         dataIndex: 'id',
         key: 'id',
         render: (id) => (

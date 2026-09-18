@@ -22,12 +22,14 @@ function PaymentDetailsPage() {
 
     getPaymentById(id)
       .then((response) => {
-        console.log('Payment:', response.data);
         setPayment(response.data);
       })
       .catch((error) => {
-        console.error('Failed to fetch payment:', error);
-        setError('Failed to load payment details.');
+        if (error.response?.status === 404) {
+          setError(null);
+        } else {
+          setError('Failed to load payments details.');
+        }
       })
       .finally(() => {
         setLoading(false);
@@ -44,10 +46,13 @@ function PaymentDetailsPage() {
 
   if (!payment) {
     return (
-      <Alert
-        type="warning"
-        message="Payment not found."
-      />
+      <div style={{ marginTop: 16 }}>
+        <Alert type="warning" message="Payment not found." showIcon style={{ marginBottom: 16 }}/>
+
+        <Button onClick={() => navigate('/payments')}>
+          Back to Payments
+        </Button>
+      </div>
     );
   }
 

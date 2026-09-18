@@ -285,15 +285,9 @@ public class MembershipServiceImpl implements MembershipService {
             throw new BadRequestException("Membership is already inactive");
         }
 
-        // UPCOMING + deactivate is allowed.
-        if (membership.getStartDate().isAfter(today)) {
-            membership.setActive(false);
-            membershipRepository.save(membership);
-            return;
-        }
-
-        // ACTIVE + deactivate is not allowed.
-        throw new BadRequestException("Active membership cannot be deactivated");
+        // ACTIVE or UPCOMING + deactivate is allowed.
+        membership.setActive(false);
+        membershipRepository.save(membership);
     }
 
 

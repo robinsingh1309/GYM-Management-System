@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.fitmanager.dto.PaymentCreateRequest;
 import com.example.fitmanager.dto.PaymentResponse;
@@ -52,6 +53,7 @@ public class PaymentServiceImpl implements PaymentService {
     // ------------------------------------------------------
 
     @Override
+    @Transactional
     public PaymentResponse createPayment(final PaymentCreateRequest request) {
 
         final BigDecimal paymentAmount = request.getAmount();
@@ -65,6 +67,10 @@ public class PaymentServiceImpl implements PaymentService {
                 );
 
         final Long memberMembershipID = request.getMembershipId();
+        if (memberMembershipID == null) {
+            throw new BadRequestException("Membership id is required");
+        }
+
         final Membership membership = membershipRepository.findById(memberMembershipID) //
                 .orElseThrow( //
                         () -> new ResourceNotFoundException("Membership not found with id: " + memberMembershipID) //

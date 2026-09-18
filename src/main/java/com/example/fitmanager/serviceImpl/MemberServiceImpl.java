@@ -1,5 +1,7 @@
 package com.example.fitmanager.serviceImpl;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,8 @@ public class MemberServiceImpl implements MemberService {
             throw new BadRequestException("Phone number already exists: " + memberPhoneNumber);
         }
 
+        this.validateMemberDates(request);
+
         final Member member = new Member(request.getName(), request.getEmail(), //
                 request.getPhoneNumber(), request.getDateOfBirth(), request.getGender(), //
                 request.getAddress(), request.getJoiningDate());
@@ -81,6 +85,8 @@ public class MemberServiceImpl implements MemberService {
         if (!member.getPhoneNumber().equals(memberPhoneNumber) && repository.existsByPhoneNumber(memberPhoneNumber)) {
             throw new BadRequestException("Phone number already exists: " + memberPhoneNumber);
         }
+
+        this.validateMemberDates(request);
 
         member.setName(request.getName());
         member.setEmail(request.getEmail());
@@ -132,6 +138,28 @@ public class MemberServiceImpl implements MemberService {
 
     // Helper Methods
     // -------------------------------------------------------
+
+    private void validateMemberDates(final MemberCreateRequest request) {
+
+        final LocalDate dateOfBirth = request.getDateOfBirth();
+        final LocalDate joiningDate = request.getJoiningDate();
+
+        if (dateOfBirth == null || joiningDate == null) {
+            return;
+        }
+
+        if (dateOfBirth.isAfter(joiningDate)) {
+            throw new BadRequestException("Date of birth cannot be after joining date");
+        }
+
+        if (dateOfBirth.isAfter(LocalDate.now())) {
+            throw new BadRequestException("Date of birth cannot be in the future");
+        }
+
+        if (Period.between(dateOfBirth, joiningDate).getYears() < 6) {
+            throw new BadRequestException("Member must be at least 6 years old on joining date");
+        }
+    }
 
     private MemberResponse toDTO(final Member member) {
 

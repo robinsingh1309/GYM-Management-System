@@ -56,6 +56,7 @@ public class SecurityConfig {
                         "POST", //
                         "PUT", //
                         "DELETE", //
+                        "PATCH", //
                         "OPTIONS" //
                 ) //
         );

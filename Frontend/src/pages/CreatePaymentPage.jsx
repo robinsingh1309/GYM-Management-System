@@ -11,6 +11,7 @@ import { getMemberships } from '../api/membershipApi';
 
 import { formatCurrency } from '../utils/currencyUtils';
 import { formatMembershipType, formatMembershipStatus } from '../utils/membershipUtils';
+import { useBeforeUnload } from '../hooks/useBeforeUnload';
 
 function CreatePaymentPage() {
   const [form] = Form.useForm();
@@ -179,22 +180,7 @@ function CreatePaymentPage() {
     navigate('/payments');
   };
 
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      if (!formTouched || submitting) {
-        return;
-      }
-
-      event.preventDefault();
-      event.returnValue = '';
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [formTouched, submitting]);
+  useBeforeUnload(formTouched && !submitting);
 
   const confirmSelectedMember = activeMembers.find((member) => member.id === pendingValues?.memberId);
   const confirmSelectedMembership = payableMembershipsForMember.find(

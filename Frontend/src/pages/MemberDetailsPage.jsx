@@ -1,77 +1,154 @@
-import { Alert, Breadcrumb, Button, Card, Descriptions, Col, Empty, Row, Space, Spin, Table, Tag } from 'antd';
-import { CheckCircleOutlined, ClockCircleOutlined, ExclamationCircleOutlined, DollarOutlined, TeamOutlined, } from '@ant-design/icons';
+import {
+  Alert,
+  Breadcrumb,
+  Button,
+  Card,
+  Descriptions,
+  Col,
+  Empty,
+  Row,
+  Space,
+  Spin,
+  Table,
+  Tag,
+} from 'antd';
+
+import {
+  CheckCircleOutlined,
+  ClockCircleOutlined,
+  ExclamationCircleOutlined,
+  DollarOutlined,
+  TeamOutlined,
+} from '@ant-design/icons';
 
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { getMemberById } from '../api/memberApi';
 import { getMembershipsByMemberId } from '../api/membershipApi';
-import { formatPaymentStatus, formatMembershipStatus, formatMembershipType, calculateMembershipSummary } from '../utils/membershipUtils';
-
 import { getPaymentsByMemberId } from '../api/paymentApi';
+
+import {
+  formatPaymentStatus,
+  formatMembershipStatus,
+  formatMembershipType,
+  calculateMembershipSummary,
+} from '../utils/membershipUtils';
 
 import { formatCurrency } from '../utils/currencyUtils';
 import { formatDate } from '../utils/dateUtils';
 
 function MemberDetailsPage() {
   const navigate = useNavigate();
-
   const { id } = useParams();
+
+  // ─────────────────────────────────────────────
+  // Data
+  // ─────────────────────────────────────────────
 
   const [member, setMember] = useState(null);
   const [memberships, setMemberships] = useState([]);
-  const membershipSummary = calculateMembershipSummary(memberships);
-
   const [payments, setPayments] = useState([]);
+
+  // ─────────────────────────────────────────────
+  // Page loading / error
+  // ─────────────────────────────────────────────
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // ─────────────────────────────────────────────
+  // Section-specific errors
+  // ─────────────────────────────────────────────
+
+  const [membershipsError, setMembershipsError] = useState(null);
+  const [paymentsError, setPaymentsError] = useState(null);
+
+  // ─────────────────────────────────────────────
+  // Derived membership summary
+  // ─────────────────────────────────────────────
+
+  const membershipSummary = calculateMembershipSummary(memberships);
+
+  // ─────────────────────────────────────────────
+  // Load data
+  // ─────────────────────────────────────────────
 
   useEffect(() => {
-    setLoading(true);
-    setError(null);
+    const loadMemberDetails = async () => {
+      setLoading(true);
+      setError(null);
 
-    getMemberById(id)
-      .then((response) => {
+      try {
+        const response = await getMemberById(id);
         setMember(response.data);
-
-        return Promise.all([
-          getMembershipsByMemberId(response.data.id),
-          getPaymentsByMemberId(response.data.id),
-        ]);
-      })
-      .then(([membershipResponse, paymentResponse]) => {
-        setMemberships(membershipResponse.data);
-        setPayments(paymentResponse.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         setMember(null);
-        setMemberships([]);
-        setPayments([]);
+
         if (error.response?.status === 404) {
           setError(null);
         } else {
           setError('Failed to load member details.');
         }
-      })
-      .finally(() => {
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    const loadMembershipHistory = async () => {
+      setMembershipsError(null);
+
+      try {
+        const response = await getMembershipsByMemberId(id);
+        setMemberships(response.data);
+      } catch (error) {
+        setMemberships([]);
+        setMembershipsError('Failed to load membership history.');
+      }
+    };
+
+    const loadPaymentHistory = async () => {
+      setPaymentsError(null);
+
+      try {
+        const response = await getPaymentsByMemberId(id);
+        setPayments(response.data);
+      } catch (error) {
+        setPayments([]);
+        setPaymentsError('Failed to load payment history.');
+      }
+    };
+
+    loadMemberDetails();
+    loadMembershipHistory();
+    loadPaymentHistory();
   }, [id]);
 
+  // ─────────────────────────────────────────────
+  // Page-level loading
+  // ─────────────────────────────────────────────
+
   if (loading) {
-    return <Spin size="large" />;
+    return (
+      <div style={{ textAlign: 'center', padding: 48 }}>
+        <Spin size="large" />
+      </div>
+    );
   }
+
+  // ─────────────────────────────────────────────
+  // Page-level error
+  // ─────────────────────────────────────────────
 
   if (error) {
-    return <Alert type="error" message={error} showIcon/>;
-  }
-
-  if (!member) {
     return (
       <div>
-        <Alert type="warning" message="Member not found." showIcon style={{ marginBottom: 16 }}/>
+        <Alert
+          type="error"
+          message={error}
+          showIcon
+          style={{ marginBottom: 16 }}
+        />
 
         <Button onClick={() => navigate('/members')}>
           Back to Members
@@ -80,9 +157,30 @@ function MemberDetailsPage() {
     );
   }
 
-  if (!memberships) {
-    return <Alert type="warning" message="Membership not found." showIcon/>;
+  // ─────────────────────────────────────────────
+  // Member not found
+  // ─────────────────────────────────────────────
+
+  if (!member) {
+    return (
+      <div>
+        <Alert
+          type="warning"
+          message="Member not found."
+          showIcon
+          style={{ marginBottom: 16 }}
+        />
+
+        <Button onClick={() => navigate('/members')}>
+          Back to Members
+        </Button>
+      </div>
+    );
   }
+
+  // ─────────────────────────────────────────────
+  // Membership table columns
+  // ─────────────────────────────────────────────
 
   const membershipColumns = [
     {
@@ -90,7 +188,11 @@ function MemberDetailsPage() {
       dataIndex: 'membershipType',
       key: 'membershipType',
       render: (value, record) => (
-        <Button type="link" style={{ padding: 0 }} onClick={() => navigate(`/memberships/${record.id}`)}>
+        <Button
+          type="link"
+          style={{ padding: 0 }}
+          onClick={() => navigate(`/memberships/${record.id}`)}
+        >
           {formatMembershipType(value)}
         </Button>
       ),
@@ -131,12 +233,17 @@ function MemberDetailsPage() {
       key: 'paymentStatus',
       render: (paymentStatus) => {
         const formatted = formatPaymentStatus(paymentStatus);
+
         const colorMap = {
           Paid: 'green',
           'Partially Paid': 'orange',
         };
 
-        return <Tag color={colorMap[formatted] || 'default'}>{formatted}</Tag>;
+        return (
+          <Tag color={colorMap[formatted] || 'default'}>
+            {formatted}
+          </Tag>
+        );
       },
     },
     {
@@ -145,6 +252,7 @@ function MemberDetailsPage() {
       key: 'status',
       render: (status) => {
         const formatted = formatMembershipStatus(status);
+
         const colorMap = {
           Active: 'green',
           Upcoming: 'blue',
@@ -152,10 +260,18 @@ function MemberDetailsPage() {
           Inactive: 'default',
         };
 
-        return <Tag color={colorMap[formatted] || 'default'}>{formatted}</Tag>;
+        return (
+          <Tag color={colorMap[formatted] || 'default'}>
+            {formatted}
+          </Tag>
+        );
       },
     },
   ];
+
+  // ─────────────────────────────────────────────
+  // Payment table columns
+  // ─────────────────────────────────────────────
 
   const paymentColumns = [
     {
@@ -175,7 +291,11 @@ function MemberDetailsPage() {
       dataIndex: 'amount',
       key: 'amount',
       render: (value, record) => (
-        <Button type="link" style={{ padding: 0 }} onClick={() => navigate(`/payments/${record.id}`)}>
+        <Button
+          type="link"
+          style={{ padding: 0 }}
+          onClick={() => navigate(`/payments/${record.id}`)}
+        >
           {formatCurrency(value)}
         </Button>
       ),
@@ -190,174 +310,269 @@ function MemberDetailsPage() {
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Breadcrumb items={[
-            {title: 'Home',onClick: () => navigate('/dashboard'), },
-            {title: 'Members', onClick: () => navigate('/members'), },
-            {title: `Member Details #${member ? member.id : ''}`,},
+      {/* ───────────────────────────────────── */}
+      {/* Breadcrumb / Navigation */}
+      {/* ───────────────────────────────────── */}
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <Breadcrumb
+          items={[
+            {
+              title: 'Home',
+              onClick: () => navigate('/dashboard'),
+            },
+            {
+              title: 'Members',
+              onClick: () => navigate('/members'),
+            },
+            {
+              title: `Member Details #${member.id}`,
+            },
           ]}
         />
+
         <Button onClick={() => navigate('/members')}>
           ← Back to Members
         </Button>
       </div>
+
+      {/* ───────────────────────────────────── */}
+      {/* Page Title */}
+      {/* ───────────────────────────────────── */}
+
       <div style={{ marginTop: 16 }}>
         <h1 style={{ marginBottom: 4 }}>
-          {member ? member.name : 'Member Details'}
+          {member.name}
         </h1>
       </div>
 
-      {loading ? (
-        <div style={{ textAlign: 'center', padding: '48px' }}>
-          <Spin size="large" />
-        </div>
-      ) : error ? (
-        <Alert title="Unable to load member" description={error} type="error" showIcon/>
+      {/* ───────────────────────────────────── */}
+      {/* Member Information */}
+      {/* ───────────────────────────────────── */}
+
+      <Card>
+        <Descriptions bordered column={1}>
+          <Descriptions.Item label="Name">
+            {member.name}
+          </Descriptions.Item>
+
+          <Descriptions.Item label="Email">
+            {member.email}
+          </Descriptions.Item>
+
+          <Descriptions.Item label="Phone Number">
+            {member.phoneNumber}
+          </Descriptions.Item>
+
+          <Descriptions.Item label="Date of Birth">
+            {member.dateOfBirth
+              ? formatDate(member.dateOfBirth)
+              : '-'}
+          </Descriptions.Item>
+
+          <Descriptions.Item label="Gender">
+            {member.gender || '-'}
+          </Descriptions.Item>
+
+          <Descriptions.Item label="Joining Date">
+            {member.joiningDate
+              ? formatDate(member.joiningDate)
+              : '-'}
+          </Descriptions.Item>
+
+          <Descriptions.Item label="Address">
+            {member.address || '-'}
+          </Descriptions.Item>
+
+          <Descriptions.Item label="Status">
+            <Tag color={member.active ? 'green' : 'red'}>
+              {member.active ? 'Active' : 'Inactive'}
+            </Tag>
+          </Descriptions.Item>
+        </Descriptions>
+      </Card>
+
+      {/* ───────────────────────────────────── */}
+      {/* Membership Summary */}
+      {/* ───────────────────────────────────── */}
+
+      {membershipsError ? (
+        <Alert
+          type="error"
+          message="Membership summary could not be loaded because membership history failed to load."
+          showIcon
+          style={{ marginTop: 24 }}
+        />
       ) : (
-        member && (
-          <Card>
-            <Descriptions bordered column={1}>
-              <Descriptions.Item label="Name">
-                {member.name}
-              </Descriptions.Item>
+        <Row
+          gutter={[16, 16]}
+          style={{ marginTop: 24 }}
+        >
+          <Col xs={24} sm={12} md={8} lg={4}>
+            <Card>
+              <Space align="start">
+                <TeamOutlined
+                  style={{ fontSize: 24 }}
+                />
 
-              <Descriptions.Item label="Email">
-                {member.email}
-              </Descriptions.Item>
+                <div>
+                  <div>Total Memberships</div>
 
-              <Descriptions.Item label="Phone Number">
-                {member.phoneNumber}
-              </Descriptions.Item>
+                  <h2 style={{ margin: '4px 0 0' }}>
+                    {membershipSummary.total}
+                  </h2>
+                </div>
+              </Space>
+            </Card>
+          </Col>
 
-              <Descriptions.Item label="Date of Birth">
-                {member.dateOfBirth ? formatDate(member.dateOfBirth) : '-'}
-              </Descriptions.Item>
+          <Col xs={24} sm={12} md={8} lg={4}>
+            <Card>
+              <Space align="start">
+                <CheckCircleOutlined
+                  style={{
+                    fontSize: 24,
+                    color: '#52c41a',
+                  }}
+                />
 
-              <Descriptions.Item label="Gender">
-                {member.gender || '-'}
-              </Descriptions.Item>
+                <div>
+                  <div>Active Memberships</div>
 
-              <Descriptions.Item label="Joining Date">
-                {member.joiningDate ? formatDate(member.joiningDate) : '-'}
-              </Descriptions.Item>
+                  <h2 style={{ margin: '4px 0 0' }}>
+                    {membershipSummary.active}
+                  </h2>
+                </div>
+              </Space>
+            </Card>
+          </Col>
 
-              <Descriptions.Item label="Address">
-                {member.address || '-'}
-              </Descriptions.Item>
+          <Col xs={24} sm={12} md={8} lg={4}>
+            <Card>
+              <Space align="start">
+                <ClockCircleOutlined
+                  style={{
+                    fontSize: 24,
+                    color: '#1677ff',
+                  }}
+                />
 
-              <Descriptions.Item label="Status">
-                <Tag color={member.active ? 'green' : 'red'}>
-                  {member.active ? 'Active' : 'Inactive'}
-                </Tag>
-              </Descriptions.Item>
-            </Descriptions>
-          </Card>
-        )
+                <div>
+                  <div>Upcoming Memberships</div>
+
+                  <h2 style={{ margin: '4px 0 0' }}>
+                    {membershipSummary.upcoming}
+                  </h2>
+                </div>
+              </Space>
+            </Card>
+          </Col>
+
+          <Col xs={24} sm={12} md={8} lg={4}>
+            <Card>
+              <Space align="start">
+                <ExclamationCircleOutlined
+                  style={{
+                    fontSize: 24,
+                    color: '#ff4d4f',
+                  }}
+                />
+
+                <div>
+                  <div>Expired Memberships</div>
+
+                  <h2 style={{ margin: '4px 0 0' }}>
+                    {membershipSummary.expired}
+                  </h2>
+                </div>
+              </Space>
+            </Card>
+          </Col>
+
+          <Col xs={24} sm={12} md={8} lg={8}>
+            <Card>
+              <Space align="start">
+                <DollarOutlined
+                  style={{
+                    fontSize: 24,
+                    color: '#faad14',
+                  }}
+                />
+
+                <div>
+                  <div>Outstanding Amount</div>
+
+                  <h2 style={{ margin: '4px 0 0' }}>
+                    {formatCurrency(
+                      membershipSummary.outstandingAmount
+                    )}
+                  </h2>
+                </div>
+              </Space>
+            </Card>
+          </Col>
+        </Row>
       )}
 
-      <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
-        <Col xs={24} sm={12} md={8} lg={4}>
-          <Card>
-            <Space align="start">
-              <TeamOutlined style={{ fontSize: 24 }} />
-              <div>
-                <div>Total Memberships</div>
-                <h2 style={{ margin: '4px 0 0' }}>
-                  {membershipSummary.total}
-                </h2>
-              </div>
-            </Space>
-          </Card>
-        </Col>
+      {/* ───────────────────────────────────── */}
+      {/* Membership History */}
+      {/* ───────────────────────────────────── */}
 
-        <Col xs={24} sm={12} md={8} lg={4}>
-          <Card>
-            <Space align="start">
-              <CheckCircleOutlined
-                style={{ fontSize: 24, color: '#52c41a' }}
-              />
-              <div>
-                <div>Active Memberships</div>
-                <h2 style={{ margin: '4px 0 0' }}>
-                  {membershipSummary.active}
-                </h2>
-              </div>
-            </Space>
-          </Card>
-        </Col>
-
-        <Col xs={24} sm={12} md={8} lg={4}>
-          <Card>
-            <Space align="start">
-              <ClockCircleOutlined
-                style={{ fontSize: 24, color: '#1677ff' }}
-              />
-              <div>
-                <div>Upcoming Memberships</div>
-                <h2 style={{ margin: '4px 0 0' }}>
-                  {membershipSummary.upcoming}
-                </h2>
-              </div>
-            </Space>
-          </Card>
-        </Col>
-
-        <Col xs={24} sm={12} md={8} lg={4}>
-          <Card>
-            <Space align="start">
-              <ExclamationCircleOutlined
-                style={{ fontSize: 24, color: '#ff4d4f' }}
-              />
-              <div>
-                <div>Expired Memberships</div>
-                <h2 style={{ margin: '4px 0 0' }}>
-                  {membershipSummary.expired}
-                </h2>
-              </div>
-            </Space>
-          </Card>
-        </Col>
-
-        <Col xs={24} sm={12} md={8} lg={8}>
-          <Card>
-            <Space align="start">
-              <DollarOutlined
-                style={{ fontSize: 24, color: '#faad14' }}
-              />
-              <div>
-                <div>Outstanding Amount</div>
-                <h2 style={{ margin: '4px 0 0' }}>
-                  {formatCurrency(
-                    membershipSummary.outstandingAmount
-                  )}
-                </h2>
-              </div>
-            </Space>
-          </Card>
-        </Col>
-      </Row>
-
-      <Card title="Membership History" style={{ marginTop: 24 }}>
-        {memberships.length > 0 ? (
+      <Card
+        title="Membership History"
+        style={{ marginTop: 24 }}
+      >
+        {membershipsError ? (
+          <Alert
+            type="error"
+            message={membershipsError}
+            showIcon
+          />
+        ) : memberships.length > 0 ? (
           <Table
             columns={membershipColumns}
             dataSource={memberships}
             rowKey="id"
             pagination={false}
+            scroll={{ x: 900 }}
           />
         ) : (
           <Empty description="No membership history yet" />
         )}
       </Card>
 
-      <Card title="Payment History" style={{ marginTop: 24 }}>
-        {payments.length > 0 ? (
-          <Table columns={paymentColumns} dataSource={payments} rowKey="id" pagination={false}/>
+      {/* ───────────────────────────────────── */}
+      {/* Payment History */}
+      {/* ───────────────────────────────────── */}
+
+      <Card
+        title="Payment History"
+        style={{ marginTop: 24 }}
+      >
+        {paymentsError ? (
+          <Alert
+            type="error"
+            message={paymentsError}
+            showIcon
+          />
+        ) : payments.length > 0 ? (
+          <Table
+            columns={paymentColumns}
+            dataSource={payments}
+            rowKey="id"
+            pagination={false}
+            scroll={{ x: 700 }}
+          />
         ) : (
           <Empty description="No payments found" />
         )}
       </Card>
-
     </div>
   );
 }

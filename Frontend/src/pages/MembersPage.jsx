@@ -40,7 +40,7 @@ function MembersPage() {
         if (error.response?.status === 404) {
           setError(null);
         } else {
-          setError('Failed to load members details.');
+          setError('Failed to load members.');
         }
       })
       .finally(() => {

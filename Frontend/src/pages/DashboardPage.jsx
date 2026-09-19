@@ -1,7 +1,8 @@
 import { ReloadOutlined, UserAddOutlined, IdcardOutlined, DollarOutlined, } from '@ant-design/icons';
 import { Alert, Badge, Breadcrumb, Button, Card, Col, Empty, Row, Space, Spin, Table, Tag, Typography } from 'antd';
 
-import { getDashboardData } from '../api/dashboardApi';
+import { getMembers } from '../api/memberApi';
+import { getMemberships } from '../api/membershipApi';
 import { calculateTotalMembers, calculateActiveMembers, calculateActiveMemberships, calculateOutstandingAmount, getRecentMemberships, getMembershipExpiryText} from '../utils/dashboardUtils';
 import { formatCurrency } from '../utils/currencyUtils';
 import { formatMembershipStatus, formatPaymentStatus } from '../utils/membershipUtils';
@@ -39,11 +40,14 @@ function DashboardPage() {
     setError(null);
 
     try {
-      const data = await getDashboardData();
+      const [membersResponse, membershipsResponse] = await Promise.all([
+        getMembers(),
+        getMemberships(),
+      ]);
 
-      setMembers(data.members || []);
-      setMemberships(data.memberships || []);
-    } catch (err) {
+      setMembers(membersResponse.data || []);
+      setMemberships(membershipsResponse.data || []);
+    } catch {
       setError('Failed to load dashboard data.');
     } finally {
       setLoading(false);

@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Card, DatePicker, Form, Input, InputNumber, message, Modal, Select, Spin, Typography, } from 'antd';
+import { Breadcrumb, Button, Card, DatePicker, Form, InputNumber, message, Modal, Select, Spin, Typography, } from 'antd';
 
 import dayjs from 'dayjs';
 
@@ -10,6 +10,7 @@ import { getMembers } from '../api/memberApi';
 import { getMembershipPricings } from '../api/membershipPricingApi';
 import { MEMBERSHIP_TYPE_OPTIONS } from '../utils/membershipUtils';
 import { useAuth } from '../context/AuthContext';
+import { useBeforeUnload } from '../hooks/useBeforeUnload';
 
 const MIN_MEMBERSHIP_AMOUNT = 500;
 const MAX_START_DATE_DAYS_AHEAD = 30;
@@ -237,22 +238,7 @@ function CreateMembershipPage() {
     navigate('/memberships');
   };
 
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      if (!formTouched || submitting) {
-        return;
-      }
-
-      event.preventDefault();
-      event.returnValue = '';
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [formTouched, submitting]);
+  useBeforeUnload(formTouched && !submitting);
 
   const confirmSelectedMember = activeMembers.find((member) => member.id === pendingValues?.memberId);
 

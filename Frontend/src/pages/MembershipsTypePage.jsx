@@ -37,7 +37,7 @@ function MembershipsTypePage() {
         setPricings(response.data);
       })
       .catch(() => {
-        setError('Failed to load membership types.');
+        setError('Failed to load membership pricing.');
       })
       .finally(() => {
         setLoading(false);

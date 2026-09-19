@@ -1,8 +1,9 @@
 import { Breadcrumb, Button, Card, DatePicker, Form, Input, message, Modal, Select, Spin, Typography, } from 'antd';
 import dayjs from 'dayjs';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createMember } from '../api/memberApi';
+import { useBeforeUnload } from '../hooks/useBeforeUnload';
 
 function CreateMemberPage() {
   const [form] = Form.useForm();
@@ -71,22 +72,7 @@ function CreateMemberPage() {
     navigate('/members');
   };
 
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-        if (!formTouched || submitting) {
-        return;
-        }
-
-        event.preventDefault();
-        event.returnValue = '';
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-        window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [formTouched, submitting]);
+  useBeforeUnload(formTouched && !submitting);
 
   return (
     <div>

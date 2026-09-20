@@ -1,14 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --fm-bg: #101218;
+  --fm-surface: #15171e;
+  --fm-card: #1B1E27;
+  --fm-border: #262933;
+  --fm-text-primary: #F5F5F7;
+  --fm-text-secondary: #8B8D98;
+  --fm-text-muted: #6B6E79;
+  --fm-accent: #FF6A3D;
+  --fm-accent-2: #FF8A4C;
+  --fm-success: #2ECC71;
+  --fm-danger: #FF6B6B;
+  --fm-warning: #F5B94C;
+  --fm-info: #22D3EE;
+  --fm-violet: #A78BFA;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--fm-bg);
+  color: var(--fm-text-primary);
 }
 
 .app-layout {
   min-height: 100vh;
+  background: var(--fm-bg);
 }
 
 .app-header {
@@ -16,7 +38,9 @@ body {
   display: flex;
   align-items: center;
   padding: 0 24px;
-  border-bottom: 1px solid #ddd;
+  background: var(--fm-surface);
+  border-bottom: 1px solid var(--fm-border);
+  color: var(--fm-text-primary);
 }
 
 .app-body {
@@ -27,7 +51,9 @@ body {
 .sidebar {
   width: 220px;
   padding: 24px;
-  border-right: 1px solid #ddd;
+  background: var(--fm-surface);
+  border-right: 1px solid var(--fm-border);
+  color: var(--fm-text-secondary);
 }
 
 .sidebar nav {
@@ -38,13 +64,83 @@ body {
 
 .sidebar a {
   text-decoration: none;
+  color: var(--fm-text-secondary);
+}
+
+.sidebar a:hover {
+  color: var(--fm-text-primary);
 }
 
 .page-content {
   flex: 1;
   padding: 24px;
+  background: var(--fm-bg);
+  color: var(--fm-text-primary);
 }
 
+.fm-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--fm-card);
+  border: 1px solid var(--fm-border);
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.fm-table thead th {
+  text-align: left;
+  padding: 14px 18px;
+  background: var(--fm-surface);
+  color: var(--fm-text-secondary);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--fm-border);
+}
+
+.fm-table tbody td {
+  padding: 14px 18px;
+  color: var(--fm-text-primary);
+  border-bottom: 1px solid var(--fm-border);
+}
+
+.fm-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.fm-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* status pills */
+.fm-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fm-status-active {
+  background: rgba(46, 204, 113, 0.12);
+  color: var(--fm-success);
+}
+
+.fm-status-absent {
+  background: rgba(255, 107, 107, 0.12);
+  color: var(--fm-danger);
+}
+
+/* your existing expiring-row class, re-themed */
 .membership-expiring-row {
-  background-color: #fff7e6;
+  background-color: rgba(245, 185, 76, 0.08);
+}
+
+.membership-expiring-row td {
+  color: var(--fm-warning);
 }

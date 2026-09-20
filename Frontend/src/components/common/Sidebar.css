@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.fm-sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: var(--fm-surface, #15171e);
+  color: var(--fm-text-primary, #EDEDF0);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 18px;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  border-right: 1px solid var(--fm-border, #24262f);
+}
+
+.fm-sidebar-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 32px 8px;
+  color: var(--fm-text-primary, #F5F5F7);
+}
+
+.fm-sidebar-mark-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FF8A4C, #FF5A36);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.fm-sidebar-mark-badge svg {
+  width: 17px;
+  height: 17px;
+}
+
+.fm-sidebar-mark-accent {
+  color: var(--fm-accent, #FF6A3D);
+}
+
+.fm-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fm-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  color: var(--fm-text-secondary, #8B8D98);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.fm-sidebar-icon {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.fm-sidebar-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.fm-sidebar-link:hover {
+  background: #1D1F28;
+  color: var(--fm-text-primary, #EDEDF0);
+}
+
+.fm-sidebar-link.active {
+  background: linear-gradient(135deg, #FF8A4C, #FF5A36);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(255, 90, 54, 0.25);
+}
+
+.fm-sidebar-spacer {
+  flex: 1;
+}
+
+.fm-sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--fm-text-secondary, #8B8D98);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.fm-sidebar-logout:hover {
+  background: #1D1F28;
+  color: var(--fm-accent, #FF6A3D);
+}
+
+.fm-sidebar-logout svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}

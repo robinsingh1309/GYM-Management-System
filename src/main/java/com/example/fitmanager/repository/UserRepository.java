@@ -12,7 +12,8 @@ import com.example.fitmanager.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByEmail(String userEmail);
-    
+
     boolean existsByEmail(String userEmail);
-    
+
+    Optional<User> findByProviderAndProviderSubject(String provider, String providerSubject);
 }

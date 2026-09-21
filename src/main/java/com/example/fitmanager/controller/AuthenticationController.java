@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.fitmanager.dto.AuthenticationRequest;
 import com.example.fitmanager.dto.AuthenticationResponse;
+import com.example.fitmanager.dto.OAuth2ExchangeRequest;
 import com.example.fitmanager.dto.TokenResponse;
 import com.example.fitmanager.security.JwtService;
 import com.example.fitmanager.service.AuthenticationService;
@@ -67,5 +68,13 @@ public class AuthenticationController {
 
         final TokenResponse loginResponse = jwtService.generateToken(authentication);
         return ResponseEntity.status(HttpStatus.OK).body(loginResponse);
+    }
+
+    @PostMapping("/oauth2/exchange")
+    public ResponseEntity<TokenResponse> exchangeOAuth2Code( //
+            @Valid @RequestBody final OAuth2ExchangeRequest request) {
+
+        final TokenResponse response = authenticationService.exchangeOAuth2Code(request.getCode());
+        return ResponseEntity.ok(response);
     }
 }

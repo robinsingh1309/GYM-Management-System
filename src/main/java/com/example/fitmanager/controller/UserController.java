@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.fitmanager.constant.AuthProviderConstants;
 import com.example.fitmanager.dto.UserCreateRequest;
 import com.example.fitmanager.dto.UserResponse;
 import com.example.fitmanager.service.UserService;
@@ -41,6 +42,9 @@ public class UserController {
     @PostMapping
     public ResponseEntity<UserResponse> createUser( //
             @Valid @RequestBody final UserCreateRequest request) {
+
+        request.setProvider(AuthProviderConstants.LOCAL_PROVIDER);
+        request.setProviderSubject(null);
 
         final UserResponse response = userService.createUser(request);
 

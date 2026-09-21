@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import LoginPage from '../pages/LoginPage';
+import OAuthCallbackPage from '../pages/OAuthCallbackPage';
 import CreateMembershipTypePage from '../pages/CreateMembershipTypePage';
 import DashboardPage from '../pages/DashboardPage';
 import MembersPage from '../pages/MembersPage';
@@ -22,7 +23,15 @@ function AppRoutes() {
     <BrowserRouter>
       <Routes>
 
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/login"
+          element={<LoginPage />}
+        />
+
+        <Route
+          path="/oauth2/callback"
+          element={<OAuthCallbackPage />}
+        />
 
         <Route element={<ProtectedRoute />}>
 

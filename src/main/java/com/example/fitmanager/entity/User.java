@@ -5,10 +5,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = { //
+        @UniqueConstraint( //
+                name = "uk_users_provider_subject", //
+                columnNames = { "provider", "provider_subject" }) //
+})
 public class User extends BaseEntity {
 
     // Fields
@@ -16,8 +21,14 @@ public class User extends BaseEntity {
     @Column(name = "email", nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "provider", nullable = false, length = 20)
+    private String provider;
+
+    @Column(name = "provider_subject")
+    private String providerSubject;
 
     @Column(name = "role", nullable = false, length = 20)
     @Enumerated(EnumType.STRING)
@@ -34,13 +45,18 @@ public class User extends BaseEntity {
         //
     }
 
-    public User(final String email, final String password, final Role role) {
+    public User(final String email, final String password, //
+            final String provider, final String providerSubject, //
+            final Role role) {
 
         this.email = email;
-
         this.password = password;
 
+        this.provider = provider;
+        this.providerSubject = providerSubject;
+
         this.role = role;
+
         this.active = true;
     }
 
@@ -62,6 +78,22 @@ public class User extends BaseEntity {
 
     public void setPassword(final String password) {
         this.password = password;
+    }
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(final String provider) {
+        this.provider = provider;
+    }
+
+    public String getProviderSubject() {
+        return providerSubject;
+    }
+
+    public void setProviderSubject(final String providerSubject) {
+        this.providerSubject = providerSubject;
     }
 
     public Role getRole() {

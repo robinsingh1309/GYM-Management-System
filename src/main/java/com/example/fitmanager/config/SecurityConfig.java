@@ -35,6 +35,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.example.fitmanager.exception.ErrorResponse;
 import com.example.fitmanager.security.AppUserDetailsService;
+import com.example.fitmanager.security.CookieOAuth2AuthorizationRequestRepository;
+import com.example.fitmanager.security.OIDCUserService;
+import com.example.fitmanager.security.OAuth2AuthenticationFailureHandler;
+import com.example.fitmanager.security.OAuth2AuthenticationSuccessHandler;
 import com.example.fitmanager.security.RoleUtil;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -109,6 +113,10 @@ public class SecurityConfig {
             final HttpSecurity httpSecurity, //
             final DaoAuthenticationProvider provider, //
             final JwtAuthenticationConverter authenticationConverter, //
+            final OIDCUserService oidcUserService, //
+            final CookieOAuth2AuthorizationRequestRepository authorizationRequestRepository, //
+            final OAuth2AuthenticationSuccessHandler authenticationSuccessHandler, //
+            final OAuth2AuthenticationFailureHandler authenticationFailureHandler, //
             final AccessDeniedHandler accessDeniedHandler) {
 
         httpSecurity.csrf(csrf -> csrf.disable()) //
@@ -119,6 +127,10 @@ public class SecurityConfig {
                         auth -> auth.requestMatchers( //
                                 "/api/v1/auth/register", //
                                 "/api/v1/auth/login", //
+                                "/api/v1/auth/oauth2/exchange", //
+                                "/", //
+                                "/oauth2/**", //
+                                "/login/oauth2/**", //
                                 "/api/v1/health" //
                         ).permitAll() //
                                 .requestMatchers(HttpMethod.POST, "/api/v1/users").hasRole(RoleUtil.ADMIN) //
@@ -141,7 +153,15 @@ public class SecurityConfig {
                 ) //
                 .sessionManagement( //
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS) //
-                ).oauth2ResourceServer( //
+                ).oauth2Login(oauth2 -> oauth2 //
+                        .authorizationEndpoint(endpoint -> endpoint //
+                                .authorizationRequestRepository(authorizationRequestRepository) //
+                        ) //
+                        .userInfoEndpoint(userInfo -> userInfo.oidcUserService(oidcUserService)) //
+                        .successHandler(authenticationSuccessHandler) //
+                        .failureHandler(authenticationFailureHandler) //
+                ) //
+                .oauth2ResourceServer( //
                         oauth2 -> oauth2.jwt( //
                                 jwt -> jwt.jwtAuthenticationConverter(authenticationConverter)//
                         ) //

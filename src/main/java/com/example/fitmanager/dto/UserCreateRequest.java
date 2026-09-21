@@ -18,10 +18,11 @@ public class UserCreateRequest {
             message = "Email must not exceed 100 characters")
     private String email;
 
-    @NotBlank(message = "Password is required")
-    @Size(min = 6, max = 100, //
-            message = "Password must be between 6 and 100 characters")
     private String password;
+
+    private String provider;
+
+    private String providerSubject;
 
     @NotNull(message = "Role is required")
     private Role role;
@@ -52,6 +53,22 @@ public class UserCreateRequest {
 
     public void setPassword(final String password) {
         this.password = password;
+    }
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(final String provider) {
+        this.provider = provider;
+    }
+
+    public String getProviderSubject() {
+        return providerSubject;
+    }
+
+    public void setProviderSubject(final String providerSubject) {
+        this.providerSubject = providerSubject;
     }
 
     public Role getRole() {

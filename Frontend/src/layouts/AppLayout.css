@@ -1,3 +1,27 @@
+/*
+ * AppLayout.css
+ * -----------------------------------------------------------------------------
+ * Global styles for authenticated app pages rendered inside AppLayout.
+ * This file normalizes Ant Design components to match the FitManager dark theme.
+ *
+ * Sections below define:
+ * 1. Theme tokens: shared colors used by layout and component overrides.
+ * 2. Layout shell: base app/page structure around Sidebar + Outlet content.
+ * 3. Breadcrumbs & typography: visible muted/orange text for page headings/nav.
+ * 4. Action buttons: shared Refresh, secondary, activate, and deactivate styles.
+ * 5. Empty states: muted text for no-results/no-data messages.
+ * 6. Tags/status pills: semantic dark-theme colors for Ant Tag statuses.
+ * 7. Tables & pagination: dark table surfaces, hover states, borders, pagination.
+ * 8. Cards & descriptions: dark elevated cards and detail/description tables.
+ * 9. Forms & inputs: visible labels, dark inputs, select/date/dropdown styling.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* 1. Theme tokens                                                            */
+/* Defines the core FitManager color palette used across authenticated pages. */
+/* Keeps backgrounds, borders, text, accents, and status colors consistent.   */
+/* -------------------------------------------------------------------------- */
+/* Stores shared color tokens for the dark theme and status colors. */
 :root {
   --fm-bg: #101218;
   --fm-surface: #15171e;
@@ -5,6 +29,7 @@
   --fm-border: #262933;
   --fm-text-primary: #F5F5F7;
   --fm-text-secondary: #8B8D98;
+  --fm-text-muted: #6B6E79;
   --fm-accent: #FF6A3D;
   --fm-accent-2: #FF8A4C;
   --fm-success: #2ECC71;
@@ -13,6 +38,12 @@
   --fm-violet: #A78BFA;
 }
 
+/* -------------------------------------------------------------------------- */
+/* 2. Layout shell                                                            */
+/* Styles the main authenticated frame that wraps the sidebar and page area.  */
+/* Sets full-height layout, flex behavior, page spacing, and base text color. */
+/* -------------------------------------------------------------------------- */
+/* Creates the full-height application wrapper around the authenticated UI. */
 .app-layout {
   min-height: 100vh;
   display: flex;
@@ -20,15 +51,744 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* Keeps the sidebar and main content arranged in a flexible horizontal row. */
 .app-body {
   flex: 1;
   display: flex;
   min-width: 0;
 }
 
+/* Defines spacing, sizing, and default text color for routed page content. */
 .page-content {
   flex: 1;
   padding: 32px;
   min-width: 0;
   color: var(--fm-text-primary);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. Breadcrumbs & typography                                                */
+/* Overrides Ant breadcrumb and Typography colors for dark-theme readability. */
+/* Uses orange for breadcrumbs and muted grey for page text/headings.         */
+/* -------------------------------------------------------------------------- */
+/* Colors every breadcrumb item and separator with the brand accent for visibility. */
+.page-content .ant-breadcrumb,
+.page-content .ant-breadcrumb a,
+.page-content .ant-breadcrumb li,
+.page-content .ant-breadcrumb-link,
+.page-content .ant-breadcrumb-link span,
+.page-content .ant-breadcrumb-separator,
+.page-content .ant-breadcrumb li:last-child,
+.page-content .ant-breadcrumb li:last-child .ant-breadcrumb-link {
+  color: #FF8A4C !important;
+  font-weight: bolder;
+}
+
+/* Uses the primary accent color when hovering clickable breadcrumb links. */
+.page-content .ant-breadcrumb a:hover {
+  color: var(--fm-accent);
+}
+
+/* Mutes Ant Typography titles/text so headings blend with the dark theme. */
+.page-content .ant-typography,
+.page-content h1.ant-typography,
+.page-content h2.ant-typography,
+.page-content h3.ant-typography,
+.page-content h4.ant-typography,
+.page-content h5.ant-typography,
+.page-content span.ant-typography {
+  color: #8B8D98 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. Action buttons                                                          */
+/* Defines shared button variants used across list/filter and table actions.  */
+/* Refresh gets brand emphasis; state actions use semantic success/danger.    */
+/* -------------------------------------------------------------------------- */
+/* Gives Refresh buttons the orange brand gradient and subtle elevation. */
+.page-content .fm-refresh-button {
+  background: linear-gradient(135deg, #FF8A4C, #FF5A36) !important;
+  border: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 16px rgba(255, 90, 54, 0.25);
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Forces Refresh button text and icon to remain readable on the gradient. */
+.page-content .fm-refresh-button .ant-btn-icon,
+.page-content .fm-refresh-button span {
+  color: #ffffff !important;
+}
+
+/* Switches Refresh buttons to the sidebar-hover dark surface on interaction. */
+.page-content .fm-refresh-button:hover,
+.page-content .fm-refresh-button:focus {
+  background: #1D1F28 !important;
+  color: var(--fm-text-primary, #EDEDF0) !important;
+  box-shadow: none;
+}
+
+/* Keeps Refresh icon/text light when the button is hovered or focused. */
+.page-content .fm-refresh-button:hover .ant-btn-icon,
+.page-content .fm-refresh-button:hover span,
+.page-content .fm-refresh-button:focus .ant-btn-icon,
+.page-content .fm-refresh-button:focus span {
+  color: var(--fm-text-primary, #EDEDF0) !important;
+}
+
+/* Styles utility buttons like Clear Filters with a neutral secondary surface. */
+.page-content .fm-secondary-button {
+  background: #d9dadd !important;
+  border-color: var(--fm-border, #24262f) !important;
+  color: var(--fm-text-secondary, #8B8D98) !important;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Sets the default text color inside secondary utility buttons. */
+.page-content .fm-secondary-button span {
+  color: var(--fm-text-secondary, #060e41) !important;
+}
+
+/* Makes enabled secondary buttons use light text for better contrast. */
+.page-content .fm-secondary-button:not(:disabled):not(.ant-btn-disabled),
+.page-content .fm-secondary-button:not(:disabled):not(.ant-btn-disabled) span {
+  color: #ffffff !important;
+}
+
+/* Applies the sidebar-style dark hover state to secondary buttons. */
+.page-content .fm-secondary-button:hover,
+.page-content .fm-secondary-button:focus {
+  background: #1D1F28 !important;
+  border-color: #1D1F28 !important;
+  color: var(--fm-text-primary, #EDEDF0) !important;
+}
+
+/* Keeps secondary button text light during hover and focus states. */
+.page-content .fm-secondary-button:hover span,
+.page-content .fm-secondary-button:focus span {
+  color: var(--fm-text-primary, #EDEDF0) !important;
+}
+
+/* Dims disabled secondary buttons and prevents pointer interaction. */
+.page-content .fm-secondary-button:disabled,
+.page-content .fm-secondary-button.ant-btn-disabled {
+  background: #d9dadd !important;
+  border-color: var(--fm-border, #24262f) !important;
+  color: var(--fm-text-muted, #6B6E79) !important;
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Mutes text inside disabled secondary buttons. */
+.page-content .fm-secondary-button:disabled span,
+.page-content .fm-secondary-button.ant-btn-disabled span {
+  color: var(--fm-text-muted, #6B6E79) !important;
+}
+
+/* Styles Activate actions as subtle success buttons that fill on hover. */
+.page-content .fm-activate-button {
+  background: rgba(46, 204, 113, 0.12) !important;
+  border-color: rgba(46, 204, 113, 0.35) !important;
+  color: var(--fm-success, #2ECC71) !important;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Keeps Activate button text and loading/icon color aligned with success. */
+.page-content .fm-activate-button span,
+.page-content .fm-activate-button .ant-btn-icon {
+  color: var(--fm-success, #2ECC71) !important;
+}
+
+/* Turns Activate into a filled green button when hovered or focused. */
+.page-content .fm-activate-button:hover,
+.page-content .fm-activate-button:focus {
+  background: var(--fm-success, #2ECC71) !important;
+  border-color: var(--fm-success, #2ECC71) !important;
+  color: #ffffff !important;
+}
+
+/* Keeps Activate text/icon readable on the filled hover state. */
+.page-content .fm-activate-button:hover span,
+.page-content .fm-activate-button:hover .ant-btn-icon,
+.page-content .fm-activate-button:focus span,
+.page-content .fm-activate-button:focus .ant-btn-icon {
+  color: #ffffff !important;
+}
+
+/* Styles Deactivate actions as subtle danger buttons that fill on hover. */
+.page-content .fm-deactivate-button {
+  background: rgba(255, 107, 107, 0.12) !important;
+  border-color: rgba(255, 107, 107, 0.35) !important;
+  color: var(--fm-danger, #FF6B6B) !important;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Keeps Deactivate button text and loading/icon color aligned with danger. */
+.page-content .fm-deactivate-button span,
+.page-content .fm-deactivate-button .ant-btn-icon {
+  color: var(--fm-danger, #FF6B6B) !important;
+}
+
+/* Turns Deactivate into a filled red button when hovered or focused. */
+.page-content .fm-deactivate-button:hover,
+.page-content .fm-deactivate-button:focus {
+  background: var(--fm-danger, #FF6B6B) !important;
+  border-color: var(--fm-danger, #FF6B6B) !important;
+  color: #ffffff !important;
+}
+
+/* Keeps Deactivate text/icon readable on the filled hover state. */
+.page-content .fm-deactivate-button:hover span,
+.page-content .fm-deactivate-button:hover .ant-btn-icon,
+.page-content .fm-deactivate-button:focus span,
+.page-content .fm-deactivate-button:focus .ant-btn-icon {
+  color: #ffffff !important;
+}
+
+/* Dims Activate/Deactivate buttons while disabled or loading. */
+.page-content .fm-activate-button:disabled,
+.page-content .fm-activate-button.ant-btn-disabled,
+.page-content .fm-deactivate-button:disabled,
+.page-content .fm-deactivate-button.ant-btn-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. Empty states                                                            */
+/* Styles Ant empty-state descriptions shown when tables/dropdowns have none. */
+/* Keeps no-results/no-data messages readable with muted grey text.           */
+/* -------------------------------------------------------------------------- */
+/* Applies muted text to Empty descriptions in pages and dropdown overlays. */
+.page-content .ant-empty-description,
+.ant-empty-description,
+.ant-select-dropdown .ant-empty-description {
+  color: #8B8D98 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 6. Tags/status pills                                                       */
+/* Styles Ant Tag components as rounded status pills for dark-theme pages.    */
+/* Maps Ant tag colors to FitManager semantic status colors.                  */
+/* -------------------------------------------------------------------------- */
+/* Gives all tags a consistent pill shape, spacing, and neutral default style. */
+.page-content .ant-tag {
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 2px 10px;
+  background: rgba(139, 141, 152, 0.12) !important;
+  border-color: rgba(139, 141, 152, 0.28) !important;
+  color: #8B8D98 !important;
+}
+
+/* Uses green status pills for active, paid, successful, or completed states. */
+.page-content .ant-tag-green,
+.page-content .ant-tag-success {
+  background: rgba(46, 204, 113, 0.12) !important;
+  border-color: rgba(46, 204, 113, 0.35) !important;
+  color: var(--fm-success, #2ECC71) !important;
+}
+
+/* Uses red status pills for inactive, expired, failed, or danger states. */
+.page-content .ant-tag-red,
+.page-content .ant-tag-error {
+  background: rgba(255, 107, 107, 0.12) !important;
+  border-color: rgba(255, 107, 107, 0.35) !important;
+  color: var(--fm-danger, #FF6B6B) !important;
+}
+
+/* Uses yellow status pills for pending, partial, warning, or expiring states. */
+.page-content .ant-tag-orange,
+.page-content .ant-tag-gold,
+.page-content .ant-tag-warning {
+  background: rgba(245, 185, 76, 0.12) !important;
+  border-color: rgba(245, 185, 76, 0.35) !important;
+  color: #F5B94C !important;
+}
+
+/* Uses cyan status pills for informational states such as mode/type labels. */
+.page-content .ant-tag-blue,
+.page-content .ant-tag-cyan,
+.page-content .ant-tag-processing {
+  background: rgba(34, 211, 238, 0.12) !important;
+  border-color: rgba(34, 211, 238, 0.35) !important;
+  color: var(--fm-info, #22D3EE) !important;
+}
+
+/* Uses violet status pills for custom secondary categories when Ant purple is used. */
+.page-content .ant-tag-purple,
+.page-content .ant-tag-magenta {
+  background: rgba(167, 139, 250, 0.12) !important;
+  border-color: rgba(167, 139, 250, 0.35) !important;
+  color: var(--fm-violet, #A78BFA) !important;
+}
+
+/* Keeps Ant Badge status text readable where badges are used inside tables. */
+.page-content .ant-badge-status-text {
+  color: #8B8D98 !important;
+}
+
+/* Colors error badge text red for expired/failed status indicators. */
+.page-content .ant-badge-status-error + .ant-badge-status-text {
+  color: var(--fm-danger, #FF6B6B) !important;
+}
+
+/* Colors warning badge text yellow for expiring/pending status indicators. */
+.page-content .ant-badge-status-warning + .ant-badge-status-text {
+  color: #F5B94C !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 7. Tables & pagination                                                     */
+/* Applies dark surfaces, muted headers, borders, and hover states to tables. */
+/* Also themes sorting, empty rows, and pagination controls consistently.     */
+/* -------------------------------------------------------------------------- */
+/* Sets the base table surface and body text color. */
+.page-content .ant-table-wrapper .ant-table {
+  background: #15171e !important;
+  color: #EDEDF0 !important;
+}
+
+/* Adds table border, rounded corners, and clips inner table overflow. */
+.page-content .ant-table-wrapper .ant-table-container {
+  background: #15171e !important;
+  border: 1px solid var(--fm-border, #24262f);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Styles table headers with muted text and a slightly raised dark background. */
+.page-content .ant-table-wrapper .ant-table-thead > tr > th {
+  background: #1B1E27 !important;
+  color: #8B8D98 !important;
+  border-bottom: 1px solid var(--fm-border, #24262f) !important;
+  font-weight: 600;
+}
+
+/* Recolors Ant Design's header divider line to match the theme border. */
+.page-content .ant-table-wrapper .ant-table-thead > tr > th::before {
+  background: var(--fm-border, #24262f) !important;
+}
+
+/* Styles table cells with dark rows, light text, and subtle separators. */
+.page-content .ant-table-wrapper .ant-table-tbody > tr > td {
+  background: #15171e !important;
+  color: #EDEDF0 !important;
+  border-bottom: 1px solid var(--fm-border, #24262f) !important;
+}
+
+/* Uses the sidebar-hover surface when a table row is hovered. */
+.page-content .ant-table-wrapper .ant-table-tbody > tr:hover > td,
+.page-content .ant-table-wrapper .ant-table-tbody > tr.ant-table-row:hover > td,
+.page-content .ant-table-wrapper .ant-table-cell-row-hover {
+  background: #1D1F28 !important;
+}
+
+/* Removes the final row divider to keep rounded table bottoms clean. */
+.page-content .ant-table-wrapper .ant-table-tbody > tr:last-child > td {
+  border-bottom: none !important;
+}
+
+/* Keeps sorted table headers aligned with the dark header surface. */
+.page-content .ant-table-wrapper .ant-table-column-sort {
+  background: #1B1E27 !important;
+}
+
+/* Gives sorted body cells a subtle alternate dark shade. */
+.page-content .ant-table-wrapper .ant-table-tbody > tr > td.ant-table-column-sort {
+  background: #171922 !important;
+}
+
+/* Styles empty table placeholders with dark background and muted text. */
+.page-content .ant-table-wrapper .ant-table-placeholder .ant-table-cell {
+  background: #15171e !important;
+  color: #8B8D98 !important;
+}
+
+/* Mutes pagination totals and pagination wrapper text. */
+.page-content .ant-table-wrapper .ant-table-pagination,
+.page-content .ant-table-wrapper .ant-pagination-total-text {
+  color: #8B8D98 !important;
+}
+
+/* Darkens individual pagination page buttons and borders. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-item {
+  background: #15171e !important;
+  border-color: var(--fm-border, #24262f) !important;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Sets muted text for non-active pagination page numbers. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-item a {
+  color: #8B8D98 !important;
+}
+
+/* Uses the sidebar-hover surface when hovering non-active pagination pages. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-item:not(.ant-pagination-item-active):hover {
+  background: #1D1F28 !important;
+  border-color: #343744 !important;
+}
+
+/* Makes hovered non-active page numbers brighter for better feedback. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-item:not(.ant-pagination-item-active):hover a {
+  color: #EDEDF0 !important;
+}
+
+/* Highlights the active pagination page with the orange brand gradient. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-item-active {
+  background: linear-gradient(135deg, #FF8A4C, #FF5A36) !important;
+  border-color: transparent !important;
+}
+
+/* Keeps the active pagination page number readable on the gradient. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-item-active a {
+  color: #ffffff !important;
+}
+
+/* Styles previous/next pagination controls with dark backgrounds. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-prev button,
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-next button {
+  background: #15171e !important;
+  border-color: var(--fm-border, #24262f) !important;
+  color: #8B8D98 !important;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Applies dark hover feedback to previous/next pagination controls. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-prev:not(.ant-pagination-disabled):hover button,
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-next:not(.ant-pagination-disabled):hover button {
+  background: #1D1F28 !important;
+  border-color: #343744 !important;
+  color: #EDEDF0 !important;
+}
+
+/* Dims disabled pagination controls. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-disabled button {
+  background: #15171e !important;
+  border-color: var(--fm-border, #24262f) !important;
+  color: var(--fm-text-muted, #6B6E79) !important;
+  opacity: 0.45;
+}
+
+/* Keeps pagination size changer aligned with the dark input/select theme. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-options .ant-select-selector {
+  background: #15171e !important;
+  border-color: var(--fm-border, #24262f) !important;
+  color: #8B8D98 !important;
+}
+
+/* Makes size changer text and arrow readable on dark pagination controls. */
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-options .ant-select-selection-item,
+.page-content .ant-table-wrapper .ant-pagination .ant-pagination-options .ant-select-arrow {
+  color: #8B8D98 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 8. Cards & descriptions                                                    */
+/* Styles Ant cards used for forms, dashboard blocks, and detail sections.    */
+/* Also themes Descriptions labels/content for member/payment detail pages.   */
+/* -------------------------------------------------------------------------- */
+/* Gives cards a dark surface, border, subtle shadow, and hover transition. */
+.page-content .ant-card {
+  background: #15171e !important;
+  border-color: var(--fm-border, #24262f) !important;
+  color: #8B8D98 !important;
+  box-shadow: 0 16px 36px -28px rgba(0, 0, 0, 0.75);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Slightly brightens card borders when users hover over cards. */
+.page-content .ant-card:hover {
+  border-color: #343744 !important;
+}
+
+/* Styles card headers with a raised dark background and bottom divider. */
+.page-content .ant-card-head {
+  background: #1B1E27 !important;
+  border-bottom: 1px solid var(--fm-border, #24262f) !important;
+  color: #EDEDF0 !important;
+}
+
+/* Makes card titles light and semibold for section clarity. */
+.page-content .ant-card-head-title,
+.page-content .ant-card-small > .ant-card-head > .ant-card-head-wrapper > .ant-card-head-title {
+  color: #EDEDF0 !important;
+  font-weight: 600;
+}
+
+/* Applies muted text and dark background to card content areas. */
+.page-content .ant-card-body {
+  background: #15171e !important;
+  color: #8B8D98 !important;
+}
+
+/* Lets nested card content inherit the card body text color. */
+.page-content .ant-card-body p,
+.page-content .ant-card-body span,
+.page-content .ant-card-body div {
+  color: inherit;
+}
+
+/* Mutes description labels and section titles in detail views. */
+.page-content .ant-descriptions,
+.page-content .ant-descriptions-title,
+.page-content .ant-descriptions-item-label {
+  color: #8B8D98 !important;
+}
+
+/* Keeps description values brighter than labels for readability. */
+.page-content .ant-descriptions-item-content {
+  color: #EDEDF0 !important;
+}
+
+/* Recolors description table borders to match the app border token. */
+.page-content .ant-descriptions .ant-descriptions-view,
+.page-content .ant-descriptions .ant-descriptions-row,
+.page-content .ant-descriptions .ant-descriptions-item-label,
+/* Gives description content cells the main card surface. */
+.page-content .ant-descriptions .ant-descriptions-item-content {
+  border-color: var(--fm-border, #24262f) !important;
+}
+
+/* Gives description label cells the raised card-header surface. */
+.page-content .ant-descriptions .ant-descriptions-item-label {
+  background: #1B1E27 !important;
+}
+
+.page-content .ant-descriptions .ant-descriptions-item-content {
+  background: #15171e !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 9. Forms & inputs                                                          */
+/* Makes form labels, validation text, placeholders, and disabled fields clear.*/
+/* Themes inputs, selects, date pickers, dropdown menus, and focus states.    */
+/* -------------------------------------------------------------------------- */
+/* Makes form field labels clearly visible above dark inputs. */
+.page-content .ant-form-item-label > label {
+  color: #D1D5DB !important;
+  font-weight: 600;
+}
+
+/* Colors required-field asterisks with the brand accent. */
+.page-content .ant-form-item-required::before {
+  color: var(--fm-accent, #FF6A3D) !important;
+}
+
+/* Mutes helper, validation, and tooltip text around form fields. */
+.page-content .ant-form-item-extra,
+.page-content .ant-form-item-explain,
+.page-content .ant-form-item-tooltip {
+  color: #f59595 !important;
+}
+
+/* Applies a subdued dark surface to text, search, number, date, and select fields. */
+.page-content .ant-input,
+.page-content .ant-input-affix-wrapper,
+.page-content .ant-input-number,
+.page-content .ant-picker,
+.page-content .ant-select-selector {
+  background: #15171e !important;
+  border-color: var(--fm-border, #24262f) !important;
+  color: #EDEDF0 !important;
+  border-radius: 10px !important;
+}
+
+/* Keeps inputs inside Ant wrappers transparent so white nested fields do not appear. */
+.page-content .ant-input-affix-wrapper input.ant-input,
+.page-content .ant-input-number-input,
+.page-content textarea.ant-input {
+  background: transparent !important;
+  color: #EDEDF0 !important;
+}
+
+/* Uses a slightly raised surface on hover without making fields visually dominant. */
+.page-content .ant-input:hover,
+.page-content .ant-input-affix-wrapper:hover,
+.page-content .ant-input-number:hover,
+.page-content .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  background: #1B1E27 !important;
+  border-color: #343744 !important;
+}
+
+/* Gives date pickers a greyer default surface to separate them from text inputs. */
+.page-content .ant-picker {
+  background: #1B1E27 !important;
+  border-color: #343744 !important;
+  color: #D1D5DB !important;
+}
+
+/* Slightly brightens date pickers on hover while keeping them neutral. */
+.page-content .ant-picker:hover {
+  background: #20232D !important;
+  border-color: #4B5563 !important;
+}
+
+/* Adds the orange focus border and soft glow only when a field is active. */
+.page-content .ant-input:focus,
+.page-content .ant-input-focused,
+.page-content .ant-input-affix-wrapper-focused,
+.page-content .ant-input-number-focused,
+.page-content .ant-picker-focused,
+.page-content .ant-select-focused .ant-select-selector {
+  background: #1B1E27 !important;
+  border-color: var(--fm-accent, #FF6A3D) !important;
+  box-shadow: 0 0 0 2px rgba(255, 106, 61, 0.12) !important;
+}
+
+/* Mutes placeholder text so it is visible but lower priority than values. */
+.page-content .ant-input::placeholder,
+.page-content .ant-input-number-input::placeholder,
+.page-content .ant-picker-input > input::placeholder,
+.page-content .ant-select-selection-placeholder {
+  color: #6B6E79 !important;
+}
+
+/* Keeps entered values light inside text, number, and select controls. */
+.page-content .ant-input,
+.page-content .ant-input-number-input,
+.page-content .ant-select-selection-item {
+  color: #EDEDF0 !important;
+}
+
+/* Keeps date picker values slightly grey to match the neutral date field surface. */
+.page-content .ant-picker-input > input {
+  color: #D1D5DB !important;
+}
+
+/* Mutes select arrows, picker suffixes, and number-input handler icons. */
+.page-content .ant-select-arrow,
+.page-content .ant-picker-suffix,
+.page-content .ant-input-number-handler-wrap {
+  color: #8B8D98 !important;
+}
+
+/* Darkens disabled inputs and reduces contrast to signal non-editable state. */
+.page-content .ant-input-disabled,
+.page-content .ant-input-number-disabled,
+.page-content .ant-picker-disabled,
+.page-content .ant-select-disabled .ant-select-selector {
+  background: #15171e !important;
+  border-color: var(--fm-border, #24262f) !important;
+  color: #6B6E79 !important;
+  opacity: 0.75;
+}
+
+/* Mutes displayed values inside disabled select/number/date controls. */
+.page-content .ant-select-disabled .ant-select-selection-item,
+.page-content .ant-input-number-disabled .ant-input-number-input,
+.page-content .ant-picker-disabled input {
+  color: #6B6E79 !important;
+}
+
+/* Themes floating select/date dropdown containers outside the page DOM tree. */
+.ant-select-dropdown,
+.ant-picker-dropdown .ant-picker-panel-container {
+  background: #15171e !important;
+  border: 1px solid var(--fm-border, #24262f) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Styles each dropdown option with readable text and rounded hover areas. */
+.ant-select-dropdown .ant-select-item {
+  background: transparent !important;
+  color: #D1D5DB !important;
+  border-radius: 8px !important;
+  margin: 2px 4px;
+}
+
+/* Uses the dark hover surface for the active dropdown option. */
+.ant-select-dropdown .ant-select-item-option-active {
+  background: #1D1F28 !important;
+  color: #EDEDF0 !important;
+}
+
+/* Uses a subtle orange tint for selected dropdown options. */
+.ant-select-dropdown .ant-select-item-option-selected {
+  background: rgba(255, 106, 61, 0.12) !important;
+  color: #FF8A4C !important;
+}
+
+/* Marks selected dropdown option text with the orange accent. */
+.ant-select-dropdown .ant-select-item-option-selected .ant-select-item-option-content {
+  color: #FF8A4C !important;
+}
+
+/* Dims disabled dropdown options so they do not compete with selectable values. */
+.ant-select-dropdown .ant-select-item-option-disabled {
+  color: #6B6E79 !important;
+  opacity: 0.55;
+}
+
+/* Keeps disabled dropdown option text muted inside option content wrappers. */
+.ant-select-dropdown .ant-select-item-option-disabled .ant-select-item-option-content {
+  color: #6B6E79 !important;
+}
+
+/* Gives the opened DatePicker calendar panel a grey dark-theme background. */
+.ant-picker-dropdown .ant-picker-panel,
+.ant-picker-dropdown .ant-picker-date-panel,
+.ant-picker-dropdown .ant-picker-header,
+.ant-picker-dropdown .ant-picker-content {
+  background: #1B1E27 !important;
+  color: #D1D5DB !important;
+}
+
+/* Keeps DatePicker header text and navigation controls readable. */
+.ant-picker-dropdown .ant-picker-header,
+.ant-picker-dropdown .ant-picker-header button,
+.ant-picker-dropdown .ant-picker-header-view,
+.ant-picker-dropdown .ant-picker-header-view button {
+  color: #EDEDF0 !important;
+  border-color: #343744 !important;
+}
+
+/* Uses muted text for weekday labels inside the DatePicker panel. */
+.ant-picker-dropdown .ant-picker-content th {
+  color: #8B8D98 !important;
+}
+
+/* Sets normal date cell text color inside the opened DatePicker. */
+.ant-picker-dropdown .ant-picker-cell,
+.ant-picker-dropdown .ant-picker-cell .ant-picker-cell-inner {
+  color: #D1D5DB !important;
+}
+
+/* Applies a neutral hover state for date cells. */
+.ant-picker-dropdown .ant-picker-cell:hover .ant-picker-cell-inner {
+  background: #20232D !important;
+  color: #EDEDF0 !important;
+}
+
+/* Highlights the selected date with the orange brand accent. */
+.ant-picker-dropdown .ant-picker-cell-selected .ant-picker-cell-inner,
+.ant-picker-dropdown .ant-picker-cell-range-start .ant-picker-cell-inner,
+.ant-picker-dropdown .ant-picker-cell-range-end .ant-picker-cell-inner {
+  background: var(--fm-accent, #FF6A3D) !important;
+  color: #ffffff !important;
+}
+
+/* Marks today's date with an orange outline without filling the cell. */
+.ant-picker-dropdown .ant-picker-cell-today .ant-picker-cell-inner::before {
+  border-color: var(--fm-accent-2, #FF8A4C) !important;
+}
+
+/* Dims disabled dates inside the calendar panel. */
+.ant-picker-dropdown .ant-picker-cell-disabled,
+.ant-picker-dropdown .ant-picker-cell-disabled .ant-picker-cell-inner {
+  background: transparent !important;
+  color: #6B6E79 !important;
+  opacity: 0.45;
+}
+
+/* Keeps DatePicker footer controls aligned with the dark popup surface. */
+.ant-picker-dropdown .ant-picker-footer,
+.ant-picker-dropdown .ant-picker-ranges {
+  background: #1B1E27 !important;
+  border-color: #343744 !important;
 }

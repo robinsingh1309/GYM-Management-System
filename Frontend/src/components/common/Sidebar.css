@@ -115,3 +115,30 @@
   height: 16px;
   flex-shrink: 0;
 }
+
+@media (max-width: 767px) {
+  .fm-sidebar {
+    width: 72px;
+    padding: 22px 12px;
+  }
+
+  .fm-sidebar-mark {
+    justify-content: center;
+    margin: 0 0 32px;
+  }
+
+  .fm-sidebar-brand-name,
+  .fm-sidebar-label {
+    display: none;
+  }
+
+  .fm-sidebar-link,
+  .fm-sidebar-logout {
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .fm-sidebar-logout {
+    width: 100%;
+  }
+}

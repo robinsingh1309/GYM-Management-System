@@ -18,6 +18,16 @@ const NAV_ITEMS = [
     ),
   },
   {
+    to: '/personal-assistant',
+    label: 'Personal Assistant',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" />
+        <path d="M8 9h8M8 13h5" />
+      </svg>
+    ),
+  },
+  {
     to: '/members',
     label: 'Members',
     icon: (
@@ -74,7 +84,9 @@ function Sidebar() {
             <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
           </svg>
         </span>
-        Fit<span className="fm-sidebar-mark-accent">Manager</span>
+        <span className="fm-sidebar-brand-name">
+          Fit<span className="fm-sidebar-mark-accent">Manager</span>
+        </span>
       </div>
 
       <nav className="fm-sidebar-nav">
@@ -84,10 +96,11 @@ function Sidebar() {
             <Link
               key={item.to}
               to={item.to}
+              aria-label={item.label}
               className={`fm-sidebar-link${isActive ? ' active' : ''}`}
             >
               <span className="fm-sidebar-icon">{item.icon}</span>
-              {item.label}
+              <span className="fm-sidebar-label">{item.label}</span>
             </Link>
           );
         })}
@@ -96,13 +109,13 @@ function Sidebar() {
       <div className="fm-sidebar-spacer" />
 
       <Tooltip placement="right">
-        <button className="fm-sidebar-logout" onClick={logout}>
+        <button className="fm-sidebar-logout" onClick={logout} aria-label="Log out">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
             <polyline points="16 17 21 12 16 7" />
             <line x1="21" y1="12" x2="9" y2="12" />
           </svg>
-          Log out
+          <span className="fm-sidebar-label">Log out</span>
         </button>
       </Tooltip>
     </aside>

@@ -66,6 +66,12 @@
   color: var(--fm-text-primary);
 }
 
+@media (max-width: 767px) {
+  .page-content {
+    padding: 16px;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /* 3. Breadcrumbs & typography                                                */
 /* Overrides Ant breadcrumb and Typography colors for dark-theme readability. */

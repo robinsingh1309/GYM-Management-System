@@ -142,6 +142,8 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.PATCH, "/api/v1/memberships/*/deactivate")
                                 .hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.POST, "/api/v1/membership-pricing").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.POST, "/api/v1/knowledge-base/reindex")
+                                .hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/activate")
                                 .hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/deactivate")

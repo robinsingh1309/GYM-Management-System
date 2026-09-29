@@ -17,7 +17,7 @@ import tools.jackson.databind.ObjectMapper;
 public class ExerciseDataLoader {
 
     // Fields
-    private final static String EXERCISE_RESOURCE_PATH = "data/original_exercise.json";
+    private final static String EXERCISE_RESOURCE_PATH = "data/exercise.json";
 
     private final ObjectMapper objectMapper;
     private final ExerciseCatalog exerciseCatalog;

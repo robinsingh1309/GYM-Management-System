@@ -1,0 +1,275 @@
+.exercise-recommendations-page {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.exercise-recommendations-header {
+  margin: 16px 0 24px;
+}
+
+.exercise-recommendations-header .ant-typography {
+  margin-bottom: 4px;
+}
+
+.exercise-search-card {
+  margin-bottom: 24px;
+}
+
+.exercise-query-input.ant-input {
+  padding: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.exercise-filter-heading.ant-typography {
+  margin: 8px 0 16px;
+  font-size: 16px;
+}
+
+.exercise-search-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.exercise-results-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.exercise-results-heading .ant-typography {
+  margin: 0;
+}
+
+.exercise-results-heading > span {
+  color: var(--fm-text-secondary);
+  font-size: 14px;
+}
+
+.exercise-results > .ant-alert {
+  margin-bottom: 16px;
+}
+
+.exercise-results-content {
+  min-height: 180px;
+}
+
+.exercise-results-content > .ant-empty {
+  padding: 40px 16px;
+  background: var(--fm-card);
+  border: 1px solid var(--fm-border);
+  border-radius: 14px;
+}
+
+.exercise-recommendation-card {
+  height: 100%;
+}
+
+.exercise-recommendation-card .ant-card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.exercise-card-heading .ant-typography {
+  margin: 0;
+  font-size: 19px;
+  overflow-wrap: anywhere;
+}
+
+.exercise-match {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border: 1px solid var(--fm-accent);
+  border-radius: 999px;
+  color: var(--fm-accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.exercise-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0;
+}
+
+.exercise-card-tags .ant-tag,
+.exercise-details .ant-tag {
+  margin: 0;
+}
+
+.exercise-description.ant-typography {
+  color: var(--fm-text-secondary) !important;
+  line-height: 1.6;
+}
+
+.exercise-muscles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 4px 0 18px;
+}
+
+.exercise-muscles > div {
+  min-width: 0;
+}
+
+.exercise-muscles .ant-typography {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.exercise-recommendation-card .ant-btn {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+/* ------------------------------------------------------------------ */
+/* Exercise details modal                                              */
+/* ------------------------------------------------------------------ */
+
+.exercise-details section {
+  margin-top: 24px;
+}
+
+/* One dark surface for the whole modal.
+   .ant-modal-container covers newer antd versions, where the shell
+   (padding + background) lives there instead of .ant-modal-content. */
+.exercise-details-modal .ant-modal-container,
+.exercise-details-modal .ant-modal-content,
+.exercise-details-modal .ant-modal-header,
+.exercise-details-modal .ant-modal-body {
+  background: var(--fm-surface, #14161c) !important;
+}
+
+/* Remove the shell padding that was showing as white gaps;
+   the header and body get their own padding below. */
+.exercise-details-modal .ant-modal-container,
+.exercise-details-modal .ant-modal-content {
+  padding: 0 !important;
+  border: 1px solid var(--fm-border, #2a2d36);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.exercise-details-modal .ant-modal-header {
+  margin: 0;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--fm-border, #2a2d36);
+}
+
+.exercise-details-modal .ant-modal-body {
+  padding: 24px;
+}
+
+/* Text colors */
+.exercise-details-modal .ant-modal-title,
+.exercise-details-modal .ant-typography,
+.exercise-details-modal .ant-descriptions-item-content,
+.exercise-details-modal .ant-modal-body h1,
+.exercise-details-modal .ant-modal-body h2,
+.exercise-details-modal .ant-modal-body h3,
+.exercise-details-modal .ant-modal-body h4 {
+  color: var(--fm-text-primary, #f5f6f8) !important;
+}
+
+.exercise-details-modal .exercise-description.ant-typography,
+.exercise-details-modal .ant-modal-body p {
+  color: var(--fm-text-secondary, #a3a8b5) !important;
+}
+
+/* Close button */
+.exercise-details-modal .ant-modal-close {
+  top: 14px;
+  inset-inline-end: 16px;
+  color: var(--fm-text-secondary, #a3a8b5);
+}
+
+.exercise-details-modal .ant-modal-close:hover {
+  background: var(--fm-card, #1c1f27);
+  color: var(--fm-text-primary, #f5f6f8);
+}
+
+/* Descriptions table */
+.exercise-details-modal .ant-descriptions-item-label,
+.exercise-details-modal .ant-descriptions .ant-descriptions-item-label,
+.exercise-details-modal th.ant-descriptions-item-label {
+  color: var(--fm-text-secondary, #a3a8b5) !important;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.exercise-details-modal .ant-descriptions-item-content {
+  background: var(--fm-surface, #14161c) !important;
+}
+
+.exercise-details-modal .ant-descriptions-view,
+.exercise-details-modal .ant-descriptions-row,
+.exercise-details-modal .ant-descriptions-item-label,
+.exercise-details-modal .ant-descriptions-item-content {
+  border-color: var(--fm-border, #2a2d36) !important;
+}
+
+.exercise-details-modal .ant-tag {
+  background: var(--fm-card, #1c1f27);
+  border-color: var(--fm-border, #2a2d36);
+  color: var(--fm-text-secondary, #a3a8b5);
+}
+
+.exercise-details section .ant-typography {
+  margin-bottom: 8px;
+}
+
+.exercise-instructions {
+  margin: 0;
+  padding-left: 24px;
+  color: var(--fm-text-primary, #f5f6f8);
+}
+
+.exercise-instructions li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  .exercise-recommendations-header {
+    margin-bottom: 16px;
+  }
+
+  .exercise-search-actions {
+    flex-direction: column-reverse;
+  }
+
+  .exercise-search-actions .ant-btn {
+    width: 100%;
+  }
+
+  .exercise-card-heading {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .exercise-muscles {
+    grid-template-columns: 1fr;
+  }
+
+  .exercise-recommendation-card .ant-btn {
+    width: 100%;
+  }
+
+  .exercise-details-modal .ant-modal-body {
+    padding: 16px;
+  }
+}

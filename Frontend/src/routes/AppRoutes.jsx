@@ -16,6 +16,7 @@ import PaymentsPage from '../features/payments/pages/PaymentsPage';
 import PaymentDetailsPage from '../features/payments/pages/PaymentDetailsPage';
 import CreatePaymentPage from '../features/payments/pages/CreatePaymentPage';
 import PersonalAssistantPage from '../features/personalAssistant/pages/PersonalAssistantPage';
+import ExerciseRecommendationsPage from '../features/exerciseRecommendations/pages/ExerciseRecommendationsPage';
 
 import AppLayout from '../layouts/AppLayout';
 import ProtectedRoute from '../features/auth/components/ProtectedRoute';
@@ -46,11 +47,6 @@ function AppRoutes() {
             <Route
               path="/dashboard"
               element={<DashboardPage />}
-            />
-
-            <Route
-              path="/personal-assistant"
-              element={<PersonalAssistantPage />}
             />
 
             <Route
@@ -105,6 +101,16 @@ function AppRoutes() {
             <Route
               path="/membership-types/create"
               element={<CreateMembershipTypePage />}
+            />
+
+            <Route
+              path="/personal-assistant"
+              element={<PersonalAssistantPage />}
+            />
+
+            <Route
+              path="/exercise-recommendations"
+              element={<ExerciseRecommendationsPage />}
             />
 
           </Route>

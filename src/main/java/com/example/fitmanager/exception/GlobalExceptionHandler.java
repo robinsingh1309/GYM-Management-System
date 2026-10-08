@@ -6,7 +6,10 @@ import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -17,6 +20,36 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    // Access Denied
+    // ------------------------------------------------------------------
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ErrorResponse> handleAccessDeniedException( //
+            final AccessDeniedException ex, final HttpServletRequest req) {
+
+        final ErrorResponse response = new ErrorResponse( //
+                LocalDateTime.now(), HttpStatus.FORBIDDEN.value(), //
+                HttpStatus.FORBIDDEN.getReasonPhrase(), //
+                "You do not have permission to access this resource", req.getRequestURI());
+
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(response);
+    }
+
+    // Data Integrity
+    // ------------------------------------------------------------------
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ErrorResponse> handleDataIntegrityViolationException( //
+            final DataIntegrityViolationException ex, final HttpServletRequest req) {
+
+        final ErrorResponse response = new ErrorResponse( //
+                LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), //
+                HttpStatus.BAD_REQUEST.getReasonPhrase(), //
+                "Request conflicts with existing data", req.getRequestURI());
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
 
     // Resource NOT FOUND!!!
     // ------------------------------------------------------------------
@@ -64,6 +97,21 @@ public class GlobalExceptionHandler {
         final ErrorResponse response = new ErrorResponse( //
                 LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), //
                 HttpStatus.BAD_REQUEST.getReasonPhrase(), message, req.getRequestURI());
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
+    // Query Parameter Binding
+    // ------------------------------------------------------------------
+
+    @ExceptionHandler(BindException.class)
+    public ResponseEntity<ErrorResponse> handleBindException( //
+            final BindException ex, final HttpServletRequest req) {
+
+        final ErrorResponse response = new ErrorResponse( //
+                LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), //
+                HttpStatus.BAD_REQUEST.getReasonPhrase(), //
+                "Invalid request parameters", req.getRequestURI());
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }

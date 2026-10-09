@@ -144,6 +144,10 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.POST, "/api/v1/membership-pricing").hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.POST, "/api/v1/knowledge-base/reindex")
                                 .hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.POST, "/api/v1/trainers").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PUT, "/api/v1/trainers/**").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/trainers/**").hasRole(RoleUtil.ADMIN) //
+                                .requestMatchers(HttpMethod.DELETE, "/api/v1/trainers/**").hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/activate")
                                 .hasRole(RoleUtil.ADMIN) //
                                 .requestMatchers(HttpMethod.PATCH, "/api/v1/membership-pricing/*/deactivate")

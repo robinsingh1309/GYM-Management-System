@@ -90,10 +90,9 @@ public class TrainerServiceImpl implements TrainerService {
         trainer.setActive(!trainerJoiningDate.isAfter(todayDate));
 
 
-        final long userId = request.getUserId();
-
-        final User user = this.getEligibleUser(userId);
+        final Long userId = request.getUserId();
         if (Objects.nonNull(userId)) {
+            final User user = this.getEligibleUser(userId);
             trainer.setUser(user);
         }
 
@@ -118,7 +117,7 @@ public class TrainerServiceImpl implements TrainerService {
         final String trainerEmail = trainer.getEmail();
         final String trainerPhoneNumber = trainer.getPhoneNumber();
         final LocalDate trainerJoiningDate = trainer.getJoiningDate();
-        final int trainerExperienceYears = trainer.getExperienceYears();
+        final Integer trainerExperienceYears = trainer.getExperienceYears();
 
         this.validateProfile(trainerName, trainerEmail, trainerPhoneNumber, //
                 trainerJoiningDate, trainerExperienceYears);

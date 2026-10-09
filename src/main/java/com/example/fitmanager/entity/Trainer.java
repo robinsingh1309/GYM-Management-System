@@ -49,7 +49,7 @@ public class Trainer extends BaseEntity {
             joinColumns = @JoinColumn(name = "trainer_id", nullable = false), //
             uniqueConstraints = @UniqueConstraint( //
                     name = "uk_trainer_specializations_trainer_specialization", //
-                    columnNames = { "trainer_id", "specialization" }))
+                    columnNames = {"trainer_id", "specialization"}))
     @Column(name = "specialization", nullable = false, length = 40)
     private Set<TrainerSpecialization> specializations = new HashSet<>();
 
@@ -79,9 +79,12 @@ public class Trainer extends BaseEntity {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+
         this.joiningDate = joiningDate;
+
         this.experienceYears = experienceYears;
         this.specializations = new HashSet<>(specializations);
+
         this.active = active;
         this.deleted = false;
     }

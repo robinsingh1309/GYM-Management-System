@@ -2,6 +2,7 @@ package com.example.fitmanager.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.Set;
 
 import com.example.fitmanager.entity.TrainerSpecialization;
@@ -13,15 +14,22 @@ public class TrainerResponse {
     // Fields
 
     private final Long id;
+
     private final String name;
+
     private final String email;
     private final String phoneNumber;
+
     private final LocalDate joiningDate;
+
     private final Integer experienceYears;
     private final Set<TrainerSpecialization> specializations;
+
     private final Boolean active;
-    private final Boolean deleted;
     private final TrainerStatus status;
+
+    private final Boolean deleted;
+
     private final LocalDateTime createdAt;
     private final LocalDateTime updatedAt;
 
@@ -36,15 +44,22 @@ public class TrainerResponse {
             final LocalDateTime createdAt, final LocalDateTime updatedAt) {
 
         this.id = id;
+
         this.name = name;
+
         this.email = email;
         this.phoneNumber = phoneNumber;
+
         this.joiningDate = joiningDate;
+
         this.experienceYears = experienceYears;
-        this.specializations = Set.copyOf(specializations);
+        this.specializations = specializations;
+
         this.active = active;
-        this.deleted = deleted;
         this.status = status;
+
+        this.deleted = deleted;
+
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -78,7 +93,7 @@ public class TrainerResponse {
     }
 
     public Set<TrainerSpecialization> getSpecializations() {
-        return specializations;
+        return Collections.unmodifiableSet(specializations);
     }
 
     public Boolean getActive() {

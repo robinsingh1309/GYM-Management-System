@@ -12,16 +12,22 @@ public class TrainerFilter {
     // Fields
 
     private String name;
-    private TrainerStatus status;
-    private Set<TrainerSpecialization> specializations;
-    private LocalDate joiningDateFrom;
-    private LocalDate joiningDateTo;
-    private Integer minExperienceYears;
-    private Integer maxExperienceYears;
-    private Boolean hasLinkedUser;
-    private Long userId;
+
     private String email;
     private String phoneNumber;
+
+    private Set<TrainerSpecialization> specializations;
+
+    private LocalDate joiningDateFrom;
+    private LocalDate joiningDateTo;
+
+    private Integer minExperienceYears;
+    private Integer maxExperienceYears;
+
+    private Boolean hasLinkedUser;
+    private Long userId;
+
+    private TrainerStatus status;
 
 
     // Getters and Setters

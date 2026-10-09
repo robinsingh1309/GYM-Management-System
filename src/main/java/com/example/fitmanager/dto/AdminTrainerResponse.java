@@ -49,8 +49,10 @@ public class AdminTrainerResponse extends TrainerResponse {
         // Fields
 
         private final Long id;
+
         private final String email;
         private final Role role;
+
         private final Boolean active;
 
 
@@ -61,8 +63,10 @@ public class AdminTrainerResponse extends TrainerResponse {
                 final Role role, final Boolean active) {
 
             this.id = id;
+
             this.email = email;
             this.role = role;
+
             this.active = active;
         }
 

@@ -10,11 +10,13 @@ This document records the detailed domain rules implemented by FitManager. For p
 - Membership management
 - Membership pricing
 - Payment management
+- Trainer profile management
 - Cash payments only
 
 ### Explicitly deferred to Phase 2:
-- Personal training
-- Workout plans
+- Trainer-to-member assignments
+- Personal-training scheduling
+- Workout-plan assignment
 - Membership freeze/pause
 - Discounts as a formal model
 - Refunds/reversals
@@ -54,6 +56,13 @@ There are two roles:
 | View payments | ✅ | ✅ |
 | Manage standard pricing | ✅ | ❌ |
 | Override membership price | ✅ | ❌ |
+| Create/update trainer | ✅ | ❌ |
+| Activate/deactivate trainer | ✅ | ❌ |
+| Soft-delete/restore trainer | ✅ | ❌ |
+| Link/unlink Trainer User | ✅ | ❌ |
+| View nondeleted trainers | ✅ | ✅ |
+| View deleted trainers | ✅ | ❌ |
+| View linked Trainer User information | ✅ | ❌ |
 
 ---
 
@@ -854,7 +863,150 @@ If ₹1,000 already exists historically, it is reactivated, not duplicated.
 
 ---
 
-## 54. Most Important Architectural Principles
+## 54. Trainer Management
+
+A Trainer is an independently managed business entity. A Trainer is not an authentication role and does not receive credentials merely by being created.
+
+A Trainer contains:
+- id
+- name
+- email
+- phoneNumber
+- joiningDate
+- experienceYears
+- specializations
+- optional linked User
+- active
+- deleted
+- derived status
+- createdAt
+- updatedAt
+
+### Trainer name
+
+- Required.
+- Leading and trailing whitespace is removed.
+- Consecutive whitespace is collapsed into one space.
+- Must contain between 2 and 100 characters.
+- May contain letters, spaces, periods, apostrophes, and hyphens.
+
+### Trainer email
+
+- Required.
+- Leading and trailing whitespace is removed.
+- Stored in lowercase.
+- Maximum 100 characters.
+- Must use a valid email format.
+- Must be unique across every Trainer, including deleted Trainers.
+
+### Trainer phone number
+
+- Required.
+- Must contain exactly 10 digits.
+- Must be unique across every Trainer, including deleted Trainers.
+
+### Trainer joining date
+
+- Required.
+- May be in the past, today, or future.
+- Cannot be more than five years in the future.
+- A Trainer with a future joining date is created as INACTIVE.
+
+### Trainer experience
+
+- Optional.
+- If supplied, it must be between 0 and 60 years.
+- It may be cleared by setting it to null during an update.
+
+### Trainer specializations
+
+- Optional.
+- Missing or null specializations become an empty set.
+- Duplicate specialization values are not stored.
+
+Supported specializations:
+- BODYBUILDING
+- CARDIO
+- FUNCTIONAL_TRAINING
+- GENERAL_FITNESS
+- STRENGTH_TRAINING
+- WEIGHT_LOSS
+- YOGA
+
+### Trainer status
+
+Trainer status is derived from the `active` and `deleted` fields. It is evaluated in this order:
+
+1. `deleted = true` → DELETED
+2. `deleted = false` and `active = true` → ACTIVE
+3. Otherwise → INACTIVE
+
+### Trainer creation
+
+- A Trainer whose joining date is today or earlier starts as ACTIVE.
+- A Trainer whose joining date is in the future starts as INACTIVE.
+- A future Trainer is not automatically activated when the joining date arrives.
+- ADMIN may optionally link an eligible existing User during creation.
+- Creation and optional User linking occur as one transaction.
+
+### Trainer activation
+
+A Trainer can be activated only when:
+- The Trainer is not deleted.
+- The Trainer is currently inactive.
+- The joining date is today or earlier.
+
+Activating an already active Trainer returns **400 Bad Request**.
+
+### Trainer deactivation
+
+A Trainer can be deactivated only when:
+- The Trainer is not deleted.
+- The Trainer is currently active.
+
+Deactivating an already inactive Trainer returns **400 Bad Request**.
+
+### Trainer deletion
+
+- Trainer deletion is a soft deletion.
+- Trainer records are not physically removed through the API.
+- An active Trainer must be deactivated before deletion.
+- A deleted Trainer cannot be updated, activated, deactivated, or linked to a new User.
+- Deleted Trainers retain their email, phone number, and existing User link.
+- Email and phone uniqueness remain enforced for deleted Trainers.
+
+### Trainer restoration
+
+- Only a deleted Trainer can be restored.
+- A restored Trainer always returns as INACTIVE.
+- Restoration does not automatically activate the Trainer.
+- Restoring a Trainer that is not deleted returns **400 Bad Request**.
+
+### Trainer and User association
+
+- A Trainer may optionally link to one existing User.
+- Only an active STAFF User can be linked.
+- An ADMIN User cannot be linked as a Trainer.
+- A User may be linked to at most one Trainer.
+- A Trainer may be linked to at most one User.
+- A deleted Trainer cannot receive a new User link.
+- An existing User link may be removed from a deleted Trainer.
+- Linking does not change the User's role or active state.
+- Trainer lifecycle operations do not modify the linked User.
+- User lifecycle operations do not automatically modify the Trainer.
+- ADMIN responses include linked User information.
+- STAFF responses omit linked User information.
+
+### Trainer profile updates
+
+- ADMIN may replace a nondeleted Trainer's profile information.
+- Updating a Trainer does not change its User link or lifecycle state.
+- An active Trainer cannot be updated to use a future joining date.
+- Email and phone uniqueness checks exclude the Trainer currently being updated.
+
+---
+
+## 55. Most Important Architectural Principles
 
 The rules we've agreed on lead to these principles:
 

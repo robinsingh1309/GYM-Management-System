@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.SmartInitializingSingleton;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import com.example.fitmanager.entity.Exercise;
@@ -12,6 +13,7 @@ import com.example.fitmanager.service.ExerciseService;
 
 
 @Component
+@ConditionalOnProperty(prefix = "exercise.embedding", name = "preload-enabled", havingValue = "true")
 public class ExerciseEmbeddingLoader implements SmartInitializingSingleton {
 
     // Fields

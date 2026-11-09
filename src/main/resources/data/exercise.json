@@ -1,0 +1,2736 @@
+{
+  "exercises": [
+    {
+      "id": 1,
+      "name": "Push-Up",
+      "bodyPart": "Chest",
+      "primaryMuscle": "Chest",
+      "secondaryMuscles": [
+        "Triceps",
+        "Front Deltoids"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Horizontal Push",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy",
+        "Endurance"
+      ],
+      "description": "Push-Up is a beginner bodyweight exercise primarily targeting the Chest, with additional involvement from Triceps, Front Deltoids. It uses no external equipment and follows a horizontal push movement pattern. It is suitable for strength, hypertrophy, endurance.",
+      "instructions": [
+        "Set a stable starting position with the shoulders controlled and core braced.",
+        "Press through the intended range while keeping the movement controlled.",
+        "Return slowly to the starting position without losing alignment."
+      ],
+      "embeddingText": "Exercise: Push-Up. Body part: Chest. Primary muscle: Chest. Secondary muscles: Triceps, Front Deltoids. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Horizontal Push. Exercise type: Bodyweight. Training goals: Strength, Hypertrophy, Endurance. Description: Push-Up is a beginner bodyweight exercise primarily targeting the Chest, with additional involvement from Triceps, Front Deltoids. It uses no external equipment and follows a horizontal push movement pattern. It is suitable for strength, hypertrophy, endurance.",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Barbell Bench Press",
+      "bodyPart": "Chest",
+      "primaryMuscle": "Chest",
+      "secondaryMuscles": [
+        "Triceps",
+        "Front Deltoids"
+      ],
+      "equipment": [
+        "Barbell",
+        "Bench"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Horizontal Push",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Barbell Bench Press is a intermediate compound exercise primarily targeting the Chest, with additional involvement from Triceps, Front Deltoids. It uses Barbell, Bench and follows a horizontal push movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set a stable starting position with the shoulders controlled and core braced.",
+        "Press through the intended range while keeping the movement controlled.",
+        "Return slowly to the starting position without losing alignment."
+      ],
+      "embeddingText": "Exercise: Barbell Bench Press. Body part: Chest. Primary muscle: Chest. Secondary muscles: Triceps, Front Deltoids. Equipment: Barbell, Bench. Difficulty: Intermediate. Movement pattern: Horizontal Push. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Barbell Bench Press is a intermediate compound exercise primarily targeting the Chest, with additional involvement from Triceps, Front Deltoids. It uses Barbell, Bench and follows a horizontal push movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Decline Dumbbell Press",
+      "bodyPart": "Chest",
+      "primaryMuscle": "Lower Chest",
+      "secondaryMuscles": [
+        "Triceps",
+        "Front Deltoids"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Decline Bench"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Decline Push",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Decline Dumbbell Press is a intermediate compound exercise primarily targeting the Lower Chest, with additional involvement from Triceps, Front Deltoids. It uses Dumbbells, Decline Bench and follows a decline push movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set a stable starting position with the shoulders controlled and core braced.",
+        "Press through the intended range while keeping the movement controlled.",
+        "Return slowly to the starting position without losing alignment."
+      ],
+      "embeddingText": "Exercise: Decline Dumbbell Press. Body part: Chest. Primary muscle: Lower Chest. Secondary muscles: Triceps, Front Deltoids. Equipment: Dumbbells, Decline Bench. Difficulty: Intermediate. Movement pattern: Decline Push. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Decline Dumbbell Press is a intermediate compound exercise primarily targeting the Lower Chest, with additional involvement from Triceps, Front Deltoids. It uses Dumbbells, Decline Bench and follows a decline push movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "High-to-Low Cable Fly",
+      "bodyPart": "Chest",
+      "primaryMuscle": "Lower Chest",
+      "secondaryMuscles": [
+        "Front Deltoids"
+      ],
+      "equipment": [
+        "Cable Machine"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Horizontal Adduction",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "High-to-Low Cable Fly is a intermediate isolation exercise primarily targeting the Lower Chest, with additional involvement from Front Deltoids. It uses Cable Machine and follows a horizontal adduction movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: High-to-Low Cable Fly. Body part: Chest. Primary muscle: Lower Chest. Secondary muscles: Front Deltoids. Equipment: Cable Machine. Difficulty: Intermediate. Movement pattern: Horizontal Adduction. Exercise type: Isolation. Training goals: Hypertrophy. Description: High-to-Low Cable Fly is a intermediate isolation exercise primarily targeting the Lower Chest, with additional involvement from Front Deltoids. It uses Cable Machine and follows a horizontal adduction movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Pull-Up",
+      "bodyPart": "Upper Back",
+      "primaryMuscle": "Lats",
+      "secondaryMuscles": [
+        "Biceps",
+        "Upper Back"
+      ],
+      "equipment": [
+        "Pull-Up Bar"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Vertical Pull",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Pull-Up is a intermediate bodyweight exercise primarily targeting the Lats, with additional involvement from Biceps, Upper Back. It uses Pull-Up Bar and follows a vertical pull movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set the shoulders down and brace the torso before pulling.",
+        "Pull through the elbows while keeping the movement smooth.",
+        "Return under control to a full comfortable stretch."
+      ],
+      "embeddingText": "Exercise: Pull-Up. Body part: Upper Back. Primary muscle: Lats. Secondary muscles: Biceps, Upper Back. Equipment: Pull-Up Bar. Difficulty: Intermediate. Movement pattern: Vertical Pull. Exercise type: Bodyweight. Training goals: Strength, Hypertrophy. Description: Pull-Up is a intermediate bodyweight exercise primarily targeting the Lats, with additional involvement from Biceps, Upper Back. It uses Pull-Up Bar and follows a vertical pull movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Close-Grip Lat Pulldown",
+      "bodyPart": "Upper Back",
+      "primaryMuscle": "Lats",
+      "secondaryMuscles": [
+        "Biceps",
+        "Upper Back"
+      ],
+      "equipment": [
+        "Cable Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Vertical Pull",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Close-Grip Lat Pulldown is a beginner machine exercise primarily targeting the Lats, with additional involvement from Biceps, Upper Back. It uses Cable Machine and follows a vertical pull movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set the shoulders down and brace the torso before pulling.",
+        "Pull through the elbows while keeping the movement smooth.",
+        "Return under control to a full comfortable stretch."
+      ],
+      "embeddingText": "Exercise: Close-Grip Lat Pulldown. Body part: Upper Back. Primary muscle: Lats. Secondary muscles: Biceps, Upper Back. Equipment: Cable Machine. Difficulty: Beginner. Movement pattern: Vertical Pull. Exercise type: Machine. Training goals: Hypertrophy. Description: Close-Grip Lat Pulldown is a beginner machine exercise primarily targeting the Lats, with additional involvement from Biceps, Upper Back. It uses Cable Machine and follows a vertical pull movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 7,
+      "name": "Seated Cable Row",
+      "bodyPart": "Upper Back",
+      "primaryMuscle": "Upper Back",
+      "secondaryMuscles": [
+        "Lats",
+        "Biceps",
+        "Rear Deltoids"
+      ],
+      "equipment": [
+        "Cable Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Horizontal Pull",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Seated Cable Row is a beginner machine exercise primarily targeting the Upper Back, with additional involvement from Lats, Biceps, Rear Deltoids. It uses Cable Machine and follows a horizontal pull movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set the torso and shoulders in a stable position before pulling.",
+        "Pull the resistance toward the body while driving the elbows back.",
+        "Return under control and allow the target muscles to lengthen."
+      ],
+      "embeddingText": "Exercise: Seated Cable Row. Body part: Upper Back. Primary muscle: Upper Back. Secondary muscles: Lats, Biceps, Rear Deltoids. Equipment: Cable Machine. Difficulty: Beginner. Movement pattern: Horizontal Pull. Exercise type: Machine. Training goals: Strength, Hypertrophy. Description: Seated Cable Row is a beginner machine exercise primarily targeting the Upper Back, with additional involvement from Lats, Biceps, Rear Deltoids. It uses Cable Machine and follows a horizontal pull movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 8,
+      "name": "Machine Row",
+      "bodyPart": "Upper Back",
+      "primaryMuscle": "Upper Back",
+      "secondaryMuscles": [
+        "Lats",
+        "Biceps",
+        "Rear Deltoids"
+      ],
+      "equipment": [
+        "Row Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Horizontal Pull",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Machine Row is a beginner machine exercise primarily targeting the Upper Back, with additional involvement from Lats, Biceps, Rear Deltoids. It uses Row Machine and follows a horizontal pull movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set the torso and shoulders in a stable position before pulling.",
+        "Pull the resistance toward the body while driving the elbows back.",
+        "Return under control and allow the target muscles to lengthen."
+      ],
+      "embeddingText": "Exercise: Machine Row. Body part: Upper Back. Primary muscle: Upper Back. Secondary muscles: Lats, Biceps, Rear Deltoids. Equipment: Row Machine. Difficulty: Beginner. Movement pattern: Horizontal Pull. Exercise type: Machine. Training goals: Strength, Hypertrophy. Description: Machine Row is a beginner machine exercise primarily targeting the Upper Back, with additional involvement from Lats, Biceps, Rear Deltoids. It uses Row Machine and follows a horizontal pull movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 9,
+      "name": "Barbell Overhead Press",
+      "bodyPart": "Shoulders",
+      "primaryMuscle": "Front Deltoids",
+      "secondaryMuscles": [
+        "Side Deltoids",
+        "Triceps"
+      ],
+      "equipment": [
+        "Barbell"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Vertical Push",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Barbell Overhead Press is a intermediate compound exercise primarily targeting the Front Deltoids, with additional involvement from Side Deltoids, Triceps. It uses Barbell and follows a vertical push movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set a stable starting position with the shoulders controlled and core braced.",
+        "Press through the intended range while keeping the movement controlled.",
+        "Return slowly to the starting position without losing alignment."
+      ],
+      "embeddingText": "Exercise: Barbell Overhead Press. Body part: Shoulders. Primary muscle: Front Deltoids. Secondary muscles: Side Deltoids, Triceps. Equipment: Barbell. Difficulty: Intermediate. Movement pattern: Vertical Push. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Barbell Overhead Press is a intermediate compound exercise primarily targeting the Front Deltoids, with additional involvement from Side Deltoids, Triceps. It uses Barbell and follows a vertical push movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 10,
+      "name": "Dumbbell Lateral Raise",
+      "bodyPart": "Shoulders",
+      "primaryMuscle": "Side Deltoids",
+      "secondaryMuscles": [
+        "Upper Traps"
+      ],
+      "equipment": [
+        "Dumbbells"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Shoulder Abduction",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Dumbbell Lateral Raise is a beginner isolation exercise primarily targeting the Side Deltoids, with additional involvement from Upper Traps. It uses Dumbbells and follows a shoulder abduction movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Dumbbell Lateral Raise. Body part: Shoulders. Primary muscle: Side Deltoids. Secondary muscles: Upper Traps. Equipment: Dumbbells. Difficulty: Beginner. Movement pattern: Shoulder Abduction. Exercise type: Isolation. Training goals: Hypertrophy. Description: Dumbbell Lateral Raise is a beginner isolation exercise primarily targeting the Side Deltoids, with additional involvement from Upper Traps. It uses Dumbbells and follows a shoulder abduction movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 11,
+      "name": "Cable Front Raise",
+      "bodyPart": "Shoulders",
+      "primaryMuscle": "Front Deltoids",
+      "secondaryMuscles": [
+        "Upper Chest"
+      ],
+      "equipment": [
+        "Cable Machine"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Shoulder Flexion",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Cable Front Raise is a intermediate isolation exercise primarily targeting the Front Deltoids, with additional involvement from Upper Chest. It uses Cable Machine and follows a shoulder flexion movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Cable Front Raise. Body part: Shoulders. Primary muscle: Front Deltoids. Secondary muscles: Upper Chest. Equipment: Cable Machine. Difficulty: Intermediate. Movement pattern: Shoulder Flexion. Exercise type: Isolation. Training goals: Hypertrophy. Description: Cable Front Raise is a intermediate isolation exercise primarily targeting the Front Deltoids, with additional involvement from Upper Chest. It uses Cable Machine and follows a shoulder flexion movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 12,
+      "name": "Face Pull",
+      "bodyPart": "Shoulders",
+      "primaryMuscle": "Rear Deltoids",
+      "secondaryMuscles": [
+        "Upper Back",
+        "Rotator Cuff"
+      ],
+      "equipment": [
+        "Cable Machine",
+        "Rope"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Horizontal Pull",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy",
+        "Shoulder Health"
+      ],
+      "description": "Face Pull is a beginner isolation exercise primarily targeting the Rear Deltoids, with additional involvement from Upper Back, Rotator Cuff. It uses Cable Machine, Rope and follows a horizontal pull movement pattern. It is suitable for hypertrophy, shoulder health.",
+      "instructions": [
+        "Set the torso and shoulders in a stable position before pulling.",
+        "Pull the resistance toward the body while driving the elbows back.",
+        "Return under control and allow the target muscles to lengthen."
+      ],
+      "embeddingText": "Exercise: Face Pull. Body part: Shoulders. Primary muscle: Rear Deltoids. Secondary muscles: Upper Back, Rotator Cuff. Equipment: Cable Machine, Rope. Difficulty: Beginner. Movement pattern: Horizontal Pull. Exercise type: Isolation. Training goals: Hypertrophy, Shoulder Health. Description: Face Pull is a beginner isolation exercise primarily targeting the Rear Deltoids, with additional involvement from Upper Back, Rotator Cuff. It uses Cable Machine, Rope and follows a horizontal pull movement pattern. It is suitable for hypertrophy, shoulder health.",
+      "active": true
+    },
+    {
+      "id": 13,
+      "name": "Barbell Curl",
+      "bodyPart": "Biceps",
+      "primaryMuscle": "Biceps",
+      "secondaryMuscles": [
+        "Forearms"
+      ],
+      "equipment": [
+        "Barbell"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Elbow Flexion",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Barbell Curl is a beginner isolation exercise primarily targeting the Biceps, with additional involvement from Forearms. It uses Barbell and follows a elbow flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Barbell Curl. Body part: Biceps. Primary muscle: Biceps. Secondary muscles: Forearms. Equipment: Barbell. Difficulty: Beginner. Movement pattern: Elbow Flexion. Exercise type: Isolation. Training goals: Strength, Hypertrophy. Description: Barbell Curl is a beginner isolation exercise primarily targeting the Biceps, with additional involvement from Forearms. It uses Barbell and follows a elbow flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 14,
+      "name": "Cross-Body Hammer Curl",
+      "bodyPart": "Biceps",
+      "primaryMuscle": "Brachialis",
+      "secondaryMuscles": [
+        "Biceps",
+        "Forearms"
+      ],
+      "equipment": [
+        "Dumbbells"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Elbow Flexion",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Cross-Body Hammer Curl is a beginner isolation exercise primarily targeting the Brachialis, with additional involvement from Biceps, Forearms. It uses Dumbbells and follows a elbow flexion movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Cross-Body Hammer Curl. Body part: Biceps. Primary muscle: Brachialis. Secondary muscles: Biceps, Forearms. Equipment: Dumbbells. Difficulty: Beginner. Movement pattern: Elbow Flexion. Exercise type: Isolation. Training goals: Hypertrophy. Description: Cross-Body Hammer Curl is a beginner isolation exercise primarily targeting the Brachialis, with additional involvement from Biceps, Forearms. It uses Dumbbells and follows a elbow flexion movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 15,
+      "name": "Rope Hammer Curl",
+      "bodyPart": "Biceps",
+      "primaryMuscle": "Brachialis",
+      "secondaryMuscles": [
+        "Biceps",
+        "Forearms"
+      ],
+      "equipment": [
+        "Cable Machine",
+        "Rope"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Elbow Flexion",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Rope Hammer Curl is a beginner isolation exercise primarily targeting the Brachialis, with additional involvement from Biceps, Forearms. It uses Cable Machine, Rope and follows a elbow flexion movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Rope Hammer Curl. Body part: Biceps. Primary muscle: Brachialis. Secondary muscles: Biceps, Forearms. Equipment: Cable Machine, Rope. Difficulty: Beginner. Movement pattern: Elbow Flexion. Exercise type: Isolation. Training goals: Hypertrophy. Description: Rope Hammer Curl is a beginner isolation exercise primarily targeting the Brachialis, with additional involvement from Biceps, Forearms. It uses Cable Machine, Rope and follows a elbow flexion movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 16,
+      "name": "Zottman Curl",
+      "bodyPart": "Biceps",
+      "primaryMuscle": "Biceps",
+      "secondaryMuscles": [
+        "Forearms",
+        "Brachialis"
+      ],
+      "equipment": [
+        "Dumbbells"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Elbow Flexion",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy",
+        "Grip Strength"
+      ],
+      "description": "Zottman Curl is a intermediate isolation exercise primarily targeting the Biceps, with additional involvement from Forearms, Brachialis. It uses Dumbbells and follows a elbow flexion movement pattern. It is suitable for hypertrophy, grip strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Zottman Curl. Body part: Biceps. Primary muscle: Biceps. Secondary muscles: Forearms, Brachialis. Equipment: Dumbbells. Difficulty: Intermediate. Movement pattern: Elbow Flexion. Exercise type: Isolation. Training goals: Hypertrophy, Grip Strength. Description: Zottman Curl is a intermediate isolation exercise primarily targeting the Biceps, with additional involvement from Forearms, Brachialis. It uses Dumbbells and follows a elbow flexion movement pattern. It is suitable for hypertrophy, grip strength.",
+      "active": true
+    },
+    {
+      "id": 17,
+      "name": "Cable Triceps Pushdown",
+      "bodyPart": "Triceps",
+      "primaryMuscle": "Triceps",
+      "secondaryMuscles": [
+        "Forearms"
+      ],
+      "equipment": [
+        "Cable Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Elbow Extension",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Cable Triceps Pushdown is a beginner isolation exercise primarily targeting the Triceps, with additional involvement from Forearms. It uses Cable Machine and follows a elbow extension movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Cable Triceps Pushdown. Body part: Triceps. Primary muscle: Triceps. Secondary muscles: Forearms. Equipment: Cable Machine. Difficulty: Beginner. Movement pattern: Elbow Extension. Exercise type: Isolation. Training goals: Strength, Hypertrophy. Description: Cable Triceps Pushdown is a beginner isolation exercise primarily targeting the Triceps, with additional involvement from Forearms. It uses Cable Machine and follows a elbow extension movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 18,
+      "name": "Skull Crusher",
+      "bodyPart": "Triceps",
+      "primaryMuscle": "Triceps",
+      "secondaryMuscles": [
+        "Forearms"
+      ],
+      "equipment": [
+        "EZ Bar",
+        "Bench"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Elbow Extension",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Skull Crusher is a intermediate isolation exercise primarily targeting the Triceps, with additional involvement from Forearms. It uses EZ Bar, Bench and follows a elbow extension movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Skull Crusher. Body part: Triceps. Primary muscle: Triceps. Secondary muscles: Forearms. Equipment: EZ Bar, Bench. Difficulty: Intermediate. Movement pattern: Elbow Extension. Exercise type: Isolation. Training goals: Strength, Hypertrophy. Description: Skull Crusher is a intermediate isolation exercise primarily targeting the Triceps, with additional involvement from Forearms. It uses EZ Bar, Bench and follows a elbow extension movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 19,
+      "name": "Diamond Push-Up for Triceps",
+      "bodyPart": "Triceps",
+      "primaryMuscle": "Triceps",
+      "secondaryMuscles": [
+        "Chest",
+        "Front Deltoids"
+      ],
+      "equipment": [],
+      "difficulty": "Intermediate",
+      "movementPattern": "Horizontal Push",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Endurance"
+      ],
+      "description": "Diamond Push-Up for Triceps is a intermediate bodyweight exercise primarily targeting the Triceps, with additional involvement from Chest, Front Deltoids. It uses no external equipment and follows a horizontal push movement pattern. It is suitable for strength, endurance.",
+      "instructions": [
+        "Set a stable starting position with the shoulders controlled and core braced.",
+        "Press through the intended range while keeping the movement controlled.",
+        "Return slowly to the starting position without losing alignment."
+      ],
+      "embeddingText": "Exercise: Diamond Push-Up for Triceps. Body part: Triceps. Primary muscle: Triceps. Secondary muscles: Chest, Front Deltoids. Equipment: bodyweight or no equipment. Difficulty: Intermediate. Movement pattern: Horizontal Push. Exercise type: Bodyweight. Training goals: Strength, Endurance. Description: Diamond Push-Up for Triceps is a intermediate bodyweight exercise primarily targeting the Triceps, with additional involvement from Chest, Front Deltoids. It uses no external equipment and follows a horizontal push movement pattern. It is suitable for strength, endurance.",
+      "active": true
+    },
+    {
+      "id": 20,
+      "name": "Single-Arm Cable Pushdown",
+      "bodyPart": "Triceps",
+      "primaryMuscle": "Triceps",
+      "secondaryMuscles": [
+        "Forearms"
+      ],
+      "equipment": [
+        "Cable Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Elbow Extension",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Single-Arm Cable Pushdown is a beginner isolation exercise primarily targeting the Triceps, with additional involvement from Forearms. It uses Cable Machine and follows a elbow extension movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Single-Arm Cable Pushdown. Body part: Triceps. Primary muscle: Triceps. Secondary muscles: Forearms. Equipment: Cable Machine. Difficulty: Beginner. Movement pattern: Elbow Extension. Exercise type: Isolation. Training goals: Hypertrophy. Description: Single-Arm Cable Pushdown is a beginner isolation exercise primarily targeting the Triceps, with additional involvement from Forearms. It uses Cable Machine and follows a elbow extension movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 21,
+      "name": "Barbell Wrist Curl",
+      "bodyPart": "Forearms & Grip",
+      "primaryMuscle": "Forearms",
+      "secondaryMuscles": [
+        "Grip"
+      ],
+      "equipment": [
+        "Barbell"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Wrist Flexion",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Grip Strength",
+        "Hypertrophy"
+      ],
+      "description": "Barbell Wrist Curl is a beginner isolation exercise primarily targeting the Forearms, with additional involvement from Grip. It uses Barbell and follows a wrist flexion movement pattern. It is suitable for grip strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Barbell Wrist Curl. Body part: Forearms & Grip. Primary muscle: Forearms. Secondary muscles: Grip. Equipment: Barbell. Difficulty: Beginner. Movement pattern: Wrist Flexion. Exercise type: Isolation. Training goals: Grip Strength, Hypertrophy. Description: Barbell Wrist Curl is a beginner isolation exercise primarily targeting the Forearms, with additional involvement from Grip. It uses Barbell and follows a wrist flexion movement pattern. It is suitable for grip strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 22,
+      "name": "Plate Pinch",
+      "bodyPart": "Forearms & Grip",
+      "primaryMuscle": "Grip",
+      "secondaryMuscles": [
+        "Forearms"
+      ],
+      "equipment": [
+        "Weight Plates"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Grip",
+      "exerciseType": "Isometric",
+      "goalTags": [
+        "Grip Strength"
+      ],
+      "description": "Plate Pinch is a beginner isometric exercise primarily targeting the Grip, with additional involvement from Forearms. It uses Weight Plates and follows a grip movement pattern. It is suitable for grip strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Plate Pinch. Body part: Forearms & Grip. Primary muscle: Grip. Secondary muscles: Forearms. Equipment: Weight Plates. Difficulty: Beginner. Movement pattern: Grip. Exercise type: Isometric. Training goals: Grip Strength. Description: Plate Pinch is a beginner isometric exercise primarily targeting the Grip, with additional involvement from Forearms. It uses Weight Plates and follows a grip movement pattern. It is suitable for grip strength.",
+      "active": true
+    },
+    {
+      "id": 23,
+      "name": "Wrist Roller",
+      "bodyPart": "Forearms & Grip",
+      "primaryMuscle": "Forearms",
+      "secondaryMuscles": [
+        "Grip"
+      ],
+      "equipment": [
+        "Wrist Roller"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Wrist Flexion",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Grip Strength",
+        "Endurance"
+      ],
+      "description": "Wrist Roller is a intermediate isolation exercise primarily targeting the Forearms, with additional involvement from Grip. It uses Wrist Roller and follows a wrist flexion movement pattern. It is suitable for grip strength, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Wrist Roller. Body part: Forearms & Grip. Primary muscle: Forearms. Secondary muscles: Grip. Equipment: Wrist Roller. Difficulty: Intermediate. Movement pattern: Wrist Flexion. Exercise type: Isolation. Training goals: Grip Strength, Endurance. Description: Wrist Roller is a intermediate isolation exercise primarily targeting the Forearms, with additional involvement from Grip. It uses Wrist Roller and follows a wrist flexion movement pattern. It is suitable for grip strength, endurance.",
+      "active": true
+    },
+    {
+      "id": 24,
+      "name": "Hammer Lever Supination",
+      "bodyPart": "Forearms & Grip",
+      "primaryMuscle": "Forearms",
+      "secondaryMuscles": [
+        "Grip"
+      ],
+      "equipment": [
+        "Hammer"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Forearm Supination",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Grip Strength"
+      ],
+      "description": "Hammer Lever Supination is a intermediate isolation exercise primarily targeting the Forearms, with additional involvement from Grip. It uses Hammer and follows a forearm supination movement pattern. It is suitable for grip strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Hammer Lever Supination. Body part: Forearms & Grip. Primary muscle: Forearms. Secondary muscles: Grip. Equipment: Hammer. Difficulty: Intermediate. Movement pattern: Forearm Supination. Exercise type: Isolation. Training goals: Grip Strength. Description: Hammer Lever Supination is a intermediate isolation exercise primarily targeting the Forearms, with additional involvement from Grip. It uses Hammer and follows a forearm supination movement pattern. It is suitable for grip strength.",
+      "active": true
+    },
+    {
+      "id": 25,
+      "name": "Barbell Shrug",
+      "bodyPart": "Traps",
+      "primaryMuscle": "Upper Traps",
+      "secondaryMuscles": [
+        "Forearms"
+      ],
+      "equipment": [
+        "Barbell"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Scapular Elevation",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Barbell Shrug is a beginner isolation exercise primarily targeting the Upper Traps, with additional involvement from Forearms. It uses Barbell and follows a scapular elevation movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Barbell Shrug. Body part: Traps. Primary muscle: Upper Traps. Secondary muscles: Forearms. Equipment: Barbell. Difficulty: Beginner. Movement pattern: Scapular Elevation. Exercise type: Isolation. Training goals: Strength, Hypertrophy. Description: Barbell Shrug is a beginner isolation exercise primarily targeting the Upper Traps, with additional involvement from Forearms. It uses Barbell and follows a scapular elevation movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 26,
+      "name": "Behind-the-Back Barbell Shrug",
+      "bodyPart": "Traps",
+      "primaryMuscle": "Upper Traps",
+      "secondaryMuscles": [
+        "Forearms"
+      ],
+      "equipment": [
+        "Barbell"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Scapular Elevation",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Behind-the-Back Barbell Shrug is a intermediate isolation exercise primarily targeting the Upper Traps, with additional involvement from Forearms. It uses Barbell and follows a scapular elevation movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Behind-the-Back Barbell Shrug. Body part: Traps. Primary muscle: Upper Traps. Secondary muscles: Forearms. Equipment: Barbell. Difficulty: Intermediate. Movement pattern: Scapular Elevation. Exercise type: Isolation. Training goals: Hypertrophy. Description: Behind-the-Back Barbell Shrug is a intermediate isolation exercise primarily targeting the Upper Traps, with additional involvement from Forearms. It uses Barbell and follows a scapular elevation movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 27,
+      "name": "Scapular Pull-Up",
+      "bodyPart": "Traps",
+      "primaryMuscle": "Lower Traps",
+      "secondaryMuscles": [
+        "Lats",
+        "Serratus"
+      ],
+      "equipment": [
+        "Pull-Up Bar"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Scapular Depression",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Shoulder Health",
+        "Strength"
+      ],
+      "description": "Scapular Pull-Up is a beginner bodyweight exercise primarily targeting the Lower Traps, with additional involvement from Lats, Serratus. It uses Pull-Up Bar and follows a scapular depression movement pattern. It is suitable for shoulder health, strength.",
+      "instructions": [
+        "Set a stable starting position with the shoulders controlled and core braced.",
+        "Press through the intended range while keeping the movement controlled.",
+        "Return slowly to the starting position without losing alignment."
+      ],
+      "embeddingText": "Exercise: Scapular Pull-Up. Body part: Traps. Primary muscle: Lower Traps. Secondary muscles: Lats, Serratus. Equipment: Pull-Up Bar. Difficulty: Beginner. Movement pattern: Scapular Depression. Exercise type: Bodyweight. Training goals: Shoulder Health, Strength. Description: Scapular Pull-Up is a beginner bodyweight exercise primarily targeting the Lower Traps, with additional involvement from Lats, Serratus. It uses Pull-Up Bar and follows a scapular depression movement pattern. It is suitable for shoulder health, strength.",
+      "active": true
+    },
+    {
+      "id": 28,
+      "name": "Rack Pull Shrug",
+      "bodyPart": "Traps",
+      "primaryMuscle": "Upper Traps",
+      "secondaryMuscles": [
+        "Grip",
+        "Posterior Chain"
+      ],
+      "equipment": [
+        "Barbell",
+        "Rack"
+      ],
+      "difficulty": "Advanced",
+      "movementPattern": "Hip Hinge",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Rack Pull Shrug is a advanced compound exercise primarily targeting the Upper Traps, with additional involvement from Grip, Posterior Chain. It uses Barbell, Rack and follows a hip hinge movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Brace the core and keep the spine controlled.",
+        "Push the hips backward while maintaining tension through the posterior chain.",
+        "Drive the hips forward to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Rack Pull Shrug. Body part: Traps. Primary muscle: Upper Traps. Secondary muscles: Grip, Posterior Chain. Equipment: Barbell, Rack. Difficulty: Advanced. Movement pattern: Hip Hinge. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Rack Pull Shrug is a advanced compound exercise primarily targeting the Upper Traps, with additional involvement from Grip, Posterior Chain. It uses Barbell, Rack and follows a hip hinge movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 29,
+      "name": "Conventional Deadlift",
+      "bodyPart": "Lower Back",
+      "primaryMuscle": "Lower Back",
+      "secondaryMuscles": [
+        "Glutes",
+        "Hamstrings",
+        "Upper Back",
+        "Grip"
+      ],
+      "equipment": [
+        "Barbell"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Hip Hinge",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Power"
+      ],
+      "description": "Conventional Deadlift is a intermediate compound exercise primarily targeting the Lower Back, with additional involvement from Glutes, Hamstrings, Upper Back, Grip. It uses Barbell and follows a hip hinge movement pattern. It is suitable for strength, power.",
+      "instructions": [
+        "Brace the core and keep the spine controlled.",
+        "Push the hips backward while maintaining tension through the posterior chain.",
+        "Drive the hips forward to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Conventional Deadlift. Body part: Lower Back. Primary muscle: Lower Back. Secondary muscles: Glutes, Hamstrings, Upper Back, Grip. Equipment: Barbell. Difficulty: Intermediate. Movement pattern: Hip Hinge. Exercise type: Compound. Training goals: Strength, Power. Description: Conventional Deadlift is a intermediate compound exercise primarily targeting the Lower Back, with additional involvement from Glutes, Hamstrings, Upper Back, Grip. It uses Barbell and follows a hip hinge movement pattern. It is suitable for strength, power.",
+      "active": true
+    },
+    {
+      "id": 30,
+      "name": "Dumbbell Romanian Deadlift",
+      "bodyPart": "Lower Back",
+      "primaryMuscle": "Lower Back",
+      "secondaryMuscles": [
+        "Hamstrings",
+        "Glutes"
+      ],
+      "equipment": [
+        "Dumbbells"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Hinge",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Dumbbell Romanian Deadlift is a beginner compound exercise primarily targeting the Lower Back, with additional involvement from Hamstrings, Glutes. It uses Dumbbells and follows a hip hinge movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Brace the core and keep the spine controlled.",
+        "Push the hips backward while maintaining tension through the posterior chain.",
+        "Drive the hips forward to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Dumbbell Romanian Deadlift. Body part: Lower Back. Primary muscle: Lower Back. Secondary muscles: Hamstrings, Glutes. Equipment: Dumbbells. Difficulty: Beginner. Movement pattern: Hip Hinge. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Dumbbell Romanian Deadlift is a beginner compound exercise primarily targeting the Lower Back, with additional involvement from Hamstrings, Glutes. It uses Dumbbells and follows a hip hinge movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 31,
+      "name": "Bird Dog",
+      "bodyPart": "Lower Back",
+      "primaryMuscle": "Lower Back",
+      "secondaryMuscles": [
+        "Core",
+        "Glutes"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Anti-Rotation",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Core Stability",
+        "Rehabilitation"
+      ],
+      "description": "Bird Dog is a beginner bodyweight exercise primarily targeting the Lower Back, with additional involvement from Core, Glutes. It uses no external equipment and follows a anti-rotation movement pattern. It is suitable for core stability, rehabilitation.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Bird Dog. Body part: Lower Back. Primary muscle: Lower Back. Secondary muscles: Core, Glutes. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Anti-Rotation. Exercise type: Bodyweight. Training goals: Core Stability, Rehabilitation. Description: Bird Dog is a beginner bodyweight exercise primarily targeting the Lower Back, with additional involvement from Core, Glutes. It uses no external equipment and follows a anti-rotation movement pattern. It is suitable for core stability, rehabilitation.",
+      "active": true
+    },
+    {
+      "id": 32,
+      "name": "Cable Pull-Through",
+      "bodyPart": "Lower Back",
+      "primaryMuscle": "Lower Back",
+      "secondaryMuscles": [
+        "Glutes",
+        "Hamstrings"
+      ],
+      "equipment": [
+        "Cable Machine",
+        "Rope"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Hinge",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Hypertrophy",
+        "Movement Practice"
+      ],
+      "description": "Cable Pull-Through is a beginner compound exercise primarily targeting the Lower Back, with additional involvement from Glutes, Hamstrings. It uses Cable Machine, Rope and follows a hip hinge movement pattern. It is suitable for hypertrophy, movement practice.",
+      "instructions": [
+        "Brace the core and keep the spine controlled.",
+        "Push the hips backward while maintaining tension through the posterior chain.",
+        "Drive the hips forward to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Cable Pull-Through. Body part: Lower Back. Primary muscle: Lower Back. Secondary muscles: Glutes, Hamstrings. Equipment: Cable Machine, Rope. Difficulty: Beginner. Movement pattern: Hip Hinge. Exercise type: Compound. Training goals: Hypertrophy, Movement Practice. Description: Cable Pull-Through is a beginner compound exercise primarily targeting the Lower Back, with additional involvement from Glutes, Hamstrings. It uses Cable Machine, Rope and follows a hip hinge movement pattern. It is suitable for hypertrophy, movement practice.",
+      "active": true
+    },
+    {
+      "id": 33,
+      "name": "Back Squat",
+      "bodyPart": "Quadriceps",
+      "primaryMuscle": "Quadriceps",
+      "secondaryMuscles": [
+        "Glutes",
+        "Hamstrings",
+        "Core"
+      ],
+      "equipment": [
+        "Barbell",
+        "Squat Rack"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Squat",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Back Squat is a intermediate compound exercise primarily targeting the Quadriceps, with additional involvement from Glutes, Hamstrings, Core. It uses Barbell, Squat Rack and follows a squat movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set the feet securely and brace the trunk before descending.",
+        "Bend through the hips and knees while maintaining controlled alignment.",
+        "Drive through the feet to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Back Squat. Body part: Quadriceps. Primary muscle: Quadriceps. Secondary muscles: Glutes, Hamstrings, Core. Equipment: Barbell, Squat Rack. Difficulty: Intermediate. Movement pattern: Squat. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Back Squat is a intermediate compound exercise primarily targeting the Quadriceps, with additional involvement from Glutes, Hamstrings, Core. It uses Barbell, Squat Rack and follows a squat movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 34,
+      "name": "Leg Extension",
+      "bodyPart": "Quadriceps",
+      "primaryMuscle": "Quadriceps",
+      "secondaryMuscles": [],
+      "equipment": [
+        "Leg Extension Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Knee Extension",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Leg Extension is a beginner machine exercise primarily targeting the Quadriceps, with additional involvement from supporting stabilizer muscles. It uses Leg Extension Machine and follows a knee extension movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Leg Extension. Body part: Quadriceps. Primary muscle: Quadriceps. Secondary muscles: none. Equipment: Leg Extension Machine. Difficulty: Beginner. Movement pattern: Knee Extension. Exercise type: Machine. Training goals: Hypertrophy. Description: Leg Extension is a beginner machine exercise primarily targeting the Quadriceps, with additional involvement from supporting stabilizer muscles. It uses Leg Extension Machine and follows a knee extension movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 35,
+      "name": "Step-Up",
+      "bodyPart": "Quadriceps",
+      "primaryMuscle": "Quadriceps",
+      "secondaryMuscles": [
+        "Glutes",
+        "Hamstrings"
+      ],
+      "equipment": [
+        "Bench",
+        "Dumbbells"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Step",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Balance"
+      ],
+      "description": "Step-Up is a beginner compound exercise primarily targeting the Quadriceps, with additional involvement from Glutes, Hamstrings. It uses Bench, Dumbbells and follows a step movement pattern. It is suitable for strength, balance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Step-Up. Body part: Quadriceps. Primary muscle: Quadriceps. Secondary muscles: Glutes, Hamstrings. Equipment: Bench, Dumbbells. Difficulty: Beginner. Movement pattern: Step. Exercise type: Compound. Training goals: Strength, Balance. Description: Step-Up is a beginner compound exercise primarily targeting the Quadriceps, with additional involvement from Glutes, Hamstrings. It uses Bench, Dumbbells and follows a step movement pattern. It is suitable for strength, balance.",
+      "active": true
+    },
+    {
+      "id": 36,
+      "name": "Spanish Squat",
+      "bodyPart": "Quadriceps",
+      "primaryMuscle": "Quadriceps",
+      "secondaryMuscles": [],
+      "equipment": [
+        "Resistance Band"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Squat",
+      "exerciseType": "Resistance Band",
+      "goalTags": [
+        "Hypertrophy",
+        "Rehabilitation"
+      ],
+      "description": "Spanish Squat is a beginner resistance band exercise primarily targeting the Quadriceps, with additional involvement from supporting stabilizer muscles. It uses Resistance Band and follows a squat movement pattern. It is suitable for hypertrophy, rehabilitation.",
+      "instructions": [
+        "Set the feet securely and brace the trunk before descending.",
+        "Bend through the hips and knees while maintaining controlled alignment.",
+        "Drive through the feet to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Spanish Squat. Body part: Quadriceps. Primary muscle: Quadriceps. Secondary muscles: none. Equipment: Resistance Band. Difficulty: Beginner. Movement pattern: Squat. Exercise type: Resistance Band. Training goals: Hypertrophy, Rehabilitation. Description: Spanish Squat is a beginner resistance band exercise primarily targeting the Quadriceps, with additional involvement from supporting stabilizer muscles. It uses Resistance Band and follows a squat movement pattern. It is suitable for hypertrophy, rehabilitation.",
+      "active": true
+    },
+    {
+      "id": 37,
+      "name": "Barbell Romanian Deadlift",
+      "bodyPart": "Hamstrings",
+      "primaryMuscle": "Hamstrings",
+      "secondaryMuscles": [
+        "Glutes",
+        "Lower Back"
+      ],
+      "equipment": [
+        "Barbell"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Hip Hinge",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Barbell Romanian Deadlift is a intermediate compound exercise primarily targeting the Hamstrings, with additional involvement from Glutes, Lower Back. It uses Barbell and follows a hip hinge movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Brace the core and keep the spine controlled.",
+        "Push the hips backward while maintaining tension through the posterior chain.",
+        "Drive the hips forward to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Barbell Romanian Deadlift. Body part: Hamstrings. Primary muscle: Hamstrings. Secondary muscles: Glutes, Lower Back. Equipment: Barbell. Difficulty: Intermediate. Movement pattern: Hip Hinge. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Barbell Romanian Deadlift is a intermediate compound exercise primarily targeting the Hamstrings, with additional involvement from Glutes, Lower Back. It uses Barbell and follows a hip hinge movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 38,
+      "name": "Lying Leg Curl",
+      "bodyPart": "Hamstrings",
+      "primaryMuscle": "Hamstrings",
+      "secondaryMuscles": [
+        "Calves"
+      ],
+      "equipment": [
+        "Leg Curl Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Knee Flexion",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Lying Leg Curl is a beginner machine exercise primarily targeting the Hamstrings, with additional involvement from Calves. It uses Leg Curl Machine and follows a knee flexion movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Lying Leg Curl. Body part: Hamstrings. Primary muscle: Hamstrings. Secondary muscles: Calves. Equipment: Leg Curl Machine. Difficulty: Beginner. Movement pattern: Knee Flexion. Exercise type: Machine. Training goals: Hypertrophy. Description: Lying Leg Curl is a beginner machine exercise primarily targeting the Hamstrings, with additional involvement from Calves. It uses Leg Curl Machine and follows a knee flexion movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 39,
+      "name": "Glute-Ham Raise",
+      "bodyPart": "Hamstrings",
+      "primaryMuscle": "Hamstrings",
+      "secondaryMuscles": [
+        "Glutes",
+        "Lower Back"
+      ],
+      "equipment": [
+        "GHD Machine"
+      ],
+      "difficulty": "Advanced",
+      "movementPattern": "Knee Flexion",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Glute-Ham Raise is a advanced bodyweight exercise primarily targeting the Hamstrings, with additional involvement from Glutes, Lower Back. It uses GHD Machine and follows a knee flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Glute-Ham Raise. Body part: Hamstrings. Primary muscle: Hamstrings. Secondary muscles: Glutes, Lower Back. Equipment: GHD Machine. Difficulty: Advanced. Movement pattern: Knee Flexion. Exercise type: Bodyweight. Training goals: Strength, Hypertrophy. Description: Glute-Ham Raise is a advanced bodyweight exercise primarily targeting the Hamstrings, with additional involvement from Glutes, Lower Back. It uses GHD Machine and follows a knee flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 40,
+      "name": "Cable Pull-Through for Hamstrings",
+      "bodyPart": "Hamstrings",
+      "primaryMuscle": "Hamstrings",
+      "secondaryMuscles": [
+        "Glutes",
+        "Lower Back"
+      ],
+      "equipment": [
+        "Cable Machine",
+        "Rope"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Hinge",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Cable Pull-Through for Hamstrings is a beginner compound exercise primarily targeting the Hamstrings, with additional involvement from Glutes, Lower Back. It uses Cable Machine, Rope and follows a hip hinge movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Brace the core and keep the spine controlled.",
+        "Push the hips backward while maintaining tension through the posterior chain.",
+        "Drive the hips forward to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Cable Pull-Through for Hamstrings. Body part: Hamstrings. Primary muscle: Hamstrings. Secondary muscles: Glutes, Lower Back. Equipment: Cable Machine, Rope. Difficulty: Beginner. Movement pattern: Hip Hinge. Exercise type: Compound. Training goals: Hypertrophy. Description: Cable Pull-Through for Hamstrings is a beginner compound exercise primarily targeting the Hamstrings, with additional involvement from Glutes, Lower Back. It uses Cable Machine, Rope and follows a hip hinge movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 41,
+      "name": "Barbell Hip Thrust",
+      "bodyPart": "Glutes",
+      "primaryMuscle": "Glutes",
+      "secondaryMuscles": [
+        "Hamstrings",
+        "Core"
+      ],
+      "equipment": [
+        "Barbell",
+        "Bench"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Hip Extension",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Barbell Hip Thrust is a intermediate compound exercise primarily targeting the Glutes, with additional involvement from Hamstrings, Core. It uses Barbell, Bench and follows a hip extension movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Barbell Hip Thrust. Body part: Glutes. Primary muscle: Glutes. Secondary muscles: Hamstrings, Core. Equipment: Barbell, Bench. Difficulty: Intermediate. Movement pattern: Hip Extension. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Barbell Hip Thrust is a intermediate compound exercise primarily targeting the Glutes, with additional involvement from Hamstrings, Core. It uses Barbell, Bench and follows a hip extension movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 42,
+      "name": "Cable Glute Kickback",
+      "bodyPart": "Glutes",
+      "primaryMuscle": "Glutes",
+      "secondaryMuscles": [
+        "Hamstrings"
+      ],
+      "equipment": [
+        "Cable Machine",
+        "Ankle Strap"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Extension",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Cable Glute Kickback is a beginner isolation exercise primarily targeting the Glutes, with additional involvement from Hamstrings. It uses Cable Machine, Ankle Strap and follows a hip extension movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Cable Glute Kickback. Body part: Glutes. Primary muscle: Glutes. Secondary muscles: Hamstrings. Equipment: Cable Machine, Ankle Strap. Difficulty: Beginner. Movement pattern: Hip Extension. Exercise type: Isolation. Training goals: Hypertrophy. Description: Cable Glute Kickback is a beginner isolation exercise primarily targeting the Glutes, with additional involvement from Hamstrings. It uses Cable Machine, Ankle Strap and follows a hip extension movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 43,
+      "name": "Sumo Squat",
+      "bodyPart": "Glutes",
+      "primaryMuscle": "Glutes",
+      "secondaryMuscles": [
+        "Quadriceps",
+        "Adductors"
+      ],
+      "equipment": [
+        "Dumbbell"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Squat",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Sumo Squat is a beginner compound exercise primarily targeting the Glutes, with additional involvement from Quadriceps, Adductors. It uses Dumbbell and follows a squat movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set the feet securely and brace the trunk before descending.",
+        "Bend through the hips and knees while maintaining controlled alignment.",
+        "Drive through the feet to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Sumo Squat. Body part: Glutes. Primary muscle: Glutes. Secondary muscles: Quadriceps, Adductors. Equipment: Dumbbell. Difficulty: Beginner. Movement pattern: Squat. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Sumo Squat is a beginner compound exercise primarily targeting the Glutes, with additional involvement from Quadriceps, Adductors. It uses Dumbbell and follows a squat movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 44,
+      "name": "Smith Machine Hip Thrust",
+      "bodyPart": "Glutes",
+      "primaryMuscle": "Glutes",
+      "secondaryMuscles": [
+        "Hamstrings"
+      ],
+      "equipment": [
+        "Smith Machine",
+        "Bench"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Extension",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Smith Machine Hip Thrust is a beginner machine exercise primarily targeting the Glutes, with additional involvement from Hamstrings. It uses Smith Machine, Bench and follows a hip extension movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Smith Machine Hip Thrust. Body part: Glutes. Primary muscle: Glutes. Secondary muscles: Hamstrings. Equipment: Smith Machine, Bench. Difficulty: Beginner. Movement pattern: Hip Extension. Exercise type: Machine. Training goals: Strength, Hypertrophy. Description: Smith Machine Hip Thrust is a beginner machine exercise primarily targeting the Glutes, with additional involvement from Hamstrings. It uses Smith Machine, Bench and follows a hip extension movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 45,
+      "name": "Standing Calf Raise",
+      "bodyPart": "Calves",
+      "primaryMuscle": "Gastrocnemius",
+      "secondaryMuscles": [
+        "Soleus"
+      ],
+      "equipment": [
+        "Calf Raise Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Plantar Flexion",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Standing Calf Raise is a beginner machine exercise primarily targeting the Gastrocnemius, with additional involvement from Soleus. It uses Calf Raise Machine and follows a plantar flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Standing Calf Raise. Body part: Calves. Primary muscle: Gastrocnemius. Secondary muscles: Soleus. Equipment: Calf Raise Machine. Difficulty: Beginner. Movement pattern: Plantar Flexion. Exercise type: Machine. Training goals: Strength, Hypertrophy. Description: Standing Calf Raise is a beginner machine exercise primarily targeting the Gastrocnemius, with additional involvement from Soleus. It uses Calf Raise Machine and follows a plantar flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 46,
+      "name": "Smith Machine Calf Raise",
+      "bodyPart": "Calves",
+      "primaryMuscle": "Gastrocnemius",
+      "secondaryMuscles": [
+        "Soleus"
+      ],
+      "equipment": [
+        "Smith Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Plantar Flexion",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Smith Machine Calf Raise is a beginner machine exercise primarily targeting the Gastrocnemius, with additional involvement from Soleus. It uses Smith Machine and follows a plantar flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Smith Machine Calf Raise. Body part: Calves. Primary muscle: Gastrocnemius. Secondary muscles: Soleus. Equipment: Smith Machine. Difficulty: Beginner. Movement pattern: Plantar Flexion. Exercise type: Machine. Training goals: Strength, Hypertrophy. Description: Smith Machine Calf Raise is a beginner machine exercise primarily targeting the Gastrocnemius, with additional involvement from Soleus. It uses Smith Machine and follows a plantar flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 47,
+      "name": "Farmer Walk on Toes",
+      "bodyPart": "Calves",
+      "primaryMuscle": "Calves",
+      "secondaryMuscles": [
+        "Grip",
+        "Core"
+      ],
+      "equipment": [
+        "Dumbbells"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Loaded Carry",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Endurance",
+        "Grip Strength"
+      ],
+      "description": "Farmer Walk on Toes is a intermediate compound exercise primarily targeting the Calves, with additional involvement from Grip, Core. It uses Dumbbells and follows a loaded carry movement pattern. It is suitable for endurance, grip strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Farmer Walk on Toes. Body part: Calves. Primary muscle: Calves. Secondary muscles: Grip, Core. Equipment: Dumbbells. Difficulty: Intermediate. Movement pattern: Loaded Carry. Exercise type: Compound. Training goals: Endurance, Grip Strength. Description: Farmer Walk on Toes is a intermediate compound exercise primarily targeting the Calves, with additional involvement from Grip, Core. It uses Dumbbells and follows a loaded carry movement pattern. It is suitable for endurance, grip strength.",
+      "active": true
+    },
+    {
+      "id": 48,
+      "name": "Resistance-Band Plantar Flexion",
+      "bodyPart": "Calves",
+      "primaryMuscle": "Calves",
+      "secondaryMuscles": [
+        "Ankles"
+      ],
+      "equipment": [
+        "Resistance Band"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Plantar Flexion",
+      "exerciseType": "Resistance Band",
+      "goalTags": [
+        "Rehabilitation",
+        "Endurance"
+      ],
+      "description": "Resistance-Band Plantar Flexion is a beginner resistance band exercise primarily targeting the Calves, with additional involvement from Ankles. It uses Resistance Band and follows a plantar flexion movement pattern. It is suitable for rehabilitation, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Resistance-Band Plantar Flexion. Body part: Calves. Primary muscle: Calves. Secondary muscles: Ankles. Equipment: Resistance Band. Difficulty: Beginner. Movement pattern: Plantar Flexion. Exercise type: Resistance Band. Training goals: Rehabilitation, Endurance. Description: Resistance-Band Plantar Flexion is a beginner resistance band exercise primarily targeting the Calves, with additional involvement from Ankles. It uses Resistance Band and follows a plantar flexion movement pattern. It is suitable for rehabilitation, endurance.",
+      "active": true
+    },
+    {
+      "id": 49,
+      "name": "Machine Hip Adduction",
+      "bodyPart": "Adductors",
+      "primaryMuscle": "Adductors",
+      "secondaryMuscles": [
+        "Inner Thigh"
+      ],
+      "equipment": [
+        "Hip Adduction Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Adduction",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Machine Hip Adduction is a beginner machine exercise primarily targeting the Adductors, with additional involvement from Inner Thigh. It uses Hip Adduction Machine and follows a hip adduction movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Machine Hip Adduction. Body part: Adductors. Primary muscle: Adductors. Secondary muscles: Inner Thigh. Equipment: Hip Adduction Machine. Difficulty: Beginner. Movement pattern: Hip Adduction. Exercise type: Machine. Training goals: Hypertrophy. Description: Machine Hip Adduction is a beginner machine exercise primarily targeting the Adductors, with additional involvement from Inner Thigh. It uses Hip Adduction Machine and follows a hip adduction movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 50,
+      "name": "Side-Lying Hip Adduction",
+      "bodyPart": "Adductors",
+      "primaryMuscle": "Adductors",
+      "secondaryMuscles": [
+        "Core"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Adduction",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Rehabilitation"
+      ],
+      "description": "Side-Lying Hip Adduction is a beginner bodyweight exercise primarily targeting the Adductors, with additional involvement from Core. It uses no external equipment and follows a hip adduction movement pattern. It is suitable for strength, rehabilitation.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Side-Lying Hip Adduction. Body part: Adductors. Primary muscle: Adductors. Secondary muscles: Core. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Hip Adduction. Exercise type: Bodyweight. Training goals: Strength, Rehabilitation. Description: Side-Lying Hip Adduction is a beginner bodyweight exercise primarily targeting the Adductors, with additional involvement from Core. It uses no external equipment and follows a hip adduction movement pattern. It is suitable for strength, rehabilitation.",
+      "active": true
+    },
+    {
+      "id": 51,
+      "name": "Slider Lateral Lunge",
+      "bodyPart": "Adductors",
+      "primaryMuscle": "Adductors",
+      "secondaryMuscles": [
+        "Glutes",
+        "Quadriceps"
+      ],
+      "equipment": [
+        "Slider"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Lunge",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Mobility"
+      ],
+      "description": "Slider Lateral Lunge is a intermediate bodyweight exercise primarily targeting the Adductors, with additional involvement from Glutes, Quadriceps. It uses Slider and follows a lunge movement pattern. It is suitable for strength, mobility.",
+      "instructions": [
+        "Start tall with the trunk braced and feet balanced.",
+        "Move into the lunge while controlling the working knee and hip.",
+        "Push through the working foot to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Slider Lateral Lunge. Body part: Adductors. Primary muscle: Adductors. Secondary muscles: Glutes, Quadriceps. Equipment: Slider. Difficulty: Intermediate. Movement pattern: Lunge. Exercise type: Bodyweight. Training goals: Strength, Mobility. Description: Slider Lateral Lunge is a intermediate bodyweight exercise primarily targeting the Adductors, with additional involvement from Glutes, Quadriceps. It uses Slider and follows a lunge movement pattern. It is suitable for strength, mobility.",
+      "active": true
+    },
+    {
+      "id": 52,
+      "name": "Wide-Stance Goblet Squat",
+      "bodyPart": "Adductors",
+      "primaryMuscle": "Adductors",
+      "secondaryMuscles": [
+        "Glutes",
+        "Quadriceps"
+      ],
+      "equipment": [
+        "Dumbbell"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Squat",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Wide-Stance Goblet Squat is a beginner compound exercise primarily targeting the Adductors, with additional involvement from Glutes, Quadriceps. It uses Dumbbell and follows a squat movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set the feet securely and brace the trunk before descending.",
+        "Bend through the hips and knees while maintaining controlled alignment.",
+        "Drive through the feet to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Wide-Stance Goblet Squat. Body part: Adductors. Primary muscle: Adductors. Secondary muscles: Glutes, Quadriceps. Equipment: Dumbbell. Difficulty: Beginner. Movement pattern: Squat. Exercise type: Compound. Training goals: Strength, Hypertrophy. Description: Wide-Stance Goblet Squat is a beginner compound exercise primarily targeting the Adductors, with additional involvement from Glutes, Quadriceps. It uses Dumbbell and follows a squat movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 53,
+      "name": "Machine Hip Abduction",
+      "bodyPart": "Abductors & Glute Medius",
+      "primaryMuscle": "Hip Abductors",
+      "secondaryMuscles": [
+        "Glute Medius"
+      ],
+      "equipment": [
+        "Hip Abduction Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Abduction",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Hypertrophy"
+      ],
+      "description": "Machine Hip Abduction is a beginner machine exercise primarily targeting the Hip Abductors, with additional involvement from Glute Medius. It uses Hip Abduction Machine and follows a hip abduction movement pattern. It is suitable for hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Machine Hip Abduction. Body part: Abductors & Glute Medius. Primary muscle: Hip Abductors. Secondary muscles: Glute Medius. Equipment: Hip Abduction Machine. Difficulty: Beginner. Movement pattern: Hip Abduction. Exercise type: Machine. Training goals: Hypertrophy. Description: Machine Hip Abduction is a beginner machine exercise primarily targeting the Hip Abductors, with additional involvement from Glute Medius. It uses Hip Abduction Machine and follows a hip abduction movement pattern. It is suitable for hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 54,
+      "name": "Monster Walk",
+      "bodyPart": "Abductors & Glute Medius",
+      "primaryMuscle": "Glute Medius",
+      "secondaryMuscles": [
+        "Glutes",
+        "Hip Abductors"
+      ],
+      "equipment": [
+        "Resistance Band"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Lateral Walk",
+      "exerciseType": "Resistance Band",
+      "goalTags": [
+        "Activation",
+        "Endurance"
+      ],
+      "description": "Monster Walk is a beginner resistance band exercise primarily targeting the Glute Medius, with additional involvement from Glutes, Hip Abductors. It uses Resistance Band and follows a lateral walk movement pattern. It is suitable for activation, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Monster Walk. Body part: Abductors & Glute Medius. Primary muscle: Glute Medius. Secondary muscles: Glutes, Hip Abductors. Equipment: Resistance Band. Difficulty: Beginner. Movement pattern: Lateral Walk. Exercise type: Resistance Band. Training goals: Activation, Endurance. Description: Monster Walk is a beginner resistance band exercise primarily targeting the Glute Medius, with additional involvement from Glutes, Hip Abductors. It uses Resistance Band and follows a lateral walk movement pattern. It is suitable for activation, endurance.",
+      "active": true
+    },
+    {
+      "id": 55,
+      "name": "Banded Fire Hydrant",
+      "bodyPart": "Abductors & Glute Medius",
+      "primaryMuscle": "Glute Medius",
+      "secondaryMuscles": [
+        "Glutes",
+        "Core"
+      ],
+      "equipment": [
+        "Resistance Band"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Abduction",
+      "exerciseType": "Resistance Band",
+      "goalTags": [
+        "Activation",
+        "Hypertrophy"
+      ],
+      "description": "Banded Fire Hydrant is a beginner resistance band exercise primarily targeting the Glute Medius, with additional involvement from Glutes, Core. It uses Resistance Band and follows a hip abduction movement pattern. It is suitable for activation, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Banded Fire Hydrant. Body part: Abductors & Glute Medius. Primary muscle: Glute Medius. Secondary muscles: Glutes, Core. Equipment: Resistance Band. Difficulty: Beginner. Movement pattern: Hip Abduction. Exercise type: Resistance Band. Training goals: Activation, Hypertrophy. Description: Banded Fire Hydrant is a beginner resistance band exercise primarily targeting the Glute Medius, with additional involvement from Glutes, Core. It uses Resistance Band and follows a hip abduction movement pattern. It is suitable for activation, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 56,
+      "name": "Lateral Box Walk",
+      "bodyPart": "Abductors & Glute Medius",
+      "primaryMuscle": "Glute Medius",
+      "secondaryMuscles": [
+        "Quadriceps",
+        "Glutes"
+      ],
+      "equipment": [
+        "Plyometric Box"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Lateral Step",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Balance"
+      ],
+      "description": "Lateral Box Walk is a intermediate bodyweight exercise primarily targeting the Glute Medius, with additional involvement from Quadriceps, Glutes. It uses Plyometric Box and follows a lateral step movement pattern. It is suitable for strength, balance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Lateral Box Walk. Body part: Abductors & Glute Medius. Primary muscle: Glute Medius. Secondary muscles: Quadriceps, Glutes. Equipment: Plyometric Box. Difficulty: Intermediate. Movement pattern: Lateral Step. Exercise type: Bodyweight. Training goals: Strength, Balance. Description: Lateral Box Walk is a intermediate bodyweight exercise primarily targeting the Glute Medius, with additional involvement from Quadriceps, Glutes. It uses Plyometric Box and follows a lateral step movement pattern. It is suitable for strength, balance.",
+      "active": true
+    },
+    {
+      "id": 57,
+      "name": "Crunch",
+      "bodyPart": "Abs",
+      "primaryMuscle": "Rectus Abdominis",
+      "secondaryMuscles": [
+        "Core"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Spinal Flexion",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Core Strength",
+        "Endurance"
+      ],
+      "description": "Crunch is a beginner bodyweight exercise primarily targeting the Rectus Abdominis, with additional involvement from Core. It uses no external equipment and follows a spinal flexion movement pattern. It is suitable for core strength, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Crunch. Body part: Abs. Primary muscle: Rectus Abdominis. Secondary muscles: Core. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Spinal Flexion. Exercise type: Bodyweight. Training goals: Core Strength, Endurance. Description: Crunch is a beginner bodyweight exercise primarily targeting the Rectus Abdominis, with additional involvement from Core. It uses no external equipment and follows a spinal flexion movement pattern. It is suitable for core strength, endurance.",
+      "active": true
+    },
+    {
+      "id": 58,
+      "name": "Machine Ab Crunch",
+      "bodyPart": "Abs",
+      "primaryMuscle": "Rectus Abdominis",
+      "secondaryMuscles": [
+        "Core"
+      ],
+      "equipment": [
+        "Ab Crunch Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Spinal Flexion",
+      "exerciseType": "Machine",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Machine Ab Crunch is a beginner machine exercise primarily targeting the Rectus Abdominis, with additional involvement from Core. It uses Ab Crunch Machine and follows a spinal flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Machine Ab Crunch. Body part: Abs. Primary muscle: Rectus Abdominis. Secondary muscles: Core. Equipment: Ab Crunch Machine. Difficulty: Beginner. Movement pattern: Spinal Flexion. Exercise type: Machine. Training goals: Strength, Hypertrophy. Description: Machine Ab Crunch is a beginner machine exercise primarily targeting the Rectus Abdominis, with additional involvement from Core. It uses Ab Crunch Machine and follows a spinal flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 59,
+      "name": "Toe Touch",
+      "bodyPart": "Abs",
+      "primaryMuscle": "Upper Abs",
+      "secondaryMuscles": [
+        "Core"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Spinal Flexion",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Core Strength",
+        "Endurance"
+      ],
+      "description": "Toe Touch is a beginner bodyweight exercise primarily targeting the Upper Abs, with additional involvement from Core. It uses no external equipment and follows a spinal flexion movement pattern. It is suitable for core strength, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Toe Touch. Body part: Abs. Primary muscle: Upper Abs. Secondary muscles: Core. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Spinal Flexion. Exercise type: Bodyweight. Training goals: Core Strength, Endurance. Description: Toe Touch is a beginner bodyweight exercise primarily targeting the Upper Abs, with additional involvement from Core. It uses no external equipment and follows a spinal flexion movement pattern. It is suitable for core strength, endurance.",
+      "active": true
+    },
+    {
+      "id": 60,
+      "name": "Dead Bug for Abs",
+      "bodyPart": "Abs",
+      "primaryMuscle": "Core",
+      "secondaryMuscles": [
+        "Lower Abs",
+        "Hip Flexors"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Anti-Extension",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Core Stability"
+      ],
+      "description": "Dead Bug for Abs is a beginner bodyweight exercise primarily targeting the Core, with additional involvement from Lower Abs, Hip Flexors. It uses no external equipment and follows a anti-extension movement pattern. It is suitable for core stability.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Dead Bug for Abs. Body part: Abs. Primary muscle: Core. Secondary muscles: Lower Abs, Hip Flexors. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Anti-Extension. Exercise type: Bodyweight. Training goals: Core Stability. Description: Dead Bug for Abs is a beginner bodyweight exercise primarily targeting the Core, with additional involvement from Lower Abs, Hip Flexors. It uses no external equipment and follows a anti-extension movement pattern. It is suitable for core stability.",
+      "active": true
+    },
+    {
+      "id": 61,
+      "name": "Russian Twist",
+      "bodyPart": "Obliques",
+      "primaryMuscle": "Obliques",
+      "secondaryMuscles": [
+        "Rectus Abdominis"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Rotation",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Core Strength",
+        "Endurance"
+      ],
+      "description": "Russian Twist is a beginner bodyweight exercise primarily targeting the Obliques, with additional involvement from Rectus Abdominis. It uses no external equipment and follows a rotation movement pattern. It is suitable for core strength, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Russian Twist. Body part: Obliques. Primary muscle: Obliques. Secondary muscles: Rectus Abdominis. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Rotation. Exercise type: Bodyweight. Training goals: Core Strength, Endurance. Description: Russian Twist is a beginner bodyweight exercise primarily targeting the Obliques, with additional involvement from Rectus Abdominis. It uses no external equipment and follows a rotation movement pattern. It is suitable for core strength, endurance.",
+      "active": true
+    },
+    {
+      "id": 62,
+      "name": "Side Plank",
+      "bodyPart": "Obliques",
+      "primaryMuscle": "Obliques",
+      "secondaryMuscles": [
+        "Glute Medius",
+        "Shoulders"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Anti-Lateral Flexion",
+      "exerciseType": "Isometric",
+      "goalTags": [
+        "Core Stability"
+      ],
+      "description": "Side Plank is a beginner isometric exercise primarily targeting the Obliques, with additional involvement from Glute Medius, Shoulders. It uses no external equipment and follows a anti-lateral flexion movement pattern. It is suitable for core stability.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Side Plank. Body part: Obliques. Primary muscle: Obliques. Secondary muscles: Glute Medius, Shoulders. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Anti-Lateral Flexion. Exercise type: Isometric. Training goals: Core Stability. Description: Side Plank is a beginner isometric exercise primarily targeting the Obliques, with additional involvement from Glute Medius, Shoulders. It uses no external equipment and follows a anti-lateral flexion movement pattern. It is suitable for core stability.",
+      "active": true
+    },
+    {
+      "id": 63,
+      "name": "Bicycle Crunch",
+      "bodyPart": "Obliques",
+      "primaryMuscle": "Obliques",
+      "secondaryMuscles": [
+        "Rectus Abdominis",
+        "Hip Flexors"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Rotation",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Core Strength",
+        "Endurance"
+      ],
+      "description": "Bicycle Crunch is a beginner bodyweight exercise primarily targeting the Obliques, with additional involvement from Rectus Abdominis, Hip Flexors. It uses no external equipment and follows a rotation movement pattern. It is suitable for core strength, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Bicycle Crunch. Body part: Obliques. Primary muscle: Obliques. Secondary muscles: Rectus Abdominis, Hip Flexors. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Rotation. Exercise type: Bodyweight. Training goals: Core Strength, Endurance. Description: Bicycle Crunch is a beginner bodyweight exercise primarily targeting the Obliques, with additional involvement from Rectus Abdominis, Hip Flexors. It uses no external equipment and follows a rotation movement pattern. It is suitable for core strength, endurance.",
+      "active": true
+    },
+    {
+      "id": 64,
+      "name": "Hanging Windshield Wiper",
+      "bodyPart": "Obliques",
+      "primaryMuscle": "Obliques",
+      "secondaryMuscles": [
+        "Rectus Abdominis",
+        "Grip"
+      ],
+      "equipment": [
+        "Pull-Up Bar"
+      ],
+      "difficulty": "Advanced",
+      "movementPattern": "Rotation",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Core Strength"
+      ],
+      "description": "Hanging Windshield Wiper is a advanced bodyweight exercise primarily targeting the Obliques, with additional involvement from Rectus Abdominis, Grip. It uses Pull-Up Bar and follows a rotation movement pattern. It is suitable for core strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Hanging Windshield Wiper. Body part: Obliques. Primary muscle: Obliques. Secondary muscles: Rectus Abdominis, Grip. Equipment: Pull-Up Bar. Difficulty: Advanced. Movement pattern: Rotation. Exercise type: Bodyweight. Training goals: Core Strength. Description: Hanging Windshield Wiper is a advanced bodyweight exercise primarily targeting the Obliques, with additional involvement from Rectus Abdominis, Grip. It uses Pull-Up Bar and follows a rotation movement pattern. It is suitable for core strength.",
+      "active": true
+    },
+    {
+      "id": 65,
+      "name": "Front Plank",
+      "bodyPart": "Deep Core",
+      "primaryMuscle": "Deep Core",
+      "secondaryMuscles": [
+        "Rectus Abdominis",
+        "Shoulders"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Anti-Extension",
+      "exerciseType": "Isometric",
+      "goalTags": [
+        "Core Stability",
+        "Endurance"
+      ],
+      "description": "Front Plank is a beginner isometric exercise primarily targeting the Deep Core, with additional involvement from Rectus Abdominis, Shoulders. It uses no external equipment and follows a anti-extension movement pattern. It is suitable for core stability, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Front Plank. Body part: Deep Core. Primary muscle: Deep Core. Secondary muscles: Rectus Abdominis, Shoulders. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Anti-Extension. Exercise type: Isometric. Training goals: Core Stability, Endurance. Description: Front Plank is a beginner isometric exercise primarily targeting the Deep Core, with additional involvement from Rectus Abdominis, Shoulders. It uses no external equipment and follows a anti-extension movement pattern. It is suitable for core stability, endurance.",
+      "active": true
+    },
+    {
+      "id": 66,
+      "name": "Dead Bug with Band",
+      "bodyPart": "Deep Core",
+      "primaryMuscle": "Deep Core",
+      "secondaryMuscles": [
+        "Lower Abs",
+        "Hip Flexors"
+      ],
+      "equipment": [
+        "Resistance Band"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Anti-Extension",
+      "exerciseType": "Resistance Band",
+      "goalTags": [
+        "Core Stability"
+      ],
+      "description": "Dead Bug with Band is a intermediate resistance band exercise primarily targeting the Deep Core, with additional involvement from Lower Abs, Hip Flexors. It uses Resistance Band and follows a anti-extension movement pattern. It is suitable for core stability.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Dead Bug with Band. Body part: Deep Core. Primary muscle: Deep Core. Secondary muscles: Lower Abs, Hip Flexors. Equipment: Resistance Band. Difficulty: Intermediate. Movement pattern: Anti-Extension. Exercise type: Resistance Band. Training goals: Core Stability. Description: Dead Bug with Band is a intermediate resistance band exercise primarily targeting the Deep Core, with additional involvement from Lower Abs, Hip Flexors. It uses Resistance Band and follows a anti-extension movement pattern. It is suitable for core stability.",
+      "active": true
+    },
+    {
+      "id": 67,
+      "name": "Plank Shoulder Tap",
+      "bodyPart": "Deep Core",
+      "primaryMuscle": "Deep Core",
+      "secondaryMuscles": [
+        "Obliques",
+        "Shoulders"
+      ],
+      "equipment": [],
+      "difficulty": "Intermediate",
+      "movementPattern": "Anti-Rotation",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Core Stability",
+        "Endurance"
+      ],
+      "description": "Plank Shoulder Tap is a intermediate bodyweight exercise primarily targeting the Deep Core, with additional involvement from Obliques, Shoulders. It uses no external equipment and follows a anti-rotation movement pattern. It is suitable for core stability, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Plank Shoulder Tap. Body part: Deep Core. Primary muscle: Deep Core. Secondary muscles: Obliques, Shoulders. Equipment: bodyweight or no equipment. Difficulty: Intermediate. Movement pattern: Anti-Rotation. Exercise type: Bodyweight. Training goals: Core Stability, Endurance. Description: Plank Shoulder Tap is a intermediate bodyweight exercise primarily targeting the Deep Core, with additional involvement from Obliques, Shoulders. It uses no external equipment and follows a anti-rotation movement pattern. It is suitable for core stability, endurance.",
+      "active": true
+    },
+    {
+      "id": 68,
+      "name": "Waiter's Carry",
+      "bodyPart": "Deep Core",
+      "primaryMuscle": "Deep Core",
+      "secondaryMuscles": [
+        "Shoulders",
+        "Grip"
+      ],
+      "equipment": [
+        "Kettlebell"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Loaded Carry",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Core Stability",
+        "Shoulder Stability"
+      ],
+      "description": "Waiter's Carry is a intermediate compound exercise primarily targeting the Deep Core, with additional involvement from Shoulders, Grip. It uses Kettlebell and follows a loaded carry movement pattern. It is suitable for core stability, shoulder stability.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Waiter's Carry. Body part: Deep Core. Primary muscle: Deep Core. Secondary muscles: Shoulders, Grip. Equipment: Kettlebell. Difficulty: Intermediate. Movement pattern: Loaded Carry. Exercise type: Compound. Training goals: Core Stability, Shoulder Stability. Description: Waiter's Carry is a intermediate compound exercise primarily targeting the Deep Core, with additional involvement from Shoulders, Grip. It uses Kettlebell and follows a loaded carry movement pattern. It is suitable for core stability, shoulder stability.",
+      "active": true
+    },
+    {
+      "id": 69,
+      "name": "Standing Knee Raise",
+      "bodyPart": "Hip Flexors",
+      "primaryMuscle": "Hip Flexors",
+      "secondaryMuscles": [
+        "Lower Abs"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Flexion",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Mobility"
+      ],
+      "description": "Standing Knee Raise is a beginner bodyweight exercise primarily targeting the Hip Flexors, with additional involvement from Lower Abs. It uses no external equipment and follows a hip flexion movement pattern. It is suitable for strength, mobility.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Standing Knee Raise. Body part: Hip Flexors. Primary muscle: Hip Flexors. Secondary muscles: Lower Abs. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Hip Flexion. Exercise type: Bodyweight. Training goals: Strength, Mobility. Description: Standing Knee Raise is a beginner bodyweight exercise primarily targeting the Hip Flexors, with additional involvement from Lower Abs. It uses no external equipment and follows a hip flexion movement pattern. It is suitable for strength, mobility.",
+      "active": true
+    },
+    {
+      "id": 70,
+      "name": "Resistance-Band Hip Flexion",
+      "bodyPart": "Hip Flexors",
+      "primaryMuscle": "Hip Flexors",
+      "secondaryMuscles": [
+        "Lower Abs"
+      ],
+      "equipment": [
+        "Resistance Band"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Flexion",
+      "exerciseType": "Resistance Band",
+      "goalTags": [
+        "Strength",
+        "Rehabilitation"
+      ],
+      "description": "Resistance-Band Hip Flexion is a beginner resistance band exercise primarily targeting the Hip Flexors, with additional involvement from Lower Abs. It uses Resistance Band and follows a hip flexion movement pattern. It is suitable for strength, rehabilitation.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Resistance-Band Hip Flexion. Body part: Hip Flexors. Primary muscle: Hip Flexors. Secondary muscles: Lower Abs. Equipment: Resistance Band. Difficulty: Beginner. Movement pattern: Hip Flexion. Exercise type: Resistance Band. Training goals: Strength, Rehabilitation. Description: Resistance-Band Hip Flexion is a beginner resistance band exercise primarily targeting the Hip Flexors, with additional involvement from Lower Abs. It uses Resistance Band and follows a hip flexion movement pattern. It is suitable for strength, rehabilitation.",
+      "active": true
+    },
+    {
+      "id": 71,
+      "name": "Tuck L-Sit",
+      "bodyPart": "Hip Flexors",
+      "primaryMuscle": "Hip Flexors",
+      "secondaryMuscles": [
+        "Abs",
+        "Triceps"
+      ],
+      "equipment": [
+        "Parallettes"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Hip Flexion",
+      "exerciseType": "Isometric",
+      "goalTags": [
+        "Strength",
+        "Core Strength"
+      ],
+      "description": "Tuck L-Sit is a intermediate isometric exercise primarily targeting the Hip Flexors, with additional involvement from Abs, Triceps. It uses Parallettes and follows a hip flexion movement pattern. It is suitable for strength, core strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Tuck L-Sit. Body part: Hip Flexors. Primary muscle: Hip Flexors. Secondary muscles: Abs, Triceps. Equipment: Parallettes. Difficulty: Intermediate. Movement pattern: Hip Flexion. Exercise type: Isometric. Training goals: Strength, Core Strength. Description: Tuck L-Sit is a intermediate isometric exercise primarily targeting the Hip Flexors, with additional involvement from Abs, Triceps. It uses Parallettes and follows a hip flexion movement pattern. It is suitable for strength, core strength.",
+      "active": true
+    },
+    {
+      "id": 72,
+      "name": "Reverse Lunge Knee Drive",
+      "bodyPart": "Hip Flexors",
+      "primaryMuscle": "Hip Flexors",
+      "secondaryMuscles": [
+        "Glutes",
+        "Quadriceps"
+      ],
+      "equipment": [],
+      "difficulty": "Intermediate",
+      "movementPattern": "Lunge",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Balance"
+      ],
+      "description": "Reverse Lunge Knee Drive is a intermediate bodyweight exercise primarily targeting the Hip Flexors, with additional involvement from Glutes, Quadriceps. It uses no external equipment and follows a lunge movement pattern. It is suitable for strength, balance.",
+      "instructions": [
+        "Start tall with the trunk braced and feet balanced.",
+        "Move into the lunge while controlling the working knee and hip.",
+        "Push through the working foot to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Reverse Lunge Knee Drive. Body part: Hip Flexors. Primary muscle: Hip Flexors. Secondary muscles: Glutes, Quadriceps. Equipment: bodyweight or no equipment. Difficulty: Intermediate. Movement pattern: Lunge. Exercise type: Bodyweight. Training goals: Strength, Balance. Description: Reverse Lunge Knee Drive is a intermediate bodyweight exercise primarily targeting the Hip Flexors, with additional involvement from Glutes, Quadriceps. It uses no external equipment and follows a lunge movement pattern. It is suitable for strength, balance.",
+      "active": true
+    },
+    {
+      "id": 73,
+      "name": "Cable External Rotation",
+      "bodyPart": "Rotator Cuff",
+      "primaryMuscle": "Rotator Cuff",
+      "secondaryMuscles": [
+        "Rear Deltoids"
+      ],
+      "equipment": [
+        "Cable Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Shoulder External Rotation",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Shoulder Health",
+        "Rehabilitation"
+      ],
+      "description": "Cable External Rotation is a beginner isolation exercise primarily targeting the Rotator Cuff, with additional involvement from Rear Deltoids. It uses Cable Machine and follows a shoulder external rotation movement pattern. It is suitable for shoulder health, rehabilitation.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Cable External Rotation. Body part: Rotator Cuff. Primary muscle: Rotator Cuff. Secondary muscles: Rear Deltoids. Equipment: Cable Machine. Difficulty: Beginner. Movement pattern: Shoulder External Rotation. Exercise type: Isolation. Training goals: Shoulder Health, Rehabilitation. Description: Cable External Rotation is a beginner isolation exercise primarily targeting the Rotator Cuff, with additional involvement from Rear Deltoids. It uses Cable Machine and follows a shoulder external rotation movement pattern. It is suitable for shoulder health, rehabilitation.",
+      "active": true
+    },
+    {
+      "id": 74,
+      "name": "Face Pull with External Rotation",
+      "bodyPart": "Rotator Cuff",
+      "primaryMuscle": "Rotator Cuff",
+      "secondaryMuscles": [
+        "Rear Deltoids",
+        "Mid Traps"
+      ],
+      "equipment": [
+        "Cable Machine",
+        "Rope"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "External Rotation",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Shoulder Health",
+        "Hypertrophy"
+      ],
+      "description": "Face Pull with External Rotation is a intermediate isolation exercise primarily targeting the Rotator Cuff, with additional involvement from Rear Deltoids, Mid Traps. It uses Cable Machine, Rope and follows a external rotation movement pattern. It is suitable for shoulder health, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Face Pull with External Rotation. Body part: Rotator Cuff. Primary muscle: Rotator Cuff. Secondary muscles: Rear Deltoids, Mid Traps. Equipment: Cable Machine, Rope. Difficulty: Intermediate. Movement pattern: External Rotation. Exercise type: Isolation. Training goals: Shoulder Health, Hypertrophy. Description: Face Pull with External Rotation is a intermediate isolation exercise primarily targeting the Rotator Cuff, with additional involvement from Rear Deltoids, Mid Traps. It uses Cable Machine, Rope and follows a external rotation movement pattern. It is suitable for shoulder health, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 75,
+      "name": "Prone External Rotation",
+      "bodyPart": "Rotator Cuff",
+      "primaryMuscle": "Rotator Cuff",
+      "secondaryMuscles": [
+        "Rear Deltoids"
+      ],
+      "equipment": [
+        "Dumbbells",
+        "Bench"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "External Rotation",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Shoulder Health",
+        "Strength"
+      ],
+      "description": "Prone External Rotation is a intermediate isolation exercise primarily targeting the Rotator Cuff, with additional involvement from Rear Deltoids. It uses Dumbbells, Bench and follows a external rotation movement pattern. It is suitable for shoulder health, strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Prone External Rotation. Body part: Rotator Cuff. Primary muscle: Rotator Cuff. Secondary muscles: Rear Deltoids. Equipment: Dumbbells, Bench. Difficulty: Intermediate. Movement pattern: External Rotation. Exercise type: Isolation. Training goals: Shoulder Health, Strength. Description: Prone External Rotation is a intermediate isolation exercise primarily targeting the Rotator Cuff, with additional involvement from Rear Deltoids. It uses Dumbbells, Bench and follows a external rotation movement pattern. It is suitable for shoulder health, strength.",
+      "active": true
+    },
+    {
+      "id": 76,
+      "name": "Bottom-Up Kettlebell Overhead Carry",
+      "bodyPart": "Rotator Cuff",
+      "primaryMuscle": "Rotator Cuff",
+      "secondaryMuscles": [
+        "Shoulders",
+        "Grip",
+        "Core"
+      ],
+      "equipment": [
+        "Kettlebell"
+      ],
+      "difficulty": "Advanced",
+      "movementPattern": "Loaded Carry",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Shoulder Stability",
+        "Grip Strength"
+      ],
+      "description": "Bottom-Up Kettlebell Overhead Carry is a advanced compound exercise primarily targeting the Rotator Cuff, with additional involvement from Shoulders, Grip, Core. It uses Kettlebell and follows a loaded carry movement pattern. It is suitable for shoulder stability, grip strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Bottom-Up Kettlebell Overhead Carry. Body part: Rotator Cuff. Primary muscle: Rotator Cuff. Secondary muscles: Shoulders, Grip, Core. Equipment: Kettlebell. Difficulty: Advanced. Movement pattern: Loaded Carry. Exercise type: Compound. Training goals: Shoulder Stability, Grip Strength. Description: Bottom-Up Kettlebell Overhead Carry is a advanced compound exercise primarily targeting the Rotator Cuff, with additional involvement from Shoulders, Grip, Core. It uses Kettlebell and follows a loaded carry movement pattern. It is suitable for shoulder stability, grip strength.",
+      "active": true
+    },
+    {
+      "id": 77,
+      "name": "Scapular Push-Up for Serratus",
+      "bodyPart": "Serratus",
+      "primaryMuscle": "Serratus Anterior",
+      "secondaryMuscles": [
+        "Chest",
+        "Core"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Scapular Protraction",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Shoulder Health",
+        "Strength"
+      ],
+      "description": "Scapular Push-Up for Serratus is a beginner bodyweight exercise primarily targeting the Serratus Anterior, with additional involvement from Chest, Core. It uses no external equipment and follows a scapular protraction movement pattern. It is suitable for shoulder health, strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Scapular Push-Up for Serratus. Body part: Serratus. Primary muscle: Serratus Anterior. Secondary muscles: Chest, Core. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Scapular Protraction. Exercise type: Bodyweight. Training goals: Shoulder Health, Strength. Description: Scapular Push-Up for Serratus is a beginner bodyweight exercise primarily targeting the Serratus Anterior, with additional involvement from Chest, Core. It uses no external equipment and follows a scapular protraction movement pattern. It is suitable for shoulder health, strength.",
+      "active": true
+    },
+    {
+      "id": 78,
+      "name": "Cable Serratus Punch",
+      "bodyPart": "Serratus",
+      "primaryMuscle": "Serratus Anterior",
+      "secondaryMuscles": [
+        "Chest"
+      ],
+      "equipment": [
+        "Cable Machine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Scapular Protraction",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Strength",
+        "Shoulder Health"
+      ],
+      "description": "Cable Serratus Punch is a beginner isolation exercise primarily targeting the Serratus Anterior, with additional involvement from Chest. It uses Cable Machine and follows a scapular protraction movement pattern. It is suitable for strength, shoulder health.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Cable Serratus Punch. Body part: Serratus. Primary muscle: Serratus Anterior. Secondary muscles: Chest. Equipment: Cable Machine. Difficulty: Beginner. Movement pattern: Scapular Protraction. Exercise type: Isolation. Training goals: Strength, Shoulder Health. Description: Cable Serratus Punch is a beginner isolation exercise primarily targeting the Serratus Anterior, with additional involvement from Chest. It uses Cable Machine and follows a scapular protraction movement pattern. It is suitable for strength, shoulder health.",
+      "active": true
+    },
+    {
+      "id": 79,
+      "name": "Landmine Press for Serratus",
+      "bodyPart": "Serratus",
+      "primaryMuscle": "Serratus Anterior",
+      "secondaryMuscles": [
+        "Front Deltoids",
+        "Upper Chest"
+      ],
+      "equipment": [
+        "Barbell",
+        "Landmine"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Angled Push",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Shoulder Health"
+      ],
+      "description": "Landmine Press for Serratus is a beginner compound exercise primarily targeting the Serratus Anterior, with additional involvement from Front Deltoids, Upper Chest. It uses Barbell, Landmine and follows a angled push movement pattern. It is suitable for strength, shoulder health.",
+      "instructions": [
+        "Set a stable starting position with the shoulders controlled and core braced.",
+        "Press through the intended range while keeping the movement controlled.",
+        "Return slowly to the starting position without losing alignment."
+      ],
+      "embeddingText": "Exercise: Landmine Press for Serratus. Body part: Serratus. Primary muscle: Serratus Anterior. Secondary muscles: Front Deltoids, Upper Chest. Equipment: Barbell, Landmine. Difficulty: Beginner. Movement pattern: Angled Push. Exercise type: Compound. Training goals: Strength, Shoulder Health. Description: Landmine Press for Serratus is a beginner compound exercise primarily targeting the Serratus Anterior, with additional involvement from Front Deltoids, Upper Chest. It uses Barbell, Landmine and follows a angled push movement pattern. It is suitable for strength, shoulder health.",
+      "active": true
+    },
+    {
+      "id": 80,
+      "name": "Quadruped Scapular Protraction",
+      "bodyPart": "Serratus",
+      "primaryMuscle": "Serratus Anterior",
+      "secondaryMuscles": [
+        "Core"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Scapular Protraction",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Shoulder Health",
+        "Rehabilitation"
+      ],
+      "description": "Quadruped Scapular Protraction is a beginner bodyweight exercise primarily targeting the Serratus Anterior, with additional involvement from Core. It uses no external equipment and follows a scapular protraction movement pattern. It is suitable for shoulder health, rehabilitation.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Quadruped Scapular Protraction. Body part: Serratus. Primary muscle: Serratus Anterior. Secondary muscles: Core. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Scapular Protraction. Exercise type: Bodyweight. Training goals: Shoulder Health, Rehabilitation. Description: Quadruped Scapular Protraction is a beginner bodyweight exercise primarily targeting the Serratus Anterior, with additional involvement from Core. It uses no external equipment and follows a scapular protraction movement pattern. It is suitable for shoulder health, rehabilitation.",
+      "active": true
+    },
+    {
+      "id": 81,
+      "name": "Neck Flexion",
+      "bodyPart": "Neck",
+      "primaryMuscle": "Neck Flexors",
+      "secondaryMuscles": [
+        "Upper Traps"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Neck Flexion",
+      "exerciseType": "Bodyweight",
+      "goalTags": [
+        "Strength",
+        "Rehabilitation"
+      ],
+      "description": "Neck Flexion is a beginner bodyweight exercise primarily targeting the Neck Flexors, with additional involvement from Upper Traps. It uses no external equipment and follows a neck flexion movement pattern. It is suitable for strength, rehabilitation.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Neck Flexion. Body part: Neck. Primary muscle: Neck Flexors. Secondary muscles: Upper Traps. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Neck Flexion. Exercise type: Bodyweight. Training goals: Strength, Rehabilitation. Description: Neck Flexion is a beginner bodyweight exercise primarily targeting the Neck Flexors, with additional involvement from Upper Traps. It uses no external equipment and follows a neck flexion movement pattern. It is suitable for strength, rehabilitation.",
+      "active": true
+    },
+    {
+      "id": 82,
+      "name": "Isometric Lateral Neck Hold",
+      "bodyPart": "Neck",
+      "primaryMuscle": "Neck",
+      "secondaryMuscles": [
+        "Upper Traps"
+      ],
+      "equipment": [
+        "Towel"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Lateral Neck Flexion",
+      "exerciseType": "Isometric",
+      "goalTags": [
+        "Strength",
+        "Rehabilitation"
+      ],
+      "description": "Isometric Lateral Neck Hold is a beginner isometric exercise primarily targeting the Neck, with additional involvement from Upper Traps. It uses Towel and follows a lateral neck flexion movement pattern. It is suitable for strength, rehabilitation.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Isometric Lateral Neck Hold. Body part: Neck. Primary muscle: Neck. Secondary muscles: Upper Traps. Equipment: Towel. Difficulty: Beginner. Movement pattern: Lateral Neck Flexion. Exercise type: Isometric. Training goals: Strength, Rehabilitation. Description: Isometric Lateral Neck Hold is a beginner isometric exercise primarily targeting the Neck, with additional involvement from Upper Traps. It uses Towel and follows a lateral neck flexion movement pattern. It is suitable for strength, rehabilitation.",
+      "active": true
+    },
+    {
+      "id": 83,
+      "name": "Band-Resisted Neck Extension",
+      "bodyPart": "Neck",
+      "primaryMuscle": "Neck Extensors",
+      "secondaryMuscles": [
+        "Upper Traps"
+      ],
+      "equipment": [
+        "Resistance Band"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Neck Extension",
+      "exerciseType": "Resistance Band",
+      "goalTags": [
+        "Strength"
+      ],
+      "description": "Band-Resisted Neck Extension is a intermediate resistance band exercise primarily targeting the Neck Extensors, with additional involvement from Upper Traps. It uses Resistance Band and follows a neck extension movement pattern. It is suitable for strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Band-Resisted Neck Extension. Body part: Neck. Primary muscle: Neck Extensors. Secondary muscles: Upper Traps. Equipment: Resistance Band. Difficulty: Intermediate. Movement pattern: Neck Extension. Exercise type: Resistance Band. Training goals: Strength. Description: Band-Resisted Neck Extension is a intermediate resistance band exercise primarily targeting the Neck Extensors, with additional involvement from Upper Traps. It uses Resistance Band and follows a neck extension movement pattern. It is suitable for strength.",
+      "active": true
+    },
+    {
+      "id": 84,
+      "name": "Neck Harness Flexion",
+      "bodyPart": "Neck",
+      "primaryMuscle": "Neck Flexors",
+      "secondaryMuscles": [
+        "Deep Neck Flexors"
+      ],
+      "equipment": [
+        "Neck Harness"
+      ],
+      "difficulty": "Advanced",
+      "movementPattern": "Neck Flexion",
+      "exerciseType": "Isolation",
+      "goalTags": [
+        "Strength",
+        "Hypertrophy"
+      ],
+      "description": "Neck Harness Flexion is a advanced isolation exercise primarily targeting the Neck Flexors, with additional involvement from Deep Neck Flexors. It uses Neck Harness and follows a neck flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Neck Harness Flexion. Body part: Neck. Primary muscle: Neck Flexors. Secondary muscles: Deep Neck Flexors. Equipment: Neck Harness. Difficulty: Advanced. Movement pattern: Neck Flexion. Exercise type: Isolation. Training goals: Strength, Hypertrophy. Description: Neck Harness Flexion is a advanced isolation exercise primarily targeting the Neck Flexors, with additional involvement from Deep Neck Flexors. It uses Neck Harness and follows a neck flexion movement pattern. It is suitable for strength, hypertrophy.",
+      "active": true
+    },
+    {
+      "id": 85,
+      "name": "Power Clean",
+      "bodyPart": "Full Body Strength",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Quads",
+        "Glutes",
+        "Hamstrings",
+        "Upper Traps",
+        "Core"
+      ],
+      "equipment": [
+        "Barbell"
+      ],
+      "difficulty": "Advanced",
+      "movementPattern": "Olympic Lift",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Power",
+        "Strength"
+      ],
+      "description": "Power Clean is a advanced compound exercise primarily targeting the Full Body, with additional involvement from Quads, Glutes, Hamstrings, Upper Traps, Core. It uses Barbell and follows a olympic lift movement pattern. It is suitable for power, strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Power Clean. Body part: Full Body Strength. Primary muscle: Full Body. Secondary muscles: Quads, Glutes, Hamstrings, Upper Traps, Core. Equipment: Barbell. Difficulty: Advanced. Movement pattern: Olympic Lift. Exercise type: Compound. Training goals: Power, Strength. Description: Power Clean is a advanced compound exercise primarily targeting the Full Body, with additional involvement from Quads, Glutes, Hamstrings, Upper Traps, Core. It uses Barbell and follows a olympic lift movement pattern. It is suitable for power, strength.",
+      "active": true
+    },
+    {
+      "id": 86,
+      "name": "Thruster",
+      "bodyPart": "Full Body Strength",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Quadriceps",
+        "Glutes",
+        "Shoulders",
+        "Triceps"
+      ],
+      "equipment": [
+        "Barbell"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Squat to Press",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Conditioning",
+        "Strength"
+      ],
+      "description": "Thruster is a intermediate compound exercise primarily targeting the Full Body, with additional involvement from Quadriceps, Glutes, Shoulders, Triceps. It uses Barbell and follows a squat to press movement pattern. It is suitable for conditioning, strength.",
+      "instructions": [
+        "Set the feet securely and brace the trunk before descending.",
+        "Bend through the hips and knees while maintaining controlled alignment.",
+        "Drive through the feet to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Thruster. Body part: Full Body Strength. Primary muscle: Full Body. Secondary muscles: Quadriceps, Glutes, Shoulders, Triceps. Equipment: Barbell. Difficulty: Intermediate. Movement pattern: Squat to Press. Exercise type: Compound. Training goals: Conditioning, Strength. Description: Thruster is a intermediate compound exercise primarily targeting the Full Body, with additional involvement from Quadriceps, Glutes, Shoulders, Triceps. It uses Barbell and follows a squat to press movement pattern. It is suitable for conditioning, strength.",
+      "active": true
+    },
+    {
+      "id": 87,
+      "name": "Devil Press",
+      "bodyPart": "Full Body Strength",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Chest",
+        "Shoulders",
+        "Glutes",
+        "Hamstrings"
+      ],
+      "equipment": [
+        "Dumbbells"
+      ],
+      "difficulty": "Advanced",
+      "movementPattern": "Full Body",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Conditioning",
+        "Power"
+      ],
+      "description": "Devil Press is a advanced compound exercise primarily targeting the Full Body, with additional involvement from Chest, Shoulders, Glutes, Hamstrings. It uses Dumbbells and follows a full body movement pattern. It is suitable for conditioning, power.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Devil Press. Body part: Full Body Strength. Primary muscle: Full Body. Secondary muscles: Chest, Shoulders, Glutes, Hamstrings. Equipment: Dumbbells. Difficulty: Advanced. Movement pattern: Full Body. Exercise type: Compound. Training goals: Conditioning, Power. Description: Devil Press is a advanced compound exercise primarily targeting the Full Body, with additional involvement from Chest, Shoulders, Glutes, Hamstrings. It uses Dumbbells and follows a full body movement pattern. It is suitable for conditioning, power.",
+      "active": true
+    },
+    {
+      "id": 88,
+      "name": "Sandbag Shouldering",
+      "bodyPart": "Full Body Strength",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Glutes",
+        "Hamstrings",
+        "Upper Back",
+        "Core"
+      ],
+      "equipment": [
+        "Sandbag"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Full Body",
+      "exerciseType": "Compound",
+      "goalTags": [
+        "Strength",
+        "Conditioning"
+      ],
+      "description": "Sandbag Shouldering is a intermediate compound exercise primarily targeting the Full Body, with additional involvement from Glutes, Hamstrings, Upper Back, Core. It uses Sandbag and follows a full body movement pattern. It is suitable for strength, conditioning.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Sandbag Shouldering. Body part: Full Body Strength. Primary muscle: Full Body. Secondary muscles: Glutes, Hamstrings, Upper Back, Core. Equipment: Sandbag. Difficulty: Intermediate. Movement pattern: Full Body. Exercise type: Compound. Training goals: Strength, Conditioning. Description: Sandbag Shouldering is a intermediate compound exercise primarily targeting the Full Body, with additional involvement from Glutes, Hamstrings, Upper Back, Core. It uses Sandbag and follows a full body movement pattern. It is suitable for strength, conditioning.",
+      "active": true
+    },
+    {
+      "id": 89,
+      "name": "Burpee",
+      "bodyPart": "Full Body Conditioning",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Chest",
+        "Shoulders",
+        "Quads",
+        "Core"
+      ],
+      "equipment": [],
+      "difficulty": "Intermediate",
+      "movementPattern": "Full Body",
+      "exerciseType": "Cardio",
+      "goalTags": [
+        "Conditioning",
+        "Endurance"
+      ],
+      "description": "Burpee is a intermediate cardio exercise primarily targeting the Full Body, with additional involvement from Chest, Shoulders, Quads, Core. It uses no external equipment and follows a full body movement pattern. It is suitable for conditioning, endurance.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Burpee. Body part: Full Body Conditioning. Primary muscle: Full Body. Secondary muscles: Chest, Shoulders, Quads, Core. Equipment: bodyweight or no equipment. Difficulty: Intermediate. Movement pattern: Full Body. Exercise type: Cardio. Training goals: Conditioning, Endurance. Description: Burpee is a intermediate cardio exercise primarily targeting the Full Body, with additional involvement from Chest, Shoulders, Quads, Core. It uses no external equipment and follows a full body movement pattern. It is suitable for conditioning, endurance.",
+      "active": true
+    },
+    {
+      "id": 90,
+      "name": "Skater Jump",
+      "bodyPart": "Full Body Conditioning",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Glutes",
+        "Quadriceps",
+        "Calves",
+        "Core"
+      ],
+      "equipment": [],
+      "difficulty": "Intermediate",
+      "movementPattern": "Lateral Plyometric",
+      "exerciseType": "Cardio",
+      "goalTags": [
+        "Conditioning",
+        "Power"
+      ],
+      "description": "Skater Jump is a intermediate cardio exercise primarily targeting the Full Body, with additional involvement from Glutes, Quadriceps, Calves, Core. It uses no external equipment and follows a lateral plyometric movement pattern. It is suitable for conditioning, power.",
+      "instructions": [
+        "Start in a balanced athletic position.",
+        "Produce force quickly while keeping the movement coordinated.",
+        "Land softly with control before repeating."
+      ],
+      "embeddingText": "Exercise: Skater Jump. Body part: Full Body Conditioning. Primary muscle: Full Body. Secondary muscles: Glutes, Quadriceps, Calves, Core. Equipment: bodyweight or no equipment. Difficulty: Intermediate. Movement pattern: Lateral Plyometric. Exercise type: Cardio. Training goals: Conditioning, Power. Description: Skater Jump is a intermediate cardio exercise primarily targeting the Full Body, with additional involvement from Glutes, Quadriceps, Calves, Core. It uses no external equipment and follows a lateral plyometric movement pattern. It is suitable for conditioning, power.",
+      "active": true
+    },
+    {
+      "id": 91,
+      "name": "Bear Crawl Sprint",
+      "bodyPart": "Full Body Conditioning",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Shoulders",
+        "Core",
+        "Quads"
+      ],
+      "equipment": [],
+      "difficulty": "Advanced",
+      "movementPattern": "Locomotion",
+      "exerciseType": "Cardio",
+      "goalTags": [
+        "Conditioning",
+        "Strength"
+      ],
+      "description": "Bear Crawl Sprint is a advanced cardio exercise primarily targeting the Full Body, with additional involvement from Shoulders, Core, Quads. It uses no external equipment and follows a locomotion movement pattern. It is suitable for conditioning, strength.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Bear Crawl Sprint. Body part: Full Body Conditioning. Primary muscle: Full Body. Secondary muscles: Shoulders, Core, Quads. Equipment: bodyweight or no equipment. Difficulty: Advanced. Movement pattern: Locomotion. Exercise type: Cardio. Training goals: Conditioning, Strength. Description: Bear Crawl Sprint is a advanced cardio exercise primarily targeting the Full Body, with additional involvement from Shoulders, Core, Quads. It uses no external equipment and follows a locomotion movement pattern. It is suitable for conditioning, strength.",
+      "active": true
+    },
+    {
+      "id": 92,
+      "name": "Kettlebell Swing Conditioning",
+      "bodyPart": "Full Body Conditioning",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Glutes",
+        "Hamstrings",
+        "Core",
+        "Shoulders"
+      ],
+      "equipment": [
+        "Kettlebell"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Hip Hinge",
+      "exerciseType": "Conditioning",
+      "goalTags": [
+        "Conditioning",
+        "Power"
+      ],
+      "description": "Kettlebell Swing Conditioning is a intermediate conditioning exercise primarily targeting the Full Body, with additional involvement from Glutes, Hamstrings, Core, Shoulders. It uses Kettlebell and follows a hip hinge movement pattern. It is suitable for conditioning, power.",
+      "instructions": [
+        "Brace the core and keep the spine controlled.",
+        "Push the hips backward while maintaining tension through the posterior chain.",
+        "Drive the hips forward to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Kettlebell Swing Conditioning. Body part: Full Body Conditioning. Primary muscle: Full Body. Secondary muscles: Glutes, Hamstrings, Core, Shoulders. Equipment: Kettlebell. Difficulty: Intermediate. Movement pattern: Hip Hinge. Exercise type: Conditioning. Training goals: Conditioning, Power. Description: Kettlebell Swing Conditioning is a intermediate conditioning exercise primarily targeting the Full Body, with additional involvement from Glutes, Hamstrings, Core, Shoulders. It uses Kettlebell and follows a hip hinge movement pattern. It is suitable for conditioning, power.",
+      "active": true
+    },
+    {
+      "id": 93,
+      "name": "World's Greatest Stretch",
+      "bodyPart": "Mobility & Recovery",
+      "primaryMuscle": "Full Body Mobility",
+      "secondaryMuscles": [
+        "Hip Flexors",
+        "Hamstrings",
+        "Thoracic Spine"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Mobility",
+      "exerciseType": "Mobility",
+      "goalTags": [
+        "Mobility",
+        "Warm-Up"
+      ],
+      "description": "World's Greatest Stretch is a beginner mobility exercise primarily targeting the Full Body Mobility, with additional involvement from Hip Flexors, Hamstrings, Thoracic Spine. It uses no external equipment and follows a mobility movement pattern. It is suitable for mobility, warm-up.",
+      "instructions": [
+        "Move into the position gradually without forcing the range.",
+        "Use controlled breathing and smooth motion through a comfortable range.",
+        "Return gently and repeat as needed."
+      ],
+      "embeddingText": "Exercise: World's Greatest Stretch. Body part: Mobility & Recovery. Primary muscle: Full Body Mobility. Secondary muscles: Hip Flexors, Hamstrings, Thoracic Spine. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Mobility. Exercise type: Mobility. Training goals: Mobility, Warm-Up. Description: World's Greatest Stretch is a beginner mobility exercise primarily targeting the Full Body Mobility, with additional involvement from Hip Flexors, Hamstrings, Thoracic Spine. It uses no external equipment and follows a mobility movement pattern. It is suitable for mobility, warm-up.",
+      "active": true
+    },
+    {
+      "id": 94,
+      "name": "Thoracic Extension on Foam Roller",
+      "bodyPart": "Mobility & Recovery",
+      "primaryMuscle": "Thoracic Spine",
+      "secondaryMuscles": [
+        "Upper Back"
+      ],
+      "equipment": [
+        "Foam Roller"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Thoracic Extension",
+      "exerciseType": "Mobility",
+      "goalTags": [
+        "Mobility",
+        "Recovery"
+      ],
+      "description": "Thoracic Extension on Foam Roller is a beginner mobility exercise primarily targeting the Thoracic Spine, with additional involvement from Upper Back. It uses Foam Roller and follows a thoracic extension movement pattern. It is suitable for mobility, recovery.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Thoracic Extension on Foam Roller. Body part: Mobility & Recovery. Primary muscle: Thoracic Spine. Secondary muscles: Upper Back. Equipment: Foam Roller. Difficulty: Beginner. Movement pattern: Thoracic Extension. Exercise type: Mobility. Training goals: Mobility, Recovery. Description: Thoracic Extension on Foam Roller is a beginner mobility exercise primarily targeting the Thoracic Spine, with additional involvement from Upper Back. It uses Foam Roller and follows a thoracic extension movement pattern. It is suitable for mobility, recovery.",
+      "active": true
+    },
+    {
+      "id": 95,
+      "name": "Seated Hamstring Stretch",
+      "bodyPart": "Mobility & Recovery",
+      "primaryMuscle": "Hamstrings",
+      "secondaryMuscles": [
+        "Calves"
+      ],
+      "equipment": [],
+      "difficulty": "Beginner",
+      "movementPattern": "Hip Hinge",
+      "exerciseType": "Mobility",
+      "goalTags": [
+        "Mobility",
+        "Recovery"
+      ],
+      "description": "Seated Hamstring Stretch is a beginner mobility exercise primarily targeting the Hamstrings, with additional involvement from Calves. It uses no external equipment and follows a hip hinge movement pattern. It is suitable for mobility, recovery.",
+      "instructions": [
+        "Brace the core and keep the spine controlled.",
+        "Push the hips backward while maintaining tension through the posterior chain.",
+        "Drive the hips forward to return to the starting position."
+      ],
+      "embeddingText": "Exercise: Seated Hamstring Stretch. Body part: Mobility & Recovery. Primary muscle: Hamstrings. Secondary muscles: Calves. Equipment: bodyweight or no equipment. Difficulty: Beginner. Movement pattern: Hip Hinge. Exercise type: Mobility. Training goals: Mobility, Recovery. Description: Seated Hamstring Stretch is a beginner mobility exercise primarily targeting the Hamstrings, with additional involvement from Calves. It uses no external equipment and follows a hip hinge movement pattern. It is suitable for mobility, recovery.",
+      "active": true
+    },
+    {
+      "id": 96,
+      "name": "Lat Stretch on Bench",
+      "bodyPart": "Mobility & Recovery",
+      "primaryMuscle": "Lats",
+      "secondaryMuscles": [
+        "Shoulders",
+        "Thoracic Spine"
+      ],
+      "equipment": [
+        "Bench"
+      ],
+      "difficulty": "Beginner",
+      "movementPattern": "Shoulder Flexion",
+      "exerciseType": "Mobility",
+      "goalTags": [
+        "Mobility",
+        "Recovery"
+      ],
+      "description": "Lat Stretch on Bench is a beginner mobility exercise primarily targeting the Lats, with additional involvement from Shoulders, Thoracic Spine. It uses Bench and follows a shoulder flexion movement pattern. It is suitable for mobility, recovery.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Lat Stretch on Bench. Body part: Mobility & Recovery. Primary muscle: Lats. Secondary muscles: Shoulders, Thoracic Spine. Equipment: Bench. Difficulty: Beginner. Movement pattern: Shoulder Flexion. Exercise type: Mobility. Training goals: Mobility, Recovery. Description: Lat Stretch on Bench is a beginner mobility exercise primarily targeting the Lats, with additional involvement from Shoulders, Thoracic Spine. It uses Bench and follows a shoulder flexion movement pattern. It is suitable for mobility, recovery.",
+      "active": true
+    },
+    {
+      "id": 97,
+      "name": "Broad Jump",
+      "bodyPart": "Athletic & Agility",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Glutes",
+        "Quadriceps",
+        "Hamstrings",
+        "Calves"
+      ],
+      "equipment": [],
+      "difficulty": "Intermediate",
+      "movementPattern": "Horizontal Plyometric",
+      "exerciseType": "Plyometric",
+      "goalTags": [
+        "Power",
+        "Athleticism"
+      ],
+      "description": "Broad Jump is a intermediate plyometric exercise primarily targeting the Full Body, with additional involvement from Glutes, Quadriceps, Hamstrings, Calves. It uses no external equipment and follows a horizontal plyometric movement pattern. It is suitable for power, athleticism.",
+      "instructions": [
+        "Start in a balanced athletic position.",
+        "Produce force quickly while keeping the movement coordinated.",
+        "Land softly with control before repeating."
+      ],
+      "embeddingText": "Exercise: Broad Jump. Body part: Athletic & Agility. Primary muscle: Full Body. Secondary muscles: Glutes, Quadriceps, Hamstrings, Calves. Equipment: bodyweight or no equipment. Difficulty: Intermediate. Movement pattern: Horizontal Plyometric. Exercise type: Plyometric. Training goals: Power, Athleticism. Description: Broad Jump is a intermediate plyometric exercise primarily targeting the Full Body, with additional involvement from Glutes, Quadriceps, Hamstrings, Calves. It uses no external equipment and follows a horizontal plyometric movement pattern. It is suitable for power, athleticism.",
+      "active": true
+    },
+    {
+      "id": 98,
+      "name": "Single-Leg Box Jump",
+      "bodyPart": "Athletic & Agility",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Quadriceps",
+        "Glutes",
+        "Calves"
+      ],
+      "equipment": [
+        "Plyometric Box"
+      ],
+      "difficulty": "Advanced",
+      "movementPattern": "Plyometric",
+      "exerciseType": "Plyometric",
+      "goalTags": [
+        "Power",
+        "Balance"
+      ],
+      "description": "Single-Leg Box Jump is a advanced plyometric exercise primarily targeting the Full Body, with additional involvement from Quadriceps, Glutes, Calves. It uses Plyometric Box and follows a plyometric movement pattern. It is suitable for power, balance.",
+      "instructions": [
+        "Start in a balanced athletic position.",
+        "Produce force quickly while keeping the movement coordinated.",
+        "Land softly with control before repeating."
+      ],
+      "embeddingText": "Exercise: Single-Leg Box Jump. Body part: Athletic & Agility. Primary muscle: Full Body. Secondary muscles: Quadriceps, Glutes, Calves. Equipment: Plyometric Box. Difficulty: Advanced. Movement pattern: Plyometric. Exercise type: Plyometric. Training goals: Power, Balance. Description: Single-Leg Box Jump is a advanced plyometric exercise primarily targeting the Full Body, with additional involvement from Quadriceps, Glutes, Calves. It uses Plyometric Box and follows a plyometric movement pattern. It is suitable for power, balance.",
+      "active": true
+    },
+    {
+      "id": 99,
+      "name": "Carioca Drill",
+      "bodyPart": "Athletic & Agility",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Hip Rotators",
+        "Glute Medius",
+        "Core"
+      ],
+      "equipment": [],
+      "difficulty": "Intermediate",
+      "movementPattern": "Lateral Movement",
+      "exerciseType": "Movement Drill",
+      "goalTags": [
+        "Agility",
+        "Coordination"
+      ],
+      "description": "Carioca Drill is a intermediate movement drill exercise primarily targeting the Full Body, with additional involvement from Hip Rotators, Glute Medius, Core. It uses no external equipment and follows a lateral movement movement pattern. It is suitable for agility, coordination.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Carioca Drill. Body part: Athletic & Agility. Primary muscle: Full Body. Secondary muscles: Hip Rotators, Glute Medius, Core. Equipment: bodyweight or no equipment. Difficulty: Intermediate. Movement pattern: Lateral Movement. Exercise type: Movement Drill. Training goals: Agility, Coordination. Description: Carioca Drill is a intermediate movement drill exercise primarily targeting the Full Body, with additional involvement from Hip Rotators, Glute Medius, Core. It uses no external equipment and follows a lateral movement movement pattern. It is suitable for agility, coordination.",
+      "active": true
+    },
+    {
+      "id": 100,
+      "name": "Ladder Ickey Shuffle",
+      "bodyPart": "Athletic & Agility",
+      "primaryMuscle": "Full Body",
+      "secondaryMuscles": [
+        "Calves",
+        "Hip Flexors",
+        "Glute Medius"
+      ],
+      "equipment": [
+        "Agility Ladder"
+      ],
+      "difficulty": "Intermediate",
+      "movementPattern": "Footwork",
+      "exerciseType": "Movement Drill",
+      "goalTags": [
+        "Agility",
+        "Coordination"
+      ],
+      "description": "Ladder Ickey Shuffle is a intermediate movement drill exercise primarily targeting the Full Body, with additional involvement from Calves, Hip Flexors, Glute Medius. It uses Agility Ladder and follows a footwork movement pattern. It is suitable for agility, coordination.",
+      "instructions": [
+        "Set up in a stable position appropriate for the exercise.",
+        "Perform the movement through a comfortable range with controlled technique.",
+        "Return to the starting position slowly and repeat as prescribed."
+      ],
+      "embeddingText": "Exercise: Ladder Ickey Shuffle. Body part: Athletic & Agility. Primary muscle: Full Body. Secondary muscles: Calves, Hip Flexors, Glute Medius. Equipment: Agility Ladder. Difficulty: Intermediate. Movement pattern: Footwork. Exercise type: Movement Drill. Training goals: Agility, Coordination. Description: Ladder Ickey Shuffle is a intermediate movement drill exercise primarily targeting the Full Body, with additional involvement from Calves, Hip Flexors, Glute Medius. It uses Agility Ladder and follows a footwork movement pattern. It is suitable for agility, coordination.",
+      "active": true
+    }
+  ]
+}

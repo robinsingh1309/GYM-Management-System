@@ -7,16 +7,14 @@ import org.springframework.web.client.RestClient;
 
 
 @Configuration
-public class HuggingFaceConfig {
+public class EmbeddingConfig {
 
     @Bean
-    public RestClient huggingFaceRestClient( //
-            final @Value("${huggingface.base-url}") String baseUrl, //
-            final @Value("${huggingface.api-token}") String apiKey) {
+    public RestClient embeddingRestClient( //
+            final @Value("${embedding.base-url}") String baseUrl) {
 
         return RestClient.builder() //
                 .baseUrl(baseUrl) //
-                .defaultHeader("Authorization", "Bearer " + apiKey) //
                 .build();
     }
 }

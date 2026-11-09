@@ -130,7 +130,7 @@ flowchart LR
     end
 
     subgraph AIIntegrations["AI and Vector Integrations"]
-        HuggingFace["Hugging Face<br/>Embeddings"]
+        Ollama["Local Ollama<br/>Embeddings"]
         Qdrant[("Qdrant Vector Database")]
         Groq["Groq Language Model"]
     end
@@ -157,7 +157,7 @@ flowchart LR
 
     Implementations --> ExerciseData
     Implementations --> PDFs
-    Implementations --> HuggingFace
+    Implementations --> Ollama
     Implementations --> Qdrant
     Implementations --> Groq
 ```

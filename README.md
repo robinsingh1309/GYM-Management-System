@@ -28,7 +28,7 @@ For frontend setup and architecture, see the [Frontend README](Frontend/README.m
 - Spring Security and OAuth 2.0 Resource Server
 - Spring Data JPA and MySQL
 - Qdrant Java client
-- Hugging Face embeddings
+- Local Ollama embeddings
 - Groq language model
 - Spring AI PDF document reader
 - Gradle
@@ -46,7 +46,7 @@ ServiceImpl
     ↓
 Repository / integration client
     ↓
-MySQL / Qdrant / external AI provider
+MySQL / Qdrant / local or external AI provider
 ```
 
 - Controllers own the HTTP boundary and request validation.
@@ -87,7 +87,7 @@ src/main/resources/
 - JDK 17
 - MySQL running on port `3306`
 - Qdrant with its gRPC endpoint available on port `6334`
-- Hugging Face API token
+- Ollama with the `all-minilm:l6-v2` model
 - Groq API key
 - Google OAuth client credentials
 
@@ -102,7 +102,6 @@ export JWT_SECRET_KEY="base64-encoded-signing-key"
 export GOOGLE_CLIENT_ID="your-google-client-id"
 export GOOGLE_CLIENT_SECRET="your-google-client-secret"
 export OAUTH2_COOKIE_SECRET="your-oauth-cookie-secret"
-export HUGGING_FACE_TOKEN="your-hugging-face-token"
 export GROQ_API_KEY="your-groq-api-key"
 ```
 
@@ -112,7 +111,6 @@ export GROQ_API_KEY="your-groq-api-key"
 | `GOOGLE_CLIENT_ID` | Google OAuth client identifier |
 | `GOOGLE_CLIENT_SECRET` | Google OAuth client secret |
 | `OAUTH2_COOKIE_SECRET` | Protects temporary OAuth authorization data |
-| `HUGGING_FACE_TOKEN` | Authenticates embedding requests |
 | `GROQ_API_KEY` | Authenticates grounded-answer generation requests |
 
 Never commit real credentials. The JWT secret must be valid Base64 because the backend decodes it before constructing the signing key.
@@ -157,6 +155,18 @@ Authorization: Bearer <admin-jwt>
 
 Each nonblank PDF page is embedded as one Qdrant point with its source filename, page number, content, and content hash.
 
+## Ollama setup
+
+FitManager generates embeddings locally through Ollama, so embedding requests do not require a paid inference API. Install Ollama, ensure its local service is running on `http://localhost:11434`, and download the configured model once:
+
+```bash
+ollama pull all-minilm:l6-v2
+```
+
+The model produces 384-dimensional vectors. After switching from another embedding provider, regenerate both Qdrant collections so stored documents and search queries use vectors from the same runtime.
+
+Exercise embedding preloading is disabled during normal startup. For a one-time exercise reindex, start the backend with `EXERCISE_EMBEDDING_PRELOAD_ENABLED=true`, then call the existing exercise synchronization endpoint. Reindex the PDF knowledge base through `POST /api/v1/knowledge-base/reindex`.
+
 ## Google OAuth setup
 
 For local development, configure this authorized Google redirect URI:
@@ -185,9 +195,10 @@ Start services in this order:
 
 1. MySQL
 2. Qdrant
-3. Required environment variables
-4. FitManager backend
-5. FitManager frontend
+3. Ollama
+4. Required environment variables
+5. FitManager backend
+6. FitManager frontend
 
 Start the backend from the repository root:
 
@@ -236,7 +247,7 @@ Request DTOs use Jakarta Bean Validation. Domain-rule violations generally retur
 
 ### Exercise recommendations
 
-The application loads its exercise catalog from JSON and uses `sentence-transformers/all-MiniLM-L6-v2` through Hugging Face to generate 384-dimensional embeddings. Recommendation queries combine natural-language similarity with optional structured filters and return Qdrant scores in the range `0–1`.
+The application loads its exercise catalog from JSON and uses the local Ollama `all-minilm:l6-v2` model to generate 384-dimensional embeddings. Recommendation queries combine natural-language similarity with optional structured filters and return Qdrant scores in the range `0–1`.
 
 The frontend uses:
 
@@ -289,5 +300,5 @@ See [Business Rules](docs/business-rules.md) for the complete specification and 
 - Restrict CORS to the deployed frontend origin.
 - Enable secure OAuth cookies and HTTPS.
 - Persist and back up MySQL and Qdrant data.
-- Rotate JWT, OAuth, Hugging Face, and Groq credentials.
+- Rotate JWT, OAuth, and Groq credentials.
 - Add monitoring for database, Qdrant, and external AI-provider failures.

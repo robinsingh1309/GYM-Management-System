@@ -1,3 +1,9 @@
+## 🎬 Product Showcase
+
+Watch FitManager in action—a cinematic overview of its core features, technical architecture, and gym-management workflow.
+
+https://github.com/user-attachments/assets/7a8f15bd-ac01-4a49-ad04-011ee22e4863
+
 # FitManager Backend
 
 Spring Boot backend for the FitManager gym administration application. It manages members, memberships, pricing plans, and payments, and also provides exercise recommendations and a PDF-grounded personal assistant.
